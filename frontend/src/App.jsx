@@ -228,14 +228,33 @@ import SectionSlotMonitoring from "./superadmin/SlotMonitoring";
 import SearchCorForCollege from "./registrar/SearchCorForCollege";
 import CertificateOfRegistrationForCollege from "./registrar/CertificateOfRegistrationForCollege";
 import CourseTaggingForCollege from "./registrar/CourseTaggingForCollege";
+import LoadingOverlay from "./components/LoadingOverlay";
 
 // ✅ Create a Context so all components can access settings
 export const SettingsContext = createContext(null);
 
 function App() {
+  const getCachedSettings = () => {
+    try {
+      const raw = localStorage.getItem("app_settings_cache");
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return null;
+      return {
+        ...parsed,
+        branches:
+          typeof parsed.branches === "string"
+            ? JSON.parse(parsed.branches)
+            : parsed.branches || [],
+      };
+    } catch {
+      return null;
+    }
+  };
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState(() => getCachedSettings());
+  const [settingsReady, setSettingsReady] = useState(() => Boolean(getCachedSettings()));
   const [profileImage, setProfileImage] = useState(null);
   const [logoVersion, setLogoVersion] = useState(Date.now());
 
@@ -251,10 +270,13 @@ function App() {
             ? JSON.parse(data.branches)
             : data.branches || []
       });
+      localStorage.setItem("app_settings_cache", JSON.stringify(data));
 
       setLogoVersion(Date.now());
     } catch (error) {
       console.error("Error fetching settings:", error);
+    } finally {
+      setSettingsReady(true);
     }
   };
 
@@ -320,6 +342,7 @@ function App() {
 
     // Auto-refresh when settings change in Settings.jsx
     const handleStorageChange = () => fetchSettings();
+    window.addEventListener("storage", handleStorageChange);
 
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
@@ -341,6 +364,7 @@ function App() {
   // ✅ Listen for custom 'settingsUpdated' event
   useEffect(() => {
     const handleSettingsUpdate = () => fetchSettings();
+    window.addEventListener("settingsUpdated", handleSettingsUpdate);
 
     return () => window.removeEventListener("settingsUpdated", handleSettingsUpdate);
   }, []);
@@ -352,6 +376,14 @@ function App() {
   });
 
   const keys = JSON.parse(localStorage.getItem("dashboardKeys") || "{}");
+
+  if (!settingsReady) {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+      </ThemeProvider>
+    );
+  }
 
   return (
     <ThemeProvider theme={theme}>

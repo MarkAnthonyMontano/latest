@@ -495,6 +495,13 @@ const ApplicantScoring = () => {
 
     // helper to make string comparisons robust
     const normalize = (s) => (s ?? "").toString().trim().toLowerCase();
+    const parseDateOnlyLocal = (value) => {
+        if (!value) return null;
+        const datePart = String(value).split("T")[0];
+        const [y, m, d] = datePart.split("-").map(Number);
+        if (!y || !m || !d) return null;
+        return new Date(y, m - 1, d);
+    };
     const [showSubmittedOnly, setShowSubmittedOnly] = useState(false);
 
     const filteredPersons = persons
@@ -537,7 +544,8 @@ const ApplicantScoring = () => {
                 programInfo?.dprtmnt_name === selectedDepartmentFilter;
 
             /* 📅 CREATED AT — Manila-safe date parsing */
-            const appliedDate = new Date(personData.created_at.split("T")[0]);
+            const appliedDate = parseDateOnlyLocal(personData.created_at);
+            if (!appliedDate) return false;
 
             const applicantAppliedYear = appliedDate.getFullYear();
 
@@ -555,15 +563,20 @@ const ApplicantScoring = () => {
             /* 📆 DATE RANGE (FULLY FIXED) */
             let matchesDateRange = true;
 
-            if (person.fromDate) {
-                const from = new Date(person.fromDate + "T00:00:00");
-                if (appliedDate < from) matchesDateRange = false;
+            let from = parseDateOnlyLocal(person.fromDate);
+            let to = parseDateOnlyLocal(person.toDate);
+            if (to) to.setHours(23, 59, 59, 999);
+
+            if (from && to && from > to) {
+                const swappedFrom = parseDateOnlyLocal(person.toDate);
+                const swappedTo = parseDateOnlyLocal(person.fromDate);
+                if (swappedTo) swappedTo.setHours(23, 59, 59, 999);
+                from = swappedFrom;
+                to = swappedTo;
             }
 
-            if (person.toDate) {
-                const to = new Date(person.toDate + "T00:00:00");
-                if (appliedDate > to) matchesDateRange = false;
-            }
+            if (from && appliedDate < from) matchesDateRange = false;
+            if (to && appliedDate > to) matchesDateRange = false;
 
             /* 📥 SUBMITTED DOCUMENTS */
             const matchesSubmittedDocs =
@@ -607,8 +620,8 @@ const ApplicantScoring = () => {
             }
 
             /* ⭐ IF TIE → FIRST COME FIRST SERVE */
-            const dateA = new Date(a.created_at.split("T")[0]);
-            const dateB = new Date(b.created_at.split("T")[0]);
+            const dateA = parseDateOnlyLocal(a.created_at) || new Date(0);
+            const dateB = parseDateOnlyLocal(b.created_at) || new Date(0);
 
             return dateA - dateB;  // earliest submission first
         });

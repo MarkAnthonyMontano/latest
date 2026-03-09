@@ -411,6 +411,13 @@ const MedicalApplicantList = () => {
 
     // helper to make string comparisons robust
     const normalize = (s) => (s ?? "").toString().trim().toLowerCase();
+    const parseDateOnlyLocal = (value) => {
+        if (!value) return null;
+        const datePart = String(value).split("T")[0];
+        const [y, m, d] = datePart.split("-").map(Number);
+        if (!y || !m || !d) return null;
+        return new Date(y, m - 1, d);
+    };
     const [showSubmittedOnly, setShowSubmittedOnly] = useState(false);
 
 
@@ -444,7 +451,9 @@ const MedicalApplicantList = () => {
                 selectedDepartmentFilter === "" ||
                 programInfo?.dprtmnt_name === selectedDepartmentFilter;
 
-            const applicantAppliedYear = new Date(personData.created_at).getFullYear();
+            const appliedDate = parseDateOnlyLocal(personData.created_at);
+            if (!appliedDate) return false;
+            const applicantAppliedYear = appliedDate.getFullYear();
             const schoolYear = schoolYears.find((sy) => sy.year_id === selectedSchoolYear);
 
             const matchesSchoolYear =
@@ -454,22 +463,21 @@ const MedicalApplicantList = () => {
                 selectedSchoolSemester === "" ||
                 String(personData.middle_code) === String(selectedSchoolSemester);
 
-            // date range (unchanged)
             let matchesDateRange = true;
-            if (person.fromDate && person.toDate) {
-                const appliedDate = new Date(personData.created_at);
-                const from = new Date(person.fromDate);
-                const to = new Date(person.toDate);
-                matchesDateRange = appliedDate >= from && appliedDate <= to;
-            } else if (person.fromDate) {
-                const appliedDate = new Date(personData.created_at);
-                const from = new Date(person.fromDate);
-                matchesDateRange = appliedDate >= from;
-            } else if (person.toDate) {
-                const appliedDate = new Date(personData.created_at);
-                const to = new Date(person.toDate);
-                matchesDateRange = appliedDate <= to;
+            let from = parseDateOnlyLocal(person.fromDate);
+            let to = parseDateOnlyLocal(person.toDate);
+            if (to) to.setHours(23, 59, 59, 999);
+
+            if (from && to && from > to) {
+                const swappedFrom = parseDateOnlyLocal(person.toDate);
+                const swappedTo = parseDateOnlyLocal(person.fromDate);
+                if (swappedTo) swappedTo.setHours(23, 59, 59, 999);
+                from = swappedFrom;
+                to = swappedTo;
             }
+
+            if (from && appliedDate < from) matchesDateRange = false;
+            if (to && appliedDate > to) matchesDateRange = false;
 
             const matchesSubmittedDocs =
                 !showSubmittedOnly || personData.submitted_documents === 1;

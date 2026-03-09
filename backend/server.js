@@ -35,11 +35,11 @@ app.use("/assets", express.static(path.join(__dirname, "assets")));
 const allowedOrigins = [
   'http://localhost:5173',
   'http://192.168.50.77:5173',
-  'http://192.168.50.61:5173',
+  'http://192.168.0.108:5173',
   'http://192.168.50.211:5173',
   'http://136.239.248.58:5173',
-  'http://192.168.50.61:5173',
-  'http://192.168.50.61:5173',
+  'http://192.168.0.108:5173',
+  'http://192.168.0.108:5173',
 ];
 
 app.use(
@@ -531,15 +531,6 @@ app.post(
 
       console.log("REQ.BODY:", req.body);
       console.log("BRANCHES RAW:", branches);
-      let parsedBranches = "[]";
-
-      try {
-        parsedBranches = Array.isArray(branches)
-          ? JSON.stringify(branches)
-          : JSON.stringify(JSON.parse(branches));
-      } catch (e) {
-        parsedBranches = "[]";
-      }
 
       const logoUrl = req.files["logo"]
         ? `/uploads/${req.files["logo"][0].filename}`
@@ -554,8 +545,20 @@ app.post(
       );
 
       if (rows.length > 0) {
+        const currentSettings = rows[0];
         const oldLogo = rows[0].logo_url;
         const oldBg = rows[0].bg_image;
+        let parsedBranches = currentSettings.branches || "[]";
+
+        if (typeof branches !== "undefined") {
+          try {
+            parsedBranches = Array.isArray(branches)
+              ? JSON.stringify(branches)
+              : JSON.stringify(JSON.parse(branches));
+          } catch (e) {
+            parsedBranches = currentSettings.branches || "[]";
+          }
+        }
 
         let query = `
           UPDATE company_settings
@@ -579,21 +582,25 @@ app.post(
             branches=?`;
 
         const params = [
-          company_name || "",
-          short_term || "",
-          address || "",
-          header_color || "#ffffff",
-          footer_text || "",
-          footer_color || "#ffffff",
+          company_name ?? currentSettings.company_name ?? "",
+          short_term ?? currentSettings.short_term ?? "",
+          address ?? currentSettings.address ?? "",
+          header_color ?? currentSettings.header_color ?? "#ffffff",
+          footer_text ?? currentSettings.footer_text ?? "",
+          footer_color ?? currentSettings.footer_color ?? "#ffffff",
 
-          main_button_color || "#ffffff",
-          sub_button_color || "#ffffff",
-          border_color || "#000000",
-          stepper_color || "#000000",
-          sidebar_button_color || "#000000",
+          main_button_color ??
+            currentSettings.main_button_color ??
+            "#ffffff",
+          sub_button_color ?? currentSettings.sub_button_color ?? "#ffffff",
+          border_color ?? currentSettings.border_color ?? "#000000",
+          stepper_color ?? currentSettings.stepper_color ?? "#000000",
+          sidebar_button_color ??
+            currentSettings.sidebar_button_color ??
+            "#000000",
 
-          title_color || "#000000",
-          subtitle_color || "#555555",
+          title_color ?? currentSettings.title_color ?? "#000000",
+          subtitle_color ?? currentSettings.subtitle_color ?? "#555555",
 
           // ✅ NEW
           parsedBranches,
@@ -5178,6 +5185,44 @@ WHERE proctor LIKE ?
       const student_number = `${new Date().getFullYear()}${String(person_id).padStart(5, "0")}`;
       const tempPassword = Math.random().toString(36).slice(-8).toUpperCase();
       const hashedPassword = await bcrypt.hash(tempPassword, 10);
+      let studentProfileImg = person_data.profile_img;
+
+      // Copy applicant 1x1 image to student 1x1 folder during student-number assignment.
+      if (person_data.profile_img) {
+        try {
+          const applicantDir = path.join(__dirname, "uploads", "Applicant1by1");
+          const studentDir = path.join(__dirname, "uploads", "Student1by1");
+          const uploadRootDir = path.join(__dirname, "uploads");
+
+          if (!fs.existsSync(studentDir)) {
+            fs.mkdirSync(studentDir, { recursive: true });
+          }
+
+          const applicantPath = path.join(applicantDir, person_data.profile_img);
+          const uploadRootPath = path.join(uploadRootDir, person_data.profile_img);
+          const sourcePath = fs.existsSync(applicantPath)
+            ? applicantPath
+            : fs.existsSync(uploadRootPath)
+              ? uploadRootPath
+              : null;
+
+          if (sourcePath) {
+            const ext = path.extname(person_data.profile_img) || ".jpg";
+            studentProfileImg = `${student_number}_profile_image${ext}`;
+            const targetPath = path.join(studentDir, studentProfileImg);
+            fs.copyFileSync(sourcePath, targetPath);
+          } else {
+            console.warn(
+              `[assign-student-number] profile image not found for person_id=${person_id}: ${person_data.profile_img}`,
+            );
+          }
+        } catch (imgErr) {
+          console.error(
+            `[assign-student-number] failed to copy profile image for person_id=${person_id}`,
+            imgErr,
+          );
+        }
+      }
 
       // ✅ Get uploaded requirements
       const [requirements] = await db.query(
@@ -5239,7 +5284,7 @@ WHERE proctor LIKE ?
       `,
         [
           person_data.person_id,
-          person_data.profile_img,
+          studentProfileImg,
           person_data.campus,
           person_data.academicProgram,
           person_data.classifiedAs,

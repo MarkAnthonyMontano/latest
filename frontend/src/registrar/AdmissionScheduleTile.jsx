@@ -134,6 +134,13 @@ const ScheduleHoverTile = () => {
 
     useEffect(() => {
         const lowerQuery = searchQuery.toLowerCase();
+        const parseDateOnlyLocal = (value) => {
+            if (!value) return null;
+            const datePart = String(value).split("T")[0];
+            const [y, m, d] = datePart.split("-").map(Number);
+            if (!y || !m || !d) return null;
+            return new Date(y, m - 1, d);
+        };
 
         const filtered = schedules.filter((s) => {
             const proctor = s.proctor || "";
@@ -146,9 +153,18 @@ const ScheduleHoverTile = () => {
 
             const matchesBuilding = selectedBuilding === "" || building === selectedBuilding;
 
-            const scheduleDate = new Date(s.day_description);
-            const fromDate = person.fromDate ? new Date(person.fromDate) : null;
-            const toDate = person.toDate ? new Date(person.toDate) : null;
+            const scheduleDate = parseDateOnlyLocal(s.day_description);
+            if (!scheduleDate) return false;
+            let fromDate = parseDateOnlyLocal(person.fromDate);
+            let toDate = parseDateOnlyLocal(person.toDate);
+            if (toDate) toDate.setHours(23, 59, 59, 999);
+            if (fromDate && toDate && fromDate > toDate) {
+                const swappedFrom = parseDateOnlyLocal(person.toDate);
+                const swappedTo = parseDateOnlyLocal(person.fromDate);
+                if (swappedTo) swappedTo.setHours(23, 59, 59, 999);
+                fromDate = swappedFrom;
+                toDate = swappedTo;
+            }
 
             const matchesDate =
                 (!fromDate || scheduleDate >= fromDate) &&
