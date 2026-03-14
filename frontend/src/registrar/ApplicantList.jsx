@@ -13,7 +13,6 @@ import {
     FormControl,
     Select,
     Card,
-
     TableCell,
     TextField,
     MenuItem,
@@ -1704,7 +1703,7 @@ th {
                         {currentPersons.length === 0 ? (
                             <TableRow>
                                 <TableCell
-                                    colSpan={10}
+                                    colSpan={12}
                                     sx={{
                                         textAlign: "center",
                                         py: 3,

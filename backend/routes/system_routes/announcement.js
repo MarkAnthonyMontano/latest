@@ -33,16 +33,18 @@ router.get("/announcements", async (req, res) => {
   }
 });
 
+//EDITED 4:40PM 14/03/2026
 router.post("/announcements", announcementUpload.single("image"), async (req, res) => {
-  console.log("BODY:", req.body);
-  console.log("FILE:", req.file);
-
   const {
     title,
     content,
     valid_days,
     target_role,
   } = req.body;
+
+  if(!title || !content) {
+    return res.status(400).json({error: "Missing Required Fields"})
+  }
 
   // ✅ Validate valid_days
   const allowedDays = ["permanent", "1", "3", "7", "14", "30", "60", "90", "120", "180"];
@@ -105,10 +107,14 @@ const [result] = await db.execute(
   }
 }
 );
-
+//EDITED 4:40PM 14/03/2026
 router.put("/announcements/:id", announcementUpload.single("image"), async (req, res) => {
   const { id } = req.params;
   const { title, content, valid_days, target_role } = req.body;
+
+  if(!title || !content) {
+    return res.status(400).json({message: "Missing Required Fields"})
+  }
 
   const allowedDays = ["permanent", "1", "3", "7", "14", "30", "60", "90", "120", "180"];
 

@@ -39,7 +39,7 @@ const allowedOrigins = [
   'http://192.168.50.211:5173',
   'http://136.239.248.62:5173',
   'http://192.168.50.62:5173',
-  'http://192.168.0.180:5173',
+  'http://192.168.50.41:5173',
 ];
 
 app.use(
@@ -2733,10 +2733,18 @@ app.get("/uploads/by-applicant/:applicant_number", async (req, res) => {
         ru.original_name,
         ru.remarks,
         ru.status,
+
+        CASE
+          WHEN ru.status = 1 THEN 'Approved'
+          WHEN ru.status = 2 THEN 'Rejected'
+          ELSE 'Pending'
+        END AS status_label,
+
         ru.document_status,
         ru.registrar_status,
         ru.created_at,
         rt.description,
+
         CASE
           WHEN LOWER(rt.description) LIKE '%form 138%' THEN 'Form138'
           WHEN LOWER(rt.description) LIKE '%good moral%' THEN 'GoodMoralCharacter'
@@ -2745,11 +2753,13 @@ app.get("/uploads/by-applicant/:applicant_number", async (req, res) => {
           WHEN LOWER(rt.description) LIKE '%vaccine card%' THEN 'VaccineCard'
           ELSE 'Unknown'
         END AS short_label,
+
         ua.email AS evaluator_email,
         ua.role  AS evaluator_role,
         pr.lname AS evaluator_lname,
         pr.fname AS evaluator_fname,
         pr.mname AS evaluator_mname
+
       FROM requirement_uploads ru
       JOIN requirements_table rt
         ON ru.requirements_id = rt.id
@@ -2758,7 +2768,7 @@ app.get("/uploads/by-applicant/:applicant_number", async (req, res) => {
       LEFT JOIN enrollment.prof_table pr
         ON ua.person_id = pr.person_id
       WHERE ru.person_id = ?
-    `,
+      `,
       [person_id],
     );
 

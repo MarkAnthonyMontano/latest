@@ -186,9 +186,8 @@ const AnnouncementPanel = () => {
             console.error(err);
             setSnackbar({ open: true, message: "Error saving announcement!", severity: "error" });
         }
-    };
-
-
+    }
+    
     const handleEdit = (announcement) => {
         setForm({
             title: announcement.title,

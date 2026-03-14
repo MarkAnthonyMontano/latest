@@ -2116,7 +2116,7 @@ const AdminApplicantList = () => {
                     {currentPersons.length === 0 && (
                         <TableRow>
                             <TableCell
-                                colSpan={10}
+                                colSpan={12}
                                 sx={{
                                     textAlign: "center",
                                     border: `2px solid ${borderColor}`,

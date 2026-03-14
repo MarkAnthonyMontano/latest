@@ -15,7 +15,9 @@ import {
   DialogContent,
   DialogActions,
   Typography,
-  Button
+  Button,
+  Checkbox,
+  FormControlLabel
 } from "@mui/material";
 import {
   Email as EmailIcon,
@@ -71,6 +73,8 @@ const Register = () => {
     const { name, value } = e.target;
     setUserData(prevState => ({ ...prevState, [name]: value }));
   };
+
+  const [agreeChecked, setAgreeChecked] = useState(false);
 
   const [currentYear, setCurrentYear] = useState("");
 
@@ -743,20 +747,38 @@ const Register = () => {
             <Typography sx={{ mt: 2, textAlign: "center", fontWeight: "bold" }}>
               Thank you for your cooperation.
             </Typography>
+
+            {/* Checkbox */}
+            <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={agreeChecked}
+                    onChange={(e) => setAgreeChecked(e.target.checked)}
+                  
+                  />
+                }
+                label={
+                  <Typography sx={{ fontSize: "15px" }}>
+                    I understand and agree to submit only one application.
+                  </Typography>
+                }
+              />
+            </Box>
           </DialogContent>
 
           <DialogActions sx={{ justifyContent: "center", pb: 2 }}>
             <Button
               variant="contained"
+              disabled={!agreeChecked}
               onClick={() => setOpenReminder(false)}
               sx={{
-
                 fontWeight: "bold",
                 textTransform: "none",
-                minWidth: "120px",
+                minWidth: "220px",
               }}
             >
-              I Understand
+               I Agree & Continue
             </Button>
           </DialogActions>
         </Dialog>

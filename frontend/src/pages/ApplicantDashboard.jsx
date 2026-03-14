@@ -16,6 +16,15 @@ import {
   Step,
   StepLabel,
   Tooltip,
+  FormControlLabel,
+  Checkbox,
+  Button,
+} from "@mui/material";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
 } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import PersonIcon from "@mui/icons-material/Person";
@@ -27,7 +36,6 @@ import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 import CheckIcon from "@mui/icons-material/Check";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import { Dialog } from "@mui/material";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import API_BASE_URL from "../apiConfig";
 import { useParams } from "react-router-dom";
@@ -112,6 +120,13 @@ const ApplicantDashboard = (props) => {
       window.location.href = "/login";
     }
   }, []);
+
+  const [openAgreementModal, setOpenAgreementModal] = useState(true);
+const [agreeChecked, setAgreeChecked] = useState(false);
+
+useEffect(() => {
+  setOpenAgreementModal(true);
+}, []);
 
   const [medicalUploads, setMedicalUploads] = useState([]);
 
@@ -1639,7 +1654,63 @@ const ApplicantDashboard = (props) => {
 
           </Box>
 
+<Dialog
+  open={openAgreementModal}
+  disableEscapeKeyDown
+  maxWidth="sm"
+  fullWidth
+>
+  <DialogTitle sx={{ fontWeight: "bold", textAlign: "center" }}>
+    ⚠️ Important Notice Before Proceeding
+  </DialogTitle>
 
+  <DialogContent>
+    <Typography sx={{ mt: 2, textAlign: "justify", fontSize: "15px" }}>
+      Welcome to the <strong>{companyName}</strong> Applicant Dashboard.
+    </Typography>
+
+    <Typography sx={{ mt: 2, textAlign: "justify", fontSize: "15px" }}>
+      Before continuing, please make sure that you will:
+    </Typography>
+
+    <Box sx={{ mt: 2, pl: 2 }}>
+      <Typography>• Fill up all required personal information.</Typography>
+      <Typography>• Upload all required online documents.</Typography>
+      <Typography>• Ensure that the information you provide is accurate and correct.</Typography>
+      <Typography>• Regularly check your Applicant Dashboard for updates.</Typography>
+    </Box>
+
+    <Typography sx={{ mt: 2, textAlign: "justify", fontSize: "15px" }}>
+      Failure to complete the required information or document uploads may delay the evaluation of your application.
+    </Typography>
+
+    <FormControlLabel
+      sx={{ mt: 3 }}
+      control={
+        <Checkbox
+          checked={agreeChecked}
+          onChange={(e) => setAgreeChecked(e.target.checked)}
+        />
+      }
+      label="I confirm that I will complete all required information and upload all required documents."
+    />
+  </DialogContent>
+
+  <DialogActions sx={{ justifyContent: "center", pb: 2 }}>
+    <Button
+      variant="contained"
+      disabled={!agreeChecked}
+      onClick={() => setOpenAgreementModal(false)}
+      sx={{
+        fontWeight: "bold",
+        textTransform: "none",
+        minWidth: "150px",
+      }}
+    >
+      I Agree & Continue
+    </Button>
+  </DialogActions>
+</Dialog>
 
 
 
