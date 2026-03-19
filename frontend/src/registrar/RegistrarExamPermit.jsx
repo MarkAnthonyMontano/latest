@@ -302,7 +302,7 @@ const RegistrarExamPermit = ({ personId }) => {
                     pointerEvents: "none",
                     userSelect: "none",
                     zIndex: 0,
-                    fontFamily: "'Arial Black', sans-serif",
+                    fontFamily: "Arial",
                     letterSpacing: "0.3rem",
                 }}
             >
@@ -348,7 +348,7 @@ const RegistrarExamPermit = ({ personId }) => {
                                 style={{
                                     letterSpacing: "1px",
                                     fontSize: "20px",
-                                    fontFamily: "Times new roman",
+                                    fontFamily: "Arial",
                                 }}
                             >
                                 {firstLine}
@@ -358,7 +358,7 @@ const RegistrarExamPermit = ({ personId }) => {
                                     style={{
                                         letterSpacing: "1px",
                                         fontSize: "20px",
-                                        fontFamily: "Times new roman",
+                                        fontFamily: "Arial",
                                     }}
                                 >
                                     <b>{secondLine}</b>
@@ -434,7 +434,7 @@ const RegistrarExamPermit = ({ personId }) => {
                     className="student-table"
                     style={{
                         borderCollapse: "collapse",
-                        fontFamily: "Times New Roman",
+                        fontFamily: "Arial",
                         fontSize: "15px",
                         width: "8in",
                         margin: "0 auto",
@@ -443,7 +443,7 @@ const RegistrarExamPermit = ({ personId }) => {
                 >
                     <tbody>
                         {/* Applicant Number */}
-                        <tr style={{ fontFamily: "Times New Roman", fontSize: "15px" }}>
+                        <tr style={{ fontFamily: "Arial", fontSize: "15px" }}>
                             <td colSpan={40}>
                                 <div
                                     style={{
@@ -839,7 +839,7 @@ const RegistrarExamPermit = ({ personId }) => {
                     style={{
 
                         borderCollapse: "collapse",
-                        fontFamily: "Arial, Helvetica, sans-serif",
+                        fontFamily: "Arial",
                         width: "8in",
                         margin: "0 auto", // Center the table inside the form
                         textAlign: "center",
@@ -860,7 +860,7 @@ const RegistrarExamPermit = ({ personId }) => {
                                     lineHeight: "1.6",
                                     textAlign: "left",
                                     fontSize: "14px",
-                                    fontFamily: "Arial, Helvetica, sans-serif",
+                                    fontFamily: "Arial",
                                 }}
                             >
                                 <strong>IMPORTANT REMINDERS FOR APPLICANTS:</strong>

@@ -1738,33 +1738,33 @@ const AdminDashboard1 = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 >
-                    <MenuItem value="">
-                                    <em>Select Applying</em>
-                                  </MenuItem>
-                                  <MenuItem value="1">
-                                    Senior High School Graduate
-                                  </MenuItem>
-                                  <MenuItem value="2">
-                                    Senior High School Graduating Student
-                                  </MenuItem>
-                                  <MenuItem value="3">
-                                    ALS (Alternative Learning System) Passer
-                                  </MenuItem>
-                                  <MenuItem value="4">
-                                    Transferee from other University/College
-                                  </MenuItem>
-                                  <MenuItem value="5">
-                                    Cross Enrolee Student
-                                  </MenuItem>
-                                  <MenuItem value="6">
-                                    Foreign Applicant/Student
-                                  </MenuItem>
-                                  <MenuItem value="7">
-                                    Baccalaureate Graduate
-                                  </MenuItem>
-                                  <MenuItem value="8">
-                                    Master Degree Graduate
-                                  </MenuItem>
+                  <MenuItem value="">
+                    <em>Select Applying</em>
+                  </MenuItem>
+                  <MenuItem value="1">
+                    Senior High School Graduate
+                  </MenuItem>
+                  <MenuItem value="2">
+                    Senior High School Graduating Student
+                  </MenuItem>
+                  <MenuItem value="3">
+                    ALS (Alternative Learning System) Passer
+                  </MenuItem>
+                  <MenuItem value="4">
+                    Transferee from other University/College
+                  </MenuItem>
+                  <MenuItem value="5">
+                    Cross Enrolee Student
+                  </MenuItem>
+                  <MenuItem value="6">
+                    Foreign Applicant/Student
+                  </MenuItem>
+                  <MenuItem value="7">
+                    Baccalaureate Graduate
+                  </MenuItem>
+                  <MenuItem value="8">
+                    Master Degree Graduate
+                  </MenuItem>
                 </Select>
                 {errors.applyingAs && (
                   <FormHelperText>This field is required.</FormHelperText>
@@ -3321,64 +3321,64 @@ const AdminDashboard1 = () => {
                   </Box>
 
                   {/* Preview Image */}
-                 {(preview || person.profile_img) && (
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "center",
-      my: 2,
-      position: "relative",
-    }}
-  >
-    <Box
-      component="img"
-      src={
-        preview
-          ? preview
-          : `${API_BASE_URL}/uploads/Applicant1by1/${person.profile_img}`
-      }
-      alt="Preview"
-      sx={{
-        width: "192px",
-        height: "192px",
-        objectFit: "cover",
-        border: "2px solid #6D2323",
-        borderRadius: 2,
-      }}
-    />
+                  {(preview || person.profile_img) && (
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        my: 2,
+                        position: "relative",
+                      }}
+                    >
+                      <Box
+                        component="img"
+                        src={
+                          preview
+                            ? preview
+                            : `${API_BASE_URL}/uploads/Applicant1by1/${person.profile_img}`
+                        }
+                        alt="Preview"
+                        sx={{
+                          width: "192px",
+                          height: "192px",
+                          objectFit: "cover",
+                          border: "2px solid #6D2323",
+                          borderRadius: 2,
+                        }}
+                      />
 
-    {/* ❌ REMOVE BUTTON */}
-    <Button
-      size="small"
-      onClick={() => {
-        setSelectedFile(null);
-        setPreview(null);
+                      {/* ❌ REMOVE BUTTON */}
+                      <Button
+                        size="small"
+                        onClick={() => {
+                          setSelectedFile(null);
+                          setPreview(null);
 
-        // ✅ IMPORTANT: remove existing image
-        setPerson((prev) => ({
-          ...prev,
-          profile_img: "",
-        }));
-      }}
-      sx={{
-        position: "absolute",
-        top: -8,
-        right: "calc(50% - 96px)",
-        minWidth: 0,
-        width: 28,
-        height: 28,
-        fontSize: "18px",
-        p: 0,
-        color: "#fff",
-        bgcolor: "#d32f2f",
-        borderRadius: "50%",
-        "&:hover": { bgcolor: "#b71c1c" },
-      }}
-    >
-      ×
-    </Button>
-  </Box>
-)}
+                          // ✅ IMPORTANT: remove existing image
+                          setPerson((prev) => ({
+                            ...prev,
+                            profile_img: "",
+                          }));
+                        }}
+                        sx={{
+                          position: "absolute",
+                          top: -8,
+                          right: "calc(50% - 96px)",
+                          minWidth: 0,
+                          width: 28,
+                          height: 28,
+                          fontSize: "18px",
+                          p: 0,
+                          color: "#fff",
+                          bgcolor: "#d32f2f",
+                          borderRadius: "50%",
+                          "&:hover": { bgcolor: "#b71c1c" },
+                        }}
+                      >
+                        ×
+                      </Button>
+                    </Box>
+                  )}
 
                   {/* Guidelines Section */}
                   <Box

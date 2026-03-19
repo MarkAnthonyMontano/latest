@@ -422,7 +422,7 @@ const ExaminationProfile = ({ personId }) => {
                         body {
                             margin: 0;
                             padding: 0;
-                            font-family: Arial, sans-serif;
+                            font-family: Arial;
                         }
 
                         /* 🔥 THIS IS YOUR MISSING STYLE */
@@ -675,7 +675,7 @@ const ExaminationProfile = ({ personId }) => {
                         <TableHead sx={{ backgroundColor: settings?.header_color || "#1976d2", border: `2px solid ${borderColor}`, }}>
                             <TableRow>
                                 {/* Left cell: Applicant ID */}
-                                <TableCell sx={{ color: 'white', fontSize: '20px', fontFamily: 'Arial Black', border: 'none' }}>
+                                <TableCell sx={{ color: 'white', fontSize: '20px', fontFamily: "Arial", border: 'none' }}>
                                     Applicant ID:&nbsp;
                                     <span style={{ fontFamily: "Arial", fontWeight: "normal", textDecoration: "underline" }}>
                                         {selectedPerson?.applicant_number || "N/A"}
@@ -685,7 +685,7 @@ const ExaminationProfile = ({ personId }) => {
                                 {/* Right cell: Applicant Name, right-aligned */}
                                 <TableCell
                                     align="right"
-                                    sx={{ color: 'white', fontSize: '20px', fontFamily: 'Arial Black', border: 'none' }}
+                                    sx={{ color: 'white', fontSize: '20px', fontFamily: "Arial", border: 'none' }}
                                 >
                                     Applicant Name:&nbsp;
                                     <span style={{ fontFamily: "Arial", fontWeight: "normal", textDecoration: "underline" }}>
@@ -791,7 +791,7 @@ const ExaminationProfile = ({ personId }) => {
                                 pointerEvents: "none",
                                 userSelect: "none",
                                 zIndex: 0,
-                                fontFamily: "'Arial Black', sans-serif",
+                                fontFamily: "Arial",
                                 letterSpacing: "0.3rem",
                                 textAlign: "center",        // 🔥 needed for stacked NOT + VERIFIED
                                 lineHeight: isVerified ? "1" : "0.8", // tighten stacked spacing
@@ -812,7 +812,7 @@ const ExaminationProfile = ({ personId }) => {
                                 className="student-table"
                                 style={{
                                     borderCollapse: "collapse",
-                                    fontFamily: "Arial, Helvetica, sans-serif",
+                                    fontFamily: "Arial",
                                     width: "8in",
                                     margin: "0 auto", // Center the table inside the form
                                     textAlign: "center",
@@ -838,7 +838,7 @@ const ExaminationProfile = ({ personId }) => {
             pointer-events: none;
             user-select: none;
             z-index: 9999;
-            font-family: 'Arial Black', sans-serif;
+            font-family: 'Arial Black';
             letter-spacing: 0.3rem;
           }
 
@@ -908,7 +908,7 @@ const ExaminationProfile = ({ personId }) => {
                                                         <td style={{
                                                             width: "60%", textAlign: "center", lineHeight: "1", letterSpacing: "1px",
                                                             fontSize: "20px",
-                                                            fontFamily: "Times new roman",
+                                                            fontFamily: "Arial",
                                                             fontWeight: "bold"
                                                         }}>
                                                             <div style={{ fontSize: "14px", fontWeight: "normal", fontFamily: "Arial" }}>Republic of the Philippines</div>
@@ -916,7 +916,7 @@ const ExaminationProfile = ({ personId }) => {
                                                                 style={{
                                                                     letterSpacing: "1px",
                                                                     fontSize: "20px",
-                                                                    fontFamily: "Times new roman",
+                                                                    fontFamily: "Arial",
                                                                     fontWeight: "bold"
                                                                 }}
                                                             >
@@ -927,7 +927,7 @@ const ExaminationProfile = ({ personId }) => {
                                                                     style={{
                                                                         letterSpacing: "1px",
                                                                         fontSize: "20px",
-                                                                        fontFamily: "Times new roman",
+                                                                        fontFamily: "Arial",
                                                                         fontWeight: "bold"
                                                                     }}
                                                                 >
@@ -1004,7 +1004,7 @@ const ExaminationProfile = ({ personId }) => {
                                 className="student-table"
                                 style={{
                                     borderCollapse: "collapse",
-                                    fontFamily: "Arial, Helvetica, sans-serif",
+                                    fontFamily: "Arial",
                                     width: "8in",
                                     margin: "0 auto",
 
@@ -1015,7 +1015,7 @@ const ExaminationProfile = ({ personId }) => {
                             >
 
                                 <tbody>
-                                    <tr style={{ fontFamily: "Times New Roman", fontSize: "15px" }}>
+                                    <tr style={{ fontFamily: "Arial", fontSize: "15px" }}>
                                         <td colSpan={40}>
                                             <div
                                                 style={{
@@ -1050,7 +1050,7 @@ const ExaminationProfile = ({ personId }) => {
                                     </tr>
 
                                     {/* Email & Applicant ID */}
-                                    <tr style={{ fontFamily: "Times New Roman", fontSize: "15px" }}>
+                                    <tr style={{ fontFamily: "Arial", fontSize: "15px" }}>
                                         <td colSpan={20}>
                                             <div
                                                 style={{
@@ -1092,7 +1092,7 @@ const ExaminationProfile = ({ personId }) => {
                                         </td>
                                     </tr>
 
-                                    <tr style={{ fontFamily: "Times New Roman", fontSize: "15px" }}>
+                                    <tr style={{ fontFamily: "Arial", fontSize: "15px" }}>
                                         <td colSpan={20}>
                                             <div
                                                 style={{
@@ -1164,7 +1164,7 @@ const ExaminationProfile = ({ personId }) => {
                                     </tr>
 
 
-                                    <tr style={{ fontFamily: "Times New Roman", fontSize: "15px" }}>
+                                    <tr style={{ fontFamily: "Arial", fontSize: "15px" }}>
                                         <td colSpan={20}>
                                             <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
                                                 <label style={{ fontWeight: "bold", whiteSpace: "nowrap", marginRight: "10px" }}>Date of Exam:</label>
@@ -1205,7 +1205,7 @@ const ExaminationProfile = ({ personId }) => {
 
                                     </tr>
 
-                                    <tr style={{ fontFamily: "Times New Roman", fontSize: "15px" }}>
+                                    <tr style={{ fontFamily: "Arial", fontSize: "15px" }}>
                                         <td colSpan={20}>
                                             <div style={{ display: "flex", alignItems: "center", width: "100%", marginTop: "-85px" }}>
                                                 <label style={{ fontWeight: "bold", whiteSpace: "nowrap", marginRight: "10px" }}>
@@ -1295,7 +1295,7 @@ const ExaminationProfile = ({ personId }) => {
 
 
 
-                                    <tr style={{ fontFamily: "Times New Roman", fontSize: "15px" }}>
+                                    <tr style={{ fontFamily: "Arial", fontSize: "15px" }}>
                                         <td colSpan={20}>
                                             <div style={{ display: "flex", alignItems: "center", width: "100%", marginTop: "-148px" }}>
                                                 <label
@@ -1329,7 +1329,7 @@ const ExaminationProfile = ({ personId }) => {
 
                                     </tr>
 
-                                    <tr style={{ fontFamily: "Times New Roman", fontSize: "15px" }}>
+                                    <tr style={{ fontFamily: "Arial", fontSize: "15px" }}>
                                         <td colSpan={20}>
                                             <div style={{ display: "flex", alignItems: "center", width: "100%", marginTop: "-128px" }}>
                                                 <label style={{ fontWeight: "bold", whiteSpace: "nowrap", marginRight: "10px" }}>Scheduled by:</label>
@@ -1357,7 +1357,7 @@ const ExaminationProfile = ({ personId }) => {
                                 style={{
 
                                     borderCollapse: "collapse",
-                                    fontFamily: "Arial, Helvetica, sans-serif",
+                                    fontFamily: "Arial",
                                     width: "8in",
                                     margin: "0 auto", // Center the table inside the form
                                     textAlign: "center",
@@ -1377,7 +1377,7 @@ const ExaminationProfile = ({ personId }) => {
                                                 lineHeight: "1.6",
                                                 textAlign: "left",
                                                 fontSize: "14px",
-                                                fontFamily: "Arial, Helvetica, sans-serif",
+                                                fontFamily: "Arial",
                                             }}
                                         >
                                             <strong>IMPORTANT REMINDERS FOR APPLICANTS:</strong>
@@ -1441,7 +1441,7 @@ const ExaminationProfile = ({ personId }) => {
                                 pointerEvents: "none",
                                 userSelect: "none",
                                 zIndex: 0,
-                                fontFamily: "'Arial Black', sans-serif",
+                                fontFamily: "Arial",
                                 letterSpacing: "0.3rem",
                                 lineHeight: isVerified ? "1" : "0.8",   // tighter spacing for stacked text
                             }}
@@ -1510,7 +1510,7 @@ const ExaminationProfile = ({ personId }) => {
                                         style={{
                                             letterSpacing: "1px",
                                             fontSize: "20px",
-                                            fontFamily: "Times new roman",
+                                            fontFamily: "Arial",
                                             fontWeight: "bold"
                                         }}
                                     >
@@ -1521,7 +1521,7 @@ const ExaminationProfile = ({ personId }) => {
                                             style={{
                                                 letterSpacing: "1px",
                                                 fontSize: "20px",
-                                                fontFamily: "Times new roman",
+                                                fontFamily: "Arial",
                                                 fontWeight: "bold"
                                             }}
                                         >
@@ -1605,7 +1605,7 @@ const ExaminationProfile = ({ personId }) => {
 
                             style={{
                                 borderCollapse: "collapse",
-                                fontFamily: "Arial, Helvetica, sans-serif",
+                                fontFamily: "Arial",
                                 width: "8in",
                                 margin: "0 auto",
 
@@ -2209,7 +2209,7 @@ const ExaminationProfile = ({ personId }) => {
                                 pointerEvents: "none",
                                 userSelect: "none",
                                 zIndex: 0,
-                                fontFamily: "'Arial Black', sans-serif",
+                                fontFamily: "Arial",
                                 letterSpacing: "0.3rem",
                                 lineHeight: isVerified ? "1" : "0.8", // tighten text when stacked
                                 whiteSpace: "nowrap",
@@ -2281,7 +2281,7 @@ const ExaminationProfile = ({ personId }) => {
                                         style={{
                                             letterSpacing: "1px",
                                             fontSize: "20px",
-                                            fontFamily: "Times new roman",
+                                            fontFamily: "Arial",
                                             fontWeight: "bold"
                                         }}
                                     >
@@ -2292,7 +2292,7 @@ const ExaminationProfile = ({ personId }) => {
                                             style={{
                                                 letterSpacing: "1px",
                                                 fontSize: "20px",
-                                                fontFamily: "Times new roman",
+                                                fontFamily: "Arial",
                                                 fontWeight: "bold"
                                             }}
                                         >
@@ -2377,7 +2377,7 @@ const ExaminationProfile = ({ personId }) => {
 
                             style={{
                                 borderCollapse: "collapse",
-                                fontFamily: "Arial, Helvetica, sans-serif",
+                                fontFamily: "Arial",
                                 width: "8in",
                                 margin: "0 auto",
                                 marginTop: "-20px",
@@ -3017,7 +3017,7 @@ const ExaminationProfile = ({ personId }) => {
                                         style={{
                                             letterSpacing: "1px",
                                             fontSize: "20px",
-                                            fontFamily: "Times New Roman",
+                                            fontFamily: "Arial",
                                             fontWeight: "bold"
                                         }}
                                     >
@@ -3029,7 +3029,7 @@ const ExaminationProfile = ({ personId }) => {
                                             style={{
                                                 letterSpacing: "1px",
                                                 fontSize: "20px",
-                                                fontFamily: "Times New Roman",
+                                                fontFamily: "Arial",
                                                 fontWeight: "bold"
                                             }}
                                         >
@@ -3076,7 +3076,7 @@ const ExaminationProfile = ({ personId }) => {
 
                             style={{
                                 borderCollapse: "collapse",
-                                fontFamily: "Arial, Helvetica, sans-serif",
+                                fontFamily: "Arial",
                                 width: "8in",
                                 margin: "0 auto",
 
@@ -3694,7 +3694,7 @@ const ExaminationProfile = ({ personId }) => {
                                         style={{
                                             letterSpacing: "1px",
                                             fontSize: "20px",
-                                            fontFamily: "Times New Roman",
+                                            fontFamily: "Arial",
                                             fontWeight: "bold"
                                         }}
                                     >
@@ -3706,7 +3706,7 @@ const ExaminationProfile = ({ personId }) => {
                                             style={{
                                                 letterSpacing: "1px",
                                                 fontSize: "20px",
-                                                fontFamily: "Times New Roman",
+                                                fontFamily: "Arial",
                                                 fontWeight: "bold"
                                             }}
                                         >
@@ -3753,7 +3753,7 @@ const ExaminationProfile = ({ personId }) => {
 
                             style={{
                                 borderCollapse: "collapse",
-                                fontFamily: "Arial, Helvetica, sans-serif",
+                                fontFamily: "Arial",
                                 width: "8in",
                                 margin: "0 auto",
                                 marginTop: "-20px",

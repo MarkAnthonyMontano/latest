@@ -115,6 +115,7 @@ const Login = ({ setIsAuthenticated }) => {
       localStorage.setItem("age", age);
       localStorage.setItem("academicProgram", response.academicProgram ?? "");
       localStorage.setItem("applyingAs", response.applyingAs ?? "");
+      localStorage.setItem("campus", response.campus ?? "");
       localStorage.setItem("applicantEmail", response.data.email);
 
       setIsAuthenticated(true);

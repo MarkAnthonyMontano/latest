@@ -595,7 +595,7 @@ const AdmissionFormProcess = () => {
           <table
             style={{
               borderCollapse: "collapse",
-              fontFamily: "Arial, Helvetica, sans-serif",
+              fontFamily: "Arial",
               width: "8in",
               margin: "0 auto",
 
@@ -1772,7 +1772,7 @@ const AdmissionFormProcess = () => {
           <table
             style={{
               borderCollapse: "collapse",
-              fontFamily: "Arial, Helvetica, sans-serif",
+              fontFamily: "Arial",
               width: "8in",
               margin: "0 auto",
 

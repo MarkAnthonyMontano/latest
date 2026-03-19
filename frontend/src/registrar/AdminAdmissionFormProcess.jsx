@@ -244,7 +244,7 @@ const AdminAdmissionFormProcess = () => {
     padding: 0;
     width: 210mm;
     height: 297mm;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
   }
 
   *, *::before, *::after {
@@ -555,7 +555,7 @@ const AdminAdmissionFormProcess = () => {
 
             style={{
               borderCollapse: "collapse",
-              fontFamily: "Arial, Helvetica, sans-serif",
+              fontFamily: "Arial",
               width: "8in",
               margin: "0 auto",
 
@@ -1317,7 +1317,7 @@ const AdminAdmissionFormProcess = () => {
 
             style={{
               borderCollapse: "collapse",
-              fontFamily: "Arial, Helvetica, sans-serif",
+              fontFamily: "Arial",
               width: "8in",
               margin: "0 auto",
 

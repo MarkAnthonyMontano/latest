@@ -1739,33 +1739,33 @@ const RegistrarDashboard1 = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 >
-                                      <MenuItem value="">
-                                                      <em>Select Applying</em>
-                                                    </MenuItem>
-                                                    <MenuItem value="1">
-                                                      Senior High School Graduate
-                                                    </MenuItem>
-                                                    <MenuItem value="2">
-                                                      Senior High School Graduating Student
-                                                    </MenuItem>
-                                                    <MenuItem value="3">
-                                                      ALS (Alternative Learning System) Passer
-                                                    </MenuItem>
-                                                    <MenuItem value="4">
-                                                      Transferee from other University/College
-                                                    </MenuItem>
-                                                    <MenuItem value="5">
-                                                      Cross Enrolee Student
-                                                    </MenuItem>
-                                                    <MenuItem value="6">
-                                                      Foreign Applicant/Student
-                                                    </MenuItem>
-                                                    <MenuItem value="7">
-                                                      Baccalaureate Graduate
-                                                    </MenuItem>
-                                                    <MenuItem value="8">
-                                                      Master Degree Graduate
-                                                    </MenuItem>
+                                    <MenuItem value="">
+                                        <em>Select Applying</em>
+                                    </MenuItem>
+                                    <MenuItem value="1">
+                                        Senior High School Graduate
+                                    </MenuItem>
+                                    <MenuItem value="2">
+                                        Senior High School Graduating Student
+                                    </MenuItem>
+                                    <MenuItem value="3">
+                                        ALS (Alternative Learning System) Passer
+                                    </MenuItem>
+                                    <MenuItem value="4">
+                                        Transferee from other University/College
+                                    </MenuItem>
+                                    <MenuItem value="5">
+                                        Cross Enrolee Student
+                                    </MenuItem>
+                                    <MenuItem value="6">
+                                        Foreign Applicant/Student
+                                    </MenuItem>
+                                    <MenuItem value="7">
+                                        Baccalaureate Graduate
+                                    </MenuItem>
+                                    <MenuItem value="8">
+                                        Master Degree Graduate
+                                    </MenuItem>
                                 </Select>
                                 {errors.applyingAs && (
                                     <FormHelperText>This field is required.</FormHelperText>

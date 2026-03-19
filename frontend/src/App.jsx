@@ -422,6 +422,9 @@ const OfficialStudentDashboard5 = lazy(
 const OfficialRequirements = lazy(
   () => import("./registrar/OfficialRequirements"),
 );
+const AdminBranches = lazy(
+  () => import("./superadmin/AdminBranches"),
+);
 
 const CourseTaggingForCollege = lazy(
   () => import("./registrar/CourseTaggingForCollege"),
@@ -657,10 +660,10 @@ function App() {
                         )}
 
                         <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-                          <span style={{ fontFamily: "Poppins", fontSize: "28px" }}>
+                          <span style={{ fontFamily: "Poppins, sans-serif", fontSize: "28px" }}>
                             {settings?.short_term || "SCHOOL NAME"} -
                           </span>{" "}
-                          <span style={{ fontFamily: "Poppins", fontSize: "24px" }}>
+                          <span style={{ fontFamily: "Poppins, sans-serif", fontSize: "24px" }}>
                             {settings?.company_name || "SCHOOL NAME"}
                           </span>
                         </Typography>
@@ -2291,6 +2294,15 @@ function App() {
                           </ProtectedRoute>
                         }
                       />
+                      <Route
+                        path="/admin_branches"
+                        element={
+                          <ProtectedRoute>
+                            <AdminBranches />
+                          </ProtectedRoute>
+                        }
+                      />
+
 
                     </Routes>
                   </main>

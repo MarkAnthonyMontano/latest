@@ -328,7 +328,7 @@ const ApplicantProfilePermit = ({ personId }) => {
                     className="student-table"
                     style={{
                         borderCollapse: "collapse",
-                        fontFamily: "Times New Roman",
+                        fontFamily: "Arial",
                         fontSize: "15px",
                         width: "8in",
                         margin: "0 auto",
@@ -631,7 +631,7 @@ const ApplicantProfilePermit = ({ personId }) => {
                     style={{
 
                         borderCollapse: "collapse",
-                        fontFamily: "Arial, Helvetica, sans-serif",
+                        fontFamily: "Arial",
                         width: "8in",
                         margin: "0 auto", // Center the table inside the form
                         textAlign: "center",
@@ -649,7 +649,7 @@ const ApplicantProfilePermit = ({ personId }) => {
                                     lineHeight: "1.6",
                                     textAlign: "left",
                                     fontSize: "14px",
-                                    fontFamily: "Arial, Helvetica, sans-serif",
+                                    fontFamily: "Arial",
                                 }}
                             >
                                 <strong>IMPORTANT REMINDERS FOR APPLICANTS:</strong>

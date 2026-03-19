@@ -84,11 +84,28 @@ const MedicalRequirements = () => {
     // ------------------------------------
     const [requirements, setRequirements] = useState([]);
 
-    useEffect(() => {
-        axios.get(`${API_BASE_URL}/api/requirements`)
-            .then((res) => setRequirements(res.data))
-            .catch((err) => console.error("Error loading requirements:", err));
-    }, []);
+   useEffect(() => {
+      axios.get(`${API_BASE_URL}/api/requirements`)
+        .then((res) => {
+          const allRequirements = res.data;
+  
+          if (selectedPerson) {
+            // Filter by applicant's applyingAs value OR applicant_type === 0
+            const filtered = allRequirements.filter(
+              (req) => Number(req.applicant_type) === Number(selectedPerson.applyingAs) || Number(req.applicant_type) === 0
+            );
+            
+            setRequirements(filtered);
+          } else {
+            // Default filter when no applicant is selected
+            const filtered = allRequirements.filter(
+              (req) => Number(req.applicant_type) === 1 || Number(req.applicant_type) === 0
+            );
+            setRequirements(filtered);
+          }
+        })
+        .catch((err) => console.error("Error loading requirements:", err));
+    }, [selectedPerson]);
     // -------------------------------------
 
     const [snackbar, setSnackbar] = useState({
@@ -869,15 +886,33 @@ const MedicalRequirements = () => {
                                 InputProps={{ sx: { height: 35 } }}
                                 inputProps={{ style: { padding: "4px 8px", fontSize: "12px" } }}
                             >
-                                <MenuItem value=""><em>Select Applying</em></MenuItem>
-                                <MenuItem value="Senior High School Graduate">Senior High School Graduate</MenuItem>
-                                <MenuItem value="Senior High School Graduating Student">Senior High School Graduating Student</MenuItem>
-                                <MenuItem value="ALS Passer">ALS (Alternative Learning System) Passer</MenuItem>
-                                <MenuItem value="Transferee">Transferee from other University/College</MenuItem>
-                                <MenuItem value="Cross Enrolee">Cross Enrolee Student</MenuItem>
-                                <MenuItem value="Foreign Student">Foreign Student/Student</MenuItem>
-                                <MenuItem value="Baccalaureate Graduate">Baccalaureate Graduate</MenuItem>
-                                <MenuItem value="Master Degree Graduate">Master Degree Graduate</MenuItem>
+                                <MenuItem value="">
+                                    <em>Select Applying</em>
+                                </MenuItem>
+                                <MenuItem value="1">
+                                    Senior High School Graduate
+                                </MenuItem>
+                                <MenuItem value="2">
+                                    Senior High School Graduating Student
+                                </MenuItem>
+                                <MenuItem value="3">
+                                    ALS (Alternative Learning System) Passer
+                                </MenuItem>
+                                <MenuItem value="4">
+                                    Transferee from other University/College
+                                </MenuItem>
+                                <MenuItem value="5">
+                                    Cross Enrolee Student
+                                </MenuItem>
+                                <MenuItem value="6">
+                                    Foreign Applicant/Student
+                                </MenuItem>
+                                <MenuItem value="7">
+                                    Baccalaureate Graduate
+                                </MenuItem>
+                                <MenuItem value="8">
+                                    Master Degree Graduate
+                                </MenuItem>
                             </TextField>
                         </Box>
 

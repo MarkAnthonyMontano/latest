@@ -98,6 +98,15 @@ const Register = () => {
   const [academicProgram, setAcademicProgram] = useState("");
   const [applyingAs, setApplyingAs] = useState("");
 
+  const [branches, setBranches] = useState([]);
+  const [branchId, setBranchId] = useState("");
+
+  useEffect(() => {
+    axios.get(`${API_BASE_URL}/auth/branches`)
+      .then(res => setBranches(res.data))
+      .catch(err => console.error(err));
+  }, []);
+
   const handleRegister = async () => {
     if (isSubmitting) return;
 
@@ -137,6 +146,7 @@ const Register = () => {
     try {
       await axios.post(`${API_BASE_URL}/auth/request-otp`, {
         email: usersData.email,
+        campus: branchId
       });
 
       setTempEmail(usersData.email);
@@ -208,6 +218,7 @@ const Register = () => {
     try {
       const response = await axios.post(`${API_BASE_URL}/auth/register`, {
         ...usersData,
+        campus: branchId,
         lastName,
         firstName,
         middleName,
@@ -249,6 +260,36 @@ const Register = () => {
   const [registrationOpen, setRegistrationOpen] = useState(true);
   const [openClosedDialog, setOpenClosedDialog] = useState(false);
 
+  const [openBranchDialog, setOpenBranchDialog] = useState(false);
+
+  const handleBranchSelect = (e) => {
+    const selectedId = e.target.value;
+
+    const selectedBranch = branches.find(
+      (b) => b.branch_id.toString() === selectedId
+    );
+
+    if (!selectedBranch) return;
+
+    let isOpen = selectedBranch.registration_open === 1;
+
+    if (selectedBranch.start_date && selectedBranch.end_date) {
+      const now = new Date();
+      isOpen =
+        now >= new Date(selectedBranch.start_date) &&
+        now <= new Date(selectedBranch.end_date);
+    }
+
+    // ✅ ALWAYS set branch first
+    setBranchId(selectedId);
+
+    // ❌ THEN check
+    if (!isOpen) {
+      setOpenBranchDialog(true);
+    }
+  };
+
+
   useEffect(() => {
     const fetchRegistrationStatus = async () => {
       try {
@@ -270,6 +311,15 @@ const Register = () => {
   const handleKeyDownRegister = (e) => {
     if (e.key === "Enter" && !isSubmitting) {
       handleRegister();
+
+      if (!branchId) {
+        setSnack({
+          open: true,
+          message: "Please select a branch!",
+          severity: "warning",
+        });
+        return;
+      }
     }
   };
 
@@ -357,6 +407,28 @@ const Register = () => {
             </div>
 
             <div className="Body">
+
+              <div className="TextField">
+                <label>Select Branch</label>
+                <select
+                  value={branchId}
+                  onChange={handleBranchSelect}
+                  className="border"
+                  required
+                  style={{
+                    height: "45px",
+                    border: `2px solid ${borderColor}`,
+                    width: "100%",
+                  }}
+                >
+                  <option value="">Select Branch</option>
+                  {branches.map((b) => (
+                    <option key={b.branch_id} value={b.branch_id}>
+                      {b.branch_name} {b.registration_open === 0 ? " (Closed)" : ""}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
               <div className="TextField" style={{ position: "relative" }}>
                 <label>Last Name</label>
@@ -456,10 +528,12 @@ const Register = () => {
                 />
               </div>
 
+
+
               <div className="TextField" style={{ position: "relative" }}>
                 <label>Academic Program</label>
                 <select
-                required
+                  required
                   value={academicProgram}
                   onChange={(e) => setAcademicProgram(e.target.value)}
                   className="border"
@@ -481,7 +555,7 @@ const Register = () => {
               <div className="TextField" style={{ position: "relative" }}>
                 <label>Applying As</label>
                 <select
-                required
+                  required
                   value={applyingAs}
                   onChange={(e) => setApplyingAs(e.target.value)}
                   className="border"
@@ -509,7 +583,7 @@ const Register = () => {
               <div className="TextField" style={{ position: "relative" }}>
                 <label htmlFor="email">Email Address</label>
                 <input
-                required
+                  required
                   type="email"
                   className="border"
                   id="email"
@@ -860,6 +934,41 @@ const Register = () => {
               onClick={() => navigate("/login_applicant")}
             >
               Go to Login
+            </Button>
+          </DialogActions>
+        </Dialog>
+
+        <Dialog
+          open={openBranchDialog}
+          onClose={() => setOpenBranchDialog(false)}
+          maxWidth="xs"
+          fullWidth
+        >
+          <DialogTitle sx={{ textAlign: "center", fontWeight: "bold" }}>
+            📢 Admissions Not Yet Open
+          </DialogTitle>
+
+          <DialogContent>
+            <Typography sx={{ textAlign: "center", mt: 1 }}>
+              This branch is currently not accepting applications.
+            </Typography>
+
+            <Typography sx={{ textAlign: "center", mt: 2 }}>
+              Please stay tuned and wait for the official announcement on our
+              <strong> Facebook Admissions Page.</strong>
+            </Typography>
+
+            <Typography sx={{ textAlign: "center", mt: 2, fontWeight: "bold" }}>
+              Thank you for your patience!
+            </Typography>
+          </DialogContent>
+
+          <DialogActions sx={{ justifyContent: "center", pb: 2 }}>
+            <Button
+              variant="contained"
+              onClick={() => setOpenBranchDialog(false)}
+            >
+              Okay
             </Button>
           </DialogActions>
         </Dialog>

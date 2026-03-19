@@ -42,39 +42,39 @@ import CampaignIcon from '@mui/icons-material/Campaign';
 import ScoreIcon from '@mui/icons-material/Score';
 
 const tabs = [
-   {
-      label: "Admission Process for Registrar",
-      to: "/applicant_list_admin",
-      icon: <SchoolIcon fontSize="large" />,
-    },
-    {
-      label: "Applicant Form",
-      to: "/admin_dashboard1",
-      icon: <DashboardIcon fontSize="large" />,
-    },
-    {
-      label: "Student Requirements",
-      to: "/student_requirements",
-      icon: <AssignmentIcon fontSize="large" />,
-    },
-    {
-      label: "Entrance Exam Schedule Management",
-      to: "/assign_schedule_applicant",
-      icon: <ScheduleIcon fontSize="large" />,
-    },
+  {
+    label: "Admission Process for Registrar",
+    to: "/applicant_list_admin",
+    icon: <SchoolIcon fontSize="large" />,
+  },
+  {
+    label: "Applicant Form",
+    to: "/admin_dashboard1",
+    icon: <DashboardIcon fontSize="large" />,
+  },
+  {
+    label: "Student Requirements",
+    to: "/student_requirements",
+    icon: <AssignmentIcon fontSize="large" />,
+  },
+  {
+    label: "Entrance Exam Schedule Management",
+    to: "/assign_schedule_applicant",
+    icon: <ScheduleIcon fontSize="large" />,
+  },
 
-    {
-      label: "Examination Permit",
-      to: "/registrar_examination_profile",
-      icon: <PersonSearchIcon fontSize="large" />,
-    },
+  {
+    label: "Examination Permit",
+    to: "/registrar_examination_profile",
+    icon: <PersonSearchIcon fontSize="large" />,
+  },
 
 
-    {
-      label: "Entrance Examination Score",
-      to: "/applicant_scoring",
-      icon: <ScoreIcon fontSize="large" />,
-    },
+  {
+    label: "Entrance Examination Score",
+    to: "/applicant_scoring",
+    icon: <ScoreIcon fontSize="large" />,
+  },
 ];
 
 
@@ -87,11 +87,6 @@ const StudentRequirements = () => {
   // ------------------------------------
   const [requirements, setRequirements] = useState([]);
 
-  useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/requirements`)
-      .then((res) => setRequirements(res.data))
-      .catch((err) => console.error("Error loading requirements:", err));
-  }, []);
   // -------------------------------------
 
 
@@ -124,8 +119,6 @@ const StudentRequirements = () => {
       console.error("❌ person_with_applicant failed:", err);
     }
   };
-
-
 
   const handleStepClick = (index, to) => {
     setActiveStep(index);
@@ -162,7 +155,28 @@ const StudentRequirements = () => {
     extension: "",
     applicant_number: "",
   });
+  useEffect(() => {
+    axios.get(`${API_BASE_URL}/api/requirements`)
+      .then((res) => {
+        const allRequirements = res.data;
 
+        if (selectedPerson) {
+          // Filter by applicant's applyingAs value OR applicant_type === 0
+          const filtered = allRequirements.filter(
+            (req) => Number(req.applicant_type) === Number(selectedPerson.applyingAs) || Number(req.applicant_type) === 0
+          );
+          
+          setRequirements(filtered);
+        } else {
+          // Default filter when no applicant is selected
+          const filtered = allRequirements.filter(
+            (req) => Number(req.applicant_type) === 1 || Number(req.applicant_type) === 0
+          );
+          setRequirements(filtered);
+        }
+      })
+      .catch((err) => console.error("Error loading requirements:", err));
+  }, [selectedPerson]);
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const personIdFromUrl = queryParams.get("person_id");
@@ -662,9 +676,9 @@ const StudentRequirements = () => {
 
 
 
- const renderRow = (doc) => {
-  const uploaded = uploads.find((u) => u.description === doc.label);
-  const uploadId = uploaded?.upload_id;
+  const renderRow = (doc) => {
+    const uploaded = uploads.find((u) => u.description === doc.label);
+    const uploadId = uploaded?.upload_id;
 
     const buttonStyle = {
       minWidth: 120,
@@ -685,7 +699,7 @@ const StudentRequirements = () => {
 
           {doc.label}
           {Number(doc.is_optional) === 1 && (
-               <span style={{ marginLeft: 2 }}>
+            <span style={{ marginLeft: 2 }}>
               (Optional)
             </span>
           )}
@@ -1155,15 +1169,33 @@ const StudentRequirements = () => {
                 inputProps={{ style: { padding: "4px 8px", fontSize: "12px" } }}
               >
 
-                <MenuItem value=""><em>Select Applying</em></MenuItem>
-                <MenuItem value="Senior High School Graduate">Senior High School Graduate</MenuItem>
-                <MenuItem value="Senior High School Graduating Student">Senior High School Graduating Student</MenuItem>
-                <MenuItem value="ALS Passer">ALS (Alternative Learning System) Passer</MenuItem>
-                <MenuItem value="Transferee">Transferee from other University/College</MenuItem>
-                <MenuItem value="Cross Enrolee">Cross Enrolee Student</MenuItem>
-                <MenuItem value="Foreign Applicant">Foreign Applicant/Student</MenuItem>
-                <MenuItem value="Baccalaureate Graduate">Baccalaureate Graduate</MenuItem>
-                <MenuItem value="Master Degree Graduate">Master Degree Graduate</MenuItem>
+                <MenuItem value="">
+                  <em>Select Applying</em>
+                </MenuItem>
+                <MenuItem value="1">
+                  Senior High School Graduate
+                </MenuItem>
+                <MenuItem value="2">
+                  Senior High School Graduating Student
+                </MenuItem>
+                <MenuItem value="3">
+                  ALS (Alternative Learning System) Passer
+                </MenuItem>
+                <MenuItem value="4">
+                  Transferee from other University/College
+                </MenuItem>
+                <MenuItem value="5">
+                  Cross Enrolee Student
+                </MenuItem>
+                <MenuItem value="6">
+                  Foreign Applicant/Student
+                </MenuItem>
+                <MenuItem value="7">
+                  Baccalaureate Graduate
+                </MenuItem>
+                <MenuItem value="8">
+                  Master Degree Graduate
+                </MenuItem>
               </TextField>
             </Box>
 
@@ -1494,10 +1526,7 @@ const StudentRequirements = () => {
             </Button>
           </DialogActions>
         </Dialog>
-
       </>
-
-
     </Box >
   );
 };

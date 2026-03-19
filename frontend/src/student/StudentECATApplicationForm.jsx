@@ -234,7 +234,7 @@ const StudentECATApplicationForm = () => {
         margin: 0;
         margin-top: -115px;
         padding: 0;
-        font-family: Arial, sans-serif;
+        font-family: Arial;
         width: auto;
         height: auto;
         overflow: visible;
@@ -297,25 +297,7 @@ const StudentECATApplicationForm = () => {
       (person?.program ?? "");
   }
 
-  // 🔒 Disable right-click
-  document.addEventListener("contextmenu", (e) => e.preventDefault());
 
-  // 🔒 Block DevTools shortcuts + Ctrl+P silently
-  document.addEventListener("keydown", (e) => {
-    const isBlockedKey =
-      e.key === "F12" || // DevTools
-      e.key === "F11" || // Fullscreen
-      (e.ctrlKey &&
-        e.shiftKey &&
-        (e.key.toLowerCase() === "i" || e.key.toLowerCase() === "j")) || // Ctrl+Shift+I/J
-      (e.ctrlKey && e.key.toLowerCase() === "u") || // Ctrl+U (View Source)
-      (e.ctrlKey && e.key.toLowerCase() === "p"); // Ctrl+P (Print)
-
-    if (isBlockedKey) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  });
 
   return (
     <Box
@@ -404,7 +386,7 @@ const StudentECATApplicationForm = () => {
           className="student-table"
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -468,7 +450,7 @@ const StudentECATApplicationForm = () => {
                             fontSize: "14px",
                             letterSpacing: "1px",
                             marginLeft: "-60px",
-                            fontFamily: "Times new roman",
+                            fontFamily: "Arial",
                           }}
                         >
                           <b>{firstLine}</b>
@@ -479,7 +461,7 @@ const StudentECATApplicationForm = () => {
                               fontSize: "14px",
                               letterSpacing: "1px",
                               marginLeft: "-60px",
-                              fontFamily: "Times new roman",
+                              fontFamily: "Arial",
                             }}
                           >
                             <b>{secondLine}</b>
@@ -530,7 +512,7 @@ const StudentECATApplicationForm = () => {
                   style={{
                     width: "100%",
                     borderCollapse: "collapse",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     textAlign: "Left",
                     fontSize: "11px",
                   }}
@@ -610,7 +592,7 @@ const StudentECATApplicationForm = () => {
         <table
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -671,7 +653,7 @@ const StudentECATApplicationForm = () => {
                 <div>Course & Major:</div>
                 <div
                   style={{
-                    fontFamily: "Times New Roman",
+                    fontFamily: "Arial",
                     fontSize: "14px",
                     paddingTop: "2px",
                     fontWeight: "Normal",
@@ -700,7 +682,7 @@ const StudentECATApplicationForm = () => {
         <table
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -715,7 +697,7 @@ const StudentECATApplicationForm = () => {
                   style={{
                     fontWeight: "bold",
                     fontSize: "12px",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     marginBottom: "4px",
                     textAlign: "left",
                   }}
@@ -730,7 +712,7 @@ const StudentECATApplicationForm = () => {
                     flexDirection: "column",
                     gap: "5px",
                     fontSize: "12px",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                   }}
                 >
                   {/* Row 1 */}
@@ -752,7 +734,7 @@ const StudentECATApplicationForm = () => {
                           width: "150px",
                           marginLeft: "10px",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -782,7 +764,7 @@ const StudentECATApplicationForm = () => {
                           marginLeft: "15px",
                           textAlign: "center",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -809,7 +791,7 @@ const StudentECATApplicationForm = () => {
                           width: "150px",
                           marginLeft: "10px",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -825,7 +807,7 @@ const StudentECATApplicationForm = () => {
         <table
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -847,7 +829,7 @@ const StudentECATApplicationForm = () => {
                   <b
                     style={{
                       color: "black",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "15px",
                       textAlign: "center",
                       display: "block",
@@ -870,7 +852,7 @@ const StudentECATApplicationForm = () => {
             {/* Name */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -939,7 +921,7 @@ const StudentECATApplicationForm = () => {
               <td
                 colSpan={40}
                 style={{
-                  fontFamily: "Times New Roman",
+                  fontFamily: "Arial",
                   fontSize: "14px",
                   paddingTop: "2px",
                 }}
@@ -973,7 +955,7 @@ const StudentECATApplicationForm = () => {
 
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1037,7 +1019,7 @@ const StudentECATApplicationForm = () => {
 
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1093,7 +1075,7 @@ const StudentECATApplicationForm = () => {
             {/* Contact */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1127,7 +1109,7 @@ const StudentECATApplicationForm = () => {
             {/* Permanent Address */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1201,7 +1183,7 @@ const StudentECATApplicationForm = () => {
               <td
                 colSpan={40}
                 style={{
-                  fontFamily: "Times New Roman",
+                  fontFamily: "Arial",
                   fontSize: "14px",
                   paddingTop: "2px",
                 }}
@@ -1236,7 +1218,7 @@ const StudentECATApplicationForm = () => {
             {/* Residence */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1253,7 +1235,7 @@ const StudentECATApplicationForm = () => {
             {/* Indigenous Group */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1309,7 +1291,7 @@ const StudentECATApplicationForm = () => {
         <table
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -1331,7 +1313,7 @@ const StudentECATApplicationForm = () => {
                   <b
                     style={{
                       color: "black",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "15px",
                       textAlign: "center",
                       display: "block",
@@ -1348,7 +1330,7 @@ const StudentECATApplicationForm = () => {
             {/* ================= FATHER ================= */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1363,7 +1345,7 @@ const StudentECATApplicationForm = () => {
                       flex: 1,
                       borderBottom: "1px solid black",
                       minHeight: "18px",
-                      fontFamily: "Times New Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -1380,7 +1362,7 @@ const StudentECATApplicationForm = () => {
 
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1433,7 +1415,7 @@ const StudentECATApplicationForm = () => {
             {/* ================= MOTHER ================= */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1448,7 +1430,7 @@ const StudentECATApplicationForm = () => {
                       flex: 1,
                       borderBottom: "1px solid black",
                       minHeight: "18px",
-                      fontFamily: "Times New Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -1465,7 +1447,7 @@ const StudentECATApplicationForm = () => {
 
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1518,7 +1500,7 @@ const StudentECATApplicationForm = () => {
             {/* ================= GUARDIAN ================= */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1538,7 +1520,7 @@ const StudentECATApplicationForm = () => {
                       flex: 1,
                       borderBottom: "1px solid black",
                       minHeight: "18px",
-                      fontFamily: "Times New Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -1561,7 +1543,7 @@ const StudentECATApplicationForm = () => {
 
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1614,7 +1596,7 @@ const StudentECATApplicationForm = () => {
         <table
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -1636,7 +1618,7 @@ const StudentECATApplicationForm = () => {
                   <b
                     style={{
                       color: "black",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "15px",
                       textAlign: "center",
                       display: "block",
@@ -1657,7 +1639,7 @@ const StudentECATApplicationForm = () => {
             {/* Line 1 */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1673,7 +1655,7 @@ const StudentECATApplicationForm = () => {
             {/* Line 2 */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1692,7 +1674,7 @@ const StudentECATApplicationForm = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontFamily: "Arial, sans-serif",
+                      fontFamily: "Arial",
                       fontSize: "12px",
                     }}
                   >
@@ -1704,7 +1686,7 @@ const StudentECATApplicationForm = () => {
 
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1718,7 +1700,7 @@ const StudentECATApplicationForm = () => {
                     width: "231px",
                     marginLeft: "10px",
                     textAlign: "center",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     fontSize: "12px",
                   }}
                 >
@@ -1732,7 +1714,7 @@ const StudentECATApplicationForm = () => {
                     width: "268px",
                     marginLeft: "10px",
                     textAlign: "center",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     fontSize: "12px",
                   }}
                 >
@@ -1744,7 +1726,7 @@ const StudentECATApplicationForm = () => {
             {/* Line 4 */}
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1759,7 +1741,7 @@ const StudentECATApplicationForm = () => {
 
             <tr
               style={{
-                fontFamily: "Times New Roman",
+                fontFamily: "Arial",
                 fontSize: "12px",
                 textAlign: "left",
               }}
@@ -1821,7 +1803,7 @@ const StudentECATApplicationForm = () => {
           style={{
             border: "2px solid black",
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -1843,7 +1825,7 @@ const StudentECATApplicationForm = () => {
                   <b
                     style={{
                       color: "black",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "15px",
                       textAlign: "center",
                       display: "block",
@@ -1887,7 +1869,7 @@ const StudentECATApplicationForm = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     padding: "20px 40px 0 40px",
-                    fontFamily: "Times New Roman",
+                    fontFamily: "Arial",
                     fontSize: "14px",
                   }}
                 >
@@ -1935,7 +1917,7 @@ const StudentECATApplicationForm = () => {
         <table
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",

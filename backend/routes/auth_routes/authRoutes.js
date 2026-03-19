@@ -107,6 +107,9 @@ router.post("/register", async (req, res) => {
   const normalizedEmail = email?.trim().toLowerCase();
 
   // 🔍 Check if applicant already exists by name + birthday
+
+
+
   const [existingPerson] = await db.query(
     `SELECT person_id 
    FROM person_table
@@ -165,6 +168,8 @@ router.post("/register", async (req, res) => {
     }
   }
 
+
+
   if (existingPerson.length > 0) {
     await insertAuditLog({
       actorId: normalizedEmail || "unknown",
@@ -182,6 +187,45 @@ router.post("/register", async (req, res) => {
   }
 
   if (!normalizedEmail || !password) {
+    return res.json({ success: false, message: "Please fill up all required fields" });
+  }
+
+  // ✅ CHECK BRANCH REGISTRATION FIRST
+  const [branchCheck] = await db.query(
+    "SELECT registration_open, start_date, end_date FROM branches WHERE branch_id = ?",
+    [campus]
+  );
+
+  if (branchCheck.length === 0) {
+    return res.status(400).json({
+      success: false,
+      message: "Invalid branch selected"
+    });
+  }
+
+  const branch = branchCheck[0];
+  const nowDate = new Date(); // ⚠️ rename (you already used "now" later)
+
+  let isOpen = branch.registration_open;
+
+  if (branch.start_date && branch.end_date) {
+    isOpen =
+      nowDate >= new Date(branch.start_date) &&
+      nowDate <= new Date(branch.end_date);
+  }
+
+  if (!isOpen) {
+    return res.status(400).json({
+      success: false,
+      message: "Registration is closed for this branch"
+    });
+  }
+
+  // ⭐⭐⭐ THEN OTP VALIDATION
+  const stored = otpStore[normalizedEmail];
+  const now = Date.now();
+
+  if (!normalizedEmail || !password) {
     await insertAuditLog({
       actorId: normalizedEmail || "unknown",
       role: "applicant",
@@ -193,10 +237,6 @@ router.post("/register", async (req, res) => {
     });
     return res.json({ success: false, message: "Please fill up all required fields" });
   }
-
-  // ⭐⭐⭐ OTP VALIDATION ⭐⭐⭐
-  const stored = otpStore[normalizedEmail];
-  const now = Date.now();
 
   if (!stored) {
     await insertAuditLog({
@@ -272,24 +312,24 @@ router.post("/register", async (req, res) => {
     // ⭐⭐⭐ FIX: STORE EMAIL INTO person_table.emailAddress ⭐⭐⭐
     const age = calculateAge(birthday);
 
- const [personResult] = await db.query(
-  `INSERT INTO person_table 
+    const [personResult] = await db.query(
+      `INSERT INTO person_table 
 (campus, emailAddress, first_name, middle_name, last_name, birthOfDate, age, academicProgram, applyingAs, termsOfAgreement, current_step)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-  [
-    campus,
-    normalizedEmail,
-    firstName.trim(),
-    middleName?.trim() || null,
-    lastName.trim(),
-    birthday,
-    age,
-    academicProgram,
-    applyingAs,   // ✅ NOW MATCHES
-    0,            // termsOfAgreement
-    1             // current_step
-  ]
-);
+      [
+        campus,
+        normalizedEmail,
+        firstName.trim(),
+        middleName?.trim() || null,
+        lastName.trim(),
+        birthday,
+        age,
+        academicProgram,
+        applyingAs,   // ✅ NOW MATCHES
+        0,            // termsOfAgreement
+        1             // current_step
+      ]
+    );
 
     person_id = personResult.insertId;
 
@@ -402,6 +442,71 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       message: "Internal Server Error",
       error: error.message
     });
+  }
+});
+
+router.get("/branches", async (req, res) => {
+  try {
+    const [branches] = await db.query(`
+      SELECT branch_id, branch_name, registration_open, start_date, end_date
+      FROM branches
+    `);
+
+    res.json(branches);
+  } catch (err) {
+    res.status(500).json({ message: "Error fetching branches" });
+  }
+});
+
+router.put("/branches/:id", async (req, res) => {
+  const { id } = req.params;
+  const { registration_open, start_date, end_date } = req.body;
+
+  try {
+    await db.query(
+      `UPDATE branches 
+       SET registration_open = ?, start_date = ?, end_date = ?
+       WHERE branch_id = ?`,
+      [registration_open, start_date, end_date, id]
+    );
+
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ message: "Update failed" });
+  }
+});
+
+router.get("/registration-status/:branch_id", async (req, res) => {
+  const { branch_id } = req.params;
+
+  try {
+    const [rows] = await db.query(
+      `SELECT registration_open, start_date, end_date 
+       FROM branches 
+       WHERE branch_id = ?`,
+      [branch_id]
+    );
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: "Branch not found" });
+    }
+
+    const branch = rows[0];
+    const now = new Date();
+
+    let isOpen = branch.registration_open;
+
+    // OPTIONAL: apply schedule restriction
+    if (branch.start_date && branch.end_date) {
+      isOpen = now >= new Date(branch.start_date) && now <= new Date(branch.end_date);
+    }
+
+    res.json({
+      registration_open: isOpen
+    });
+
+  } catch (err) {
+    res.status(500).json({ message: "Error checking registration" });
   }
 });
 

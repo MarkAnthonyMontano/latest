@@ -250,25 +250,7 @@ const StudentAdmissionServices = () => {
     }
   };
 
-  // 🔒 Disable right-click
-  document.addEventListener("contextmenu", (e) => e.preventDefault());
-
-  // 🔒 Block DevTools shortcuts + Ctrl+P silently
-  document.addEventListener("keydown", (e) => {
-    const isBlockedKey =
-      e.key === "F12" || // DevTools
-      e.key === "F11" || // Fullscreen
-      (e.ctrlKey &&
-        e.shiftKey &&
-        (e.key.toLowerCase() === "i" || e.key.toLowerCase() === "j")) || // Ctrl+Shift+I/J
-      (e.ctrlKey && e.key.toLowerCase() === "u") || // Ctrl+U (View Source)
-      (e.ctrlKey && e.key.toLowerCase() === "p"); // Ctrl+P (Print)
-
-    if (isBlockedKey) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  });
+  
 
   return (
     <Box
@@ -410,7 +392,7 @@ const StudentAdmissionServices = () => {
                           marginLeft: "-145px",
                           fontSize: "15px",
                           letterSpacing: "2px",
-                          fontFamily: "Times new roman",
+                          fontFamily: "Arial",
                         }}
                       >
                         <b>{firstLine}</b>
@@ -422,7 +404,7 @@ const StudentAdmissionServices = () => {
                             marginLeft: "-145px",
                             fontSize: "15px",
                             letterSpacing: "2px",
-                            fontFamily: "Times new roman",
+                            fontFamily: "Arial",
                           }}
                         >
                           <b>{secondLine}</b>
@@ -473,7 +455,7 @@ const StudentAdmissionServices = () => {
               <table
                 style={{
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, Helvetica, sans-serif",
+                  fontFamily: "Arial",
                   width: "8in",
                   margin: "0 auto",
                   textAlign: "center",
@@ -501,7 +483,7 @@ const StudentAdmissionServices = () => {
               <table
                 style={{
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, Helvetica, sans-serif",
+                  fontFamily: "Arial",
                   width: "8in",
                   margin: "20px auto 0 auto",
                   textAlign: "left",
@@ -535,7 +517,7 @@ const StudentAdmissionServices = () => {
               <table
                 style={{
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, Helvetica, sans-serif",
+                  fontFamily: "Arial",
                   width: "8in",
                   margin: "20px auto 0 auto",
                   textAlign: "left",
@@ -604,7 +586,7 @@ const StudentAdmissionServices = () => {
               <table
                 style={{
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, Helvetica, sans-serif",
+                  fontFamily: "Arial",
                   width: "8in",
                   margin: "20px auto 0 auto",
                   textAlign: "left",
@@ -634,7 +616,7 @@ const StudentAdmissionServices = () => {
               <table
                 style={{
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, Helvetica, sans-serif",
+                  fontFamily: "Arial",
                   width: "8in",
                   margin: "20px auto",
                   textAlign: "left",
@@ -685,7 +667,7 @@ const StudentAdmissionServices = () => {
               <table
                 style={{
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, Helvetica, sans-serif",
+                  fontFamily: "Arial",
                   width: "8in",
                   margin: "0 auto",
                   textAlign: "left",
@@ -847,7 +829,7 @@ const StudentAdmissionServices = () => {
               <table
                 style={{
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, Helvetica, sans-serif",
+                  fontFamily: "Arial",
                   width: "8in",
                   margin: "0 auto",
                   textAlign: "center",
@@ -875,7 +857,7 @@ const StudentAdmissionServices = () => {
               <table
                 style={{
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, Helvetica, sans-serif",
+                  fontFamily: "Arial",
                   width: "8in",
                   margin: "0 auto",
                   textAlign: "center",
@@ -900,7 +882,7 @@ const StudentAdmissionServices = () => {
                         border: "1px solid black",
                         padding: "8px",
                         textAlign: "center",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                         fontSize: "14px",
                         verticalAlign: "middle",
                       }}
@@ -932,7 +914,7 @@ const StudentAdmissionServices = () => {
                         border: "1px solid black",
                         padding: "8px",
                         textAlign: "center",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                         fontSize: "14px",
                         verticalAlign: "middle",
                       }}
@@ -965,7 +947,7 @@ const StudentAdmissionServices = () => {
                         border: "1px solid black",
                         padding: "8px",
                         textAlign: "center",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                         fontSize: "14px",
                         verticalAlign: "middle",
                       }}
@@ -995,7 +977,7 @@ const StudentAdmissionServices = () => {
                         border: "1px solid black",
                         padding: "8px",
                         textAlign: "center",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                         fontSize: "14px",
                         verticalAlign: "middle",
                       }}
@@ -1029,7 +1011,7 @@ const StudentAdmissionServices = () => {
                         border: "1px solid black",
                         padding: "8px",
                         textAlign: "center",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                         fontSize: "14px",
                         verticalAlign: "middle",
                       }}
@@ -1061,7 +1043,7 @@ const StudentAdmissionServices = () => {
                         border: "1px solid black",
                         padding: "8px",
                         textAlign: "center",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                         fontSize: "12px",
                         verticalAlign: "middle",
                       }}
@@ -1094,7 +1076,7 @@ const StudentAdmissionServices = () => {
                         padding: "8px",
 
                         fontSize: "12px",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                       }}
                     >
                       SQD0. I am satisfied with the service that I availed.
@@ -1161,7 +1143,7 @@ const StudentAdmissionServices = () => {
                         padding: "8px",
 
                         fontSize: "11px",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                       }}
                     >
                       SQD1. I spent a reasonable amount of time for my
@@ -1296,7 +1278,7 @@ const StudentAdmissionServices = () => {
                         padding: "8px",
 
                         fontSize: "11px",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                       }}
                     >
                       SQD3. The steps (including payment) I needed to do for my
@@ -1363,7 +1345,7 @@ const StudentAdmissionServices = () => {
                         textAlign: "left",
                         padding: "8px",
 
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                         fontSize: "11px",
                       }}
                     >
@@ -1432,7 +1414,7 @@ const StudentAdmissionServices = () => {
                         padding: "8px",
 
                         fontSize: "11px",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                       }}
                     >
                       SQD5. I paid reasonable amount of fees for my transaction.
@@ -1500,7 +1482,7 @@ const StudentAdmissionServices = () => {
                         padding: "8px",
 
                         fontSize: "11px",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                       }}
                     >
                       SQD6. I feel the office was fair to everyone, or "walang
@@ -1568,7 +1550,7 @@ const StudentAdmissionServices = () => {
                         padding: "8px",
 
                         fontSize: "11px",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                       }}
                     >
                       SQD7. I was treated courteously by the staff, and (if
@@ -1636,7 +1618,7 @@ const StudentAdmissionServices = () => {
                         padding: "8px",
 
                         fontSize: "11px",
-                        fontFamily: "Arial, sans-serif",
+                        fontFamily: "Arial",
                       }}
                     >
                       SQD8. I got what I needed from the government office, or

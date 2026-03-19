@@ -221,7 +221,7 @@ const OfficeOfTheRegistrar = () => {
     padding: 0;
     width: 210mm;
     height: 297mm;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
   }
 
   *, *::before, *::after {
@@ -382,7 +382,7 @@ const OfficeOfTheRegistrar = () => {
                                 width: "8in", // matches table width assuming 8in for 40 columns
                                 maxWidth: "100%",
                                 margin: "0 auto", // center the content
-                                fontFamily: "Times New Roman",
+                                fontFamily: "Arial",
                                 boxSizing: "border-box",
 
                                 padding: "5px", // reduced horizontal padding
@@ -432,7 +432,7 @@ const OfficeOfTheRegistrar = () => {
                                     <div
                                         style={{
                                             marginLeft: "-155px",
-                                            fontFamily: "Times new roman",
+                                            fontFamily: "Arial",
                                             fontWeight: "bold",
                                             fontSize: "16px",
                                             letterSpacing: "2px",
@@ -444,7 +444,7 @@ const OfficeOfTheRegistrar = () => {
                                         <div
                                             style={{
                                                 marginLeft: "-155px",
-                                                fontFamily: "Times new roman",
+                                                fontFamily: "Arial",
                                                 fontWeight: "bold",
                                                 fontSize: "16px",
                                                 letterSpacing: "2px",
@@ -468,7 +468,7 @@ const OfficeOfTheRegistrar = () => {
                                         marginTop: "5px",
 
                                         marginLeft: "-145px",
-                                        fontFamily: "Times new roman",
+                                        fontFamily: "Arial",
                                         textAlign: "center",
                                     }}>
                                         OFFICE OF THE REGISTRAR<br />
@@ -486,7 +486,7 @@ const OfficeOfTheRegistrar = () => {
 
                         style={{
                             borderCollapse: "collapse",
-                            fontFamily: "Arial, Helvetica, sans-serif",
+                            fontFamily: "Arial",
                             width: "8in",
                             marginTop: "-90px",
                             margin: "0 auto",
@@ -502,7 +502,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={23}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: -10,
@@ -519,7 +519,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "14px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: -10,
@@ -533,7 +533,7 @@ const OfficeOfTheRegistrar = () => {
                                     style={{
                                         border: "1px solid black",
                                         textAlign: "left",
-                                        fontFamily: "Times new Roman",
+                                        fontFamily: "Arial",
                                         fontWeight: "bold",
                                         fontSize: "14px",
                                         verticalAlign: "top"
@@ -552,7 +552,7 @@ const OfficeOfTheRegistrar = () => {
                                             textAlign: "center",
                                             outline: "none",
                                             fontSize: "12px",
-                                            fontFamily: "Times new Roman",
+                                            fontFamily: "Arial",
 
                                         }}
                                     />
@@ -566,7 +566,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "14px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -581,7 +581,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -601,7 +601,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -618,7 +618,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "14px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -634,7 +634,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         fontWeight: "bold",
@@ -654,7 +654,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -672,7 +672,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -687,7 +687,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         fontWeight: "bold",
@@ -710,7 +710,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -740,7 +740,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -754,7 +754,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -779,7 +779,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -798,7 +798,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -813,7 +813,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -833,7 +833,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={10}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -854,7 +854,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={40}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -876,7 +876,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -892,7 +892,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -910,7 +910,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -927,7 +927,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "14px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -943,7 +943,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -963,7 +963,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -979,7 +979,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -998,7 +998,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1015,7 +1015,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1030,7 +1030,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1049,7 +1049,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1065,7 +1065,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1083,7 +1083,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1100,7 +1100,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1115,7 +1115,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1133,7 +1133,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1149,7 +1149,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1173,7 +1173,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1190,7 +1190,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "14px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1206,7 +1206,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1225,7 +1225,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1241,7 +1241,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1265,7 +1265,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1281,7 +1281,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1296,7 +1296,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1318,7 +1318,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1334,7 +1334,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1354,7 +1354,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1370,7 +1370,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1385,7 +1385,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1406,7 +1406,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1422,7 +1422,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1441,7 +1441,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1458,7 +1458,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "14px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1471,7 +1471,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1493,7 +1493,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1509,7 +1509,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1544,7 +1544,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1561,7 +1561,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1582,7 +1582,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1598,7 +1598,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1617,7 +1617,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1634,7 +1634,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1655,7 +1655,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1670,7 +1670,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1693,7 +1693,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1710,7 +1710,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1730,7 +1730,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1746,7 +1746,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1765,7 +1765,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1782,7 +1782,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
@@ -1803,7 +1803,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1819,7 +1819,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1836,7 +1836,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1853,7 +1853,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1873,7 +1873,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "14px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1891,7 +1891,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1910,7 +1910,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1928,7 +1928,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1949,7 +1949,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1967,7 +1967,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -1984,7 +1984,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2001,7 +2001,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2017,7 +2017,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2038,7 +2038,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2055,7 +2055,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2073,7 +2073,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2097,7 +2097,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2114,7 +2114,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2132,7 +2132,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2154,7 +2154,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2171,7 +2171,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2187,7 +2187,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2210,7 +2210,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2227,7 +2227,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2245,7 +2245,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2263,7 +2263,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2279,7 +2279,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2301,7 +2301,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2318,7 +2318,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2336,7 +2336,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2359,7 +2359,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2376,7 +2376,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2394,7 +2394,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2417,7 +2417,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2434,7 +2434,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2452,7 +2452,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2474,7 +2474,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2491,7 +2491,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2511,7 +2511,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2529,7 +2529,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={18}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2551,7 +2551,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2567,7 +2567,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2585,7 +2585,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2603,7 +2603,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2616,7 +2616,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2637,7 +2637,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2653,7 +2653,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2672,7 +2672,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2688,7 +2688,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2704,7 +2704,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2728,7 +2728,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "13px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2744,7 +2744,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2763,7 +2763,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2780,7 +2780,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2794,7 +2794,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2816,7 +2816,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2833,7 +2833,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2850,7 +2850,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2866,7 +2866,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2889,7 +2889,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2909,7 +2909,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2926,7 +2926,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2940,7 +2940,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2962,7 +2962,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2980,7 +2980,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -2998,7 +2998,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3012,7 +3012,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3033,7 +3033,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={20}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3051,7 +3051,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3068,7 +3068,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3082,7 +3082,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3103,7 +3103,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3119,7 +3119,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3137,7 +3137,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3154,7 +3154,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3168,7 +3168,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3189,7 +3189,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={7}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3205,7 +3205,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={13}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3223,7 +3223,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={2}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3240,7 +3240,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
@@ -3255,7 +3255,7 @@ const OfficeOfTheRegistrar = () => {
                                 <td
                                     colSpan={9}
                                     style={{
-                                        fontFamily: "Times New Roman",
+                                        fontFamily: "Arial",
                                         fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,

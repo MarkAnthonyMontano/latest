@@ -1681,7 +1681,7 @@ const ApplicantDashboard = (props) => {
                 <Typography>• Upload your 2 by 2 Formal Picture.</Typography>
                 <Typography>• Upload All Main Required Online Documents.</Typography>
                 <Typography>• Ensure that the information you provide is accurate and correct.</Typography>
-                <Typography>• Regularly check your Applicant Dashboard for updates.</Typography>
+                <Typography>• Regularly check your Applicant Dashboard or Your provided Gmail Account for updates.</Typography>
               </Box>
 
               <Typography sx={{ mt: 2, textAlign: "justify", fontSize: "15px" }}>

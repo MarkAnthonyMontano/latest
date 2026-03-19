@@ -371,7 +371,7 @@ const ECATApplicationForm = () => {
           className="student-table"
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -433,10 +433,10 @@ const ECATApplicationForm = () => {
                       <>
                         <div
                           style={{
-                            fontSize: "14px",
+                            fontSize: "12px",
                             letterSpacing: "1px",
                             marginLeft: "-60px",
-                            fontFamily: "Times new roman"
+                            fontFamily: "Arial"
                           }}
                         >
                           <b>{firstLine}</b>
@@ -444,10 +444,10 @@ const ECATApplicationForm = () => {
                         {secondLine && (
                           <div
                             style={{
-                              fontSize: "14px",
+                              fontSize: "12px",
                               letterSpacing: "1px",
                               marginLeft: "-60px",
-                              fontFamily: "Times new roman"
+                              fontFamily: "Arial"
                             }}
                           >
                             <b>{secondLine}</b>
@@ -484,7 +484,7 @@ const ECATApplicationForm = () => {
                 <table style={{
                   width: "100%",
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, sans-serif",
+                  fontFamily: "Arial",
                   textAlign: "Left",
                   fontSize: "11px"
                 }}>
@@ -546,7 +546,7 @@ const ECATApplicationForm = () => {
           style={{
 
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -602,7 +602,7 @@ const ECATApplicationForm = () => {
                 }}
               >
                 <div>Course & Major:</div>
-                <div style={{ fontFamily: "Times New Roman", fontSize: "14px", paddingTop: "2px", fontWeight: "Normal" }}>
+                <div style={{ fontFamily: "Arial", fontSize: "12px", paddingTop: "2px", fontWeight: "Normal" }}>
                   {curriculumOptions.length > 0
                     ? curriculumOptions.find(
                       (item) =>
@@ -624,7 +624,7 @@ const ECATApplicationForm = () => {
         <table
           style={{
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -641,7 +641,7 @@ const ECATApplicationForm = () => {
                   style={{
                     fontWeight: "bold",
                     fontSize: "12px",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     marginBottom: "4px",
                     textAlign: "left",
                   }}
@@ -656,7 +656,7 @@ const ECATApplicationForm = () => {
                     flexDirection: "column",
                     gap: "5px",
                     fontSize: "12px",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                   }}
                 >
                   {/* Row 1 */}
@@ -672,7 +672,7 @@ const ECATApplicationForm = () => {
                           width: "150px",
                           marginLeft: "10px",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -696,7 +696,7 @@ const ECATApplicationForm = () => {
                           marginLeft: "15px",
                           textAlign: "center",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -718,7 +718,7 @@ const ECATApplicationForm = () => {
                           width: "150px",
                           marginLeft: "10px",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -737,7 +737,7 @@ const ECATApplicationForm = () => {
           style={{
 
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -760,7 +760,7 @@ const ECATApplicationForm = () => {
                 <b>
                   <b style={{
                     color: "black",
-                    fontFamily: "Times new Roman",
+                    fontFamily: "Arial",
                     fontSize: '15px',
                     textAlign: "center",
                     display: "block",
@@ -780,7 +780,7 @@ const ECATApplicationForm = () => {
             </tr>
 
             {/* Name */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40} style={{ paddingTop: "5px" }}>
                 <b style={{ marginRight: "10px" }}>Name:</b>
                 <span
@@ -802,7 +802,7 @@ const ECATApplicationForm = () => {
 
             {/* Labels under Name */}
             <tr>
-              <td colSpan={40} style={{ fontFamily: "Times New Roman", fontSize: "14px", paddingTop: "2px" }}>
+              <td colSpan={40} style={{ fontFamily: "Arial", fontSize: "12px", paddingTop: "2px" }}>
                 <div
                   style={{
                     width: "92%",
@@ -811,16 +811,16 @@ const ECATApplicationForm = () => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <span style={{ width: "20%", textAlign: "center" }}>Last Name</span>
-                  <span style={{ width: "20%", textAlign: "center" }}>Given Name</span>
-                  <span style={{ width: "20%", textAlign: "center" }}>Middle Name</span>
-                  <span style={{ width: "20%", textAlign: "center" }}>Ext. Name</span>
-                  <span style={{ width: "20%", textAlign: "center" }}>Nickname</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Last Name</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Given Name</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Middle Name</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Ext. Name</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Nickname</span>
                 </div>
               </td>
             </tr>
 
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Gender:</b>
@@ -840,7 +840,7 @@ const ECATApplicationForm = () => {
               </td>
             </tr>
 
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Place of Birth:</b>
@@ -857,7 +857,7 @@ const ECATApplicationForm = () => {
 
 
             {/* Contact */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <b>Cellphone Number:</b>
                 <span
@@ -875,7 +875,7 @@ const ECATApplicationForm = () => {
                   style={{
                     borderBottom: "1px solid black",
                     display: "inline-block",
-                    width: "316px",
+                    width: "305px",
                     marginLeft: "10px",
                   }}
                 >
@@ -885,14 +885,14 @@ const ECATApplicationForm = () => {
             </tr>
 
             {/* Permanent Address */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <b style={{ marginRight: "10px" }}>Permanent Address:</b>
                 <span
                   style={{
                     display: "inline-block",
                     borderBottom: "1px solid black",
-                    width: "84.50%",
+                    width: "83%",
                     verticalAlign: "bottom",
                   }}
                 >
@@ -907,7 +907,7 @@ const ECATApplicationForm = () => {
 
             {/* Address Labels */}
             <tr>
-              <td colSpan={40} style={{ fontFamily: "Times New Roman", fontSize: "14px", paddingTop: "2px" }}>
+              <td colSpan={40} style={{ fontFamily: "Arial", fontSize: "12px", paddingTop: "2px" }}>
                 <div
                   style={{
                     display: "flex",
@@ -926,7 +926,7 @@ const ECATApplicationForm = () => {
             </tr>
 
             {/* Residence */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <b style={{ marginRight: "50px" }}>Residence:</b>
                 <span style={{ marginRight: "20px" }}>( ) With Parents</span>
@@ -937,7 +937,7 @@ const ECATApplicationForm = () => {
             </tr>
 
             {/* Indigenous Group */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <b>Are you a member of any indigenous group?</b>{" "}
                 {person.tribeEthnicGroup === "Others" ? (
@@ -990,7 +990,7 @@ const ECATApplicationForm = () => {
           style={{
 
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -1013,7 +1013,7 @@ const ECATApplicationForm = () => {
                 <b>
                   <b style={{
                     color: "black",
-                    fontFamily: "Times new Roman",
+                    fontFamily: "Arial",
                     fontSize: '15px',
                     textAlign: "center",
                     display: "block",
@@ -1028,7 +1028,7 @@ const ECATApplicationForm = () => {
             </tr>
 
             {/* ================= FATHER ================= */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <b style={{ whiteSpace: "nowrap" }}>Father's Name:</b>
@@ -1037,13 +1037,13 @@ const ECATApplicationForm = () => {
                       flex: 1,
                       borderBottom: "1px solid black",
                       minHeight: "18px",
-                      fontFamily: "Times New Roman",
-                      fontSize: "14px",
+                      fontFamily: "Arial",
+                      fontSize: "12px",
                     }}
                   >
                     {`${person.father_given_name || ""} ${person.father_middle_name || ""} ${person.father_family_name || ""} ${person.father_ext || ""}`.toUpperCase()}
                   </span>
-                  <span style={{ fontSize: "14px" }}>
+                  <span style={{ fontSize: "12px" }}>
                     ({person.father_deceased === "1" ? " " : "✓"}) Living&nbsp;&nbsp;
                     ({person.father_deceased === "1" ? "✓" : " "}) Deceased
                   </span>
@@ -1051,11 +1051,11 @@ const ECATApplicationForm = () => {
               </td>
             </tr>
 
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.father_occupation}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px",  }}>{person.father_occupation}</span>
 
                   <b>Monthly Income:</b>
                   <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.father_income}</span>
@@ -1067,7 +1067,7 @@ const ECATApplicationForm = () => {
             </tr>
 
             {/* ================= MOTHER ================= */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <b style={{ whiteSpace: "nowrap" }}>Mother's Name:</b>
@@ -1076,13 +1076,13 @@ const ECATApplicationForm = () => {
                       flex: 1,
                       borderBottom: "1px solid black",
                       minHeight: "18px",
-                      fontFamily: "Times New Roman",
-                      fontSize: "14px",
+                      fontFamily: "Arial",
+                      fontSize: "12px",
                     }}
                   >
                     {`${person.mother_given_name || ""} ${person.mother_middle_name || ""} ${person.mother_family_name || ""}`.toUpperCase()}
                   </span>
-                  <span style={{ fontSize: "14px" }}>
+                  <span style={{ fontSize: "12px" }}>
                     ({person.mother_deceased === "Yes" ? " " : "✓"}) Living&nbsp;&nbsp;
                     ({person.mother_deceased === "Yes" ? "✓" : " "}) Deceased
                   </span>
@@ -1090,7 +1090,7 @@ const ECATApplicationForm = () => {
               </td>
             </tr>
 
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
@@ -1106,7 +1106,7 @@ const ECATApplicationForm = () => {
             </tr>
 
             {/* ================= GUARDIAN ================= */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
                   <b>Guardian's Name:</b>
@@ -1115,8 +1115,8 @@ const ECATApplicationForm = () => {
                       flex: 1,
                       borderBottom: "1px solid black",
                       minHeight: "18px",
-                      fontFamily: "Times New Roman",
-                      fontSize: "14px",
+                      fontFamily: "Arial",
+                      fontSize: "12px",
                     }}
                   >
                     {`${person.guardian_given_name || ""} ${person.guardian_middle_name || ""} ${person.guardian_family_name || ""} ${person.guardian_ext || ""}`.toUpperCase()}
@@ -1130,7 +1130,7 @@ const ECATApplicationForm = () => {
               </td>
             </tr>
 
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
@@ -1159,7 +1159,7 @@ const ECATApplicationForm = () => {
           style={{
 
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -1184,7 +1184,7 @@ const ECATApplicationForm = () => {
                 <b>
                   <b style={{
                     color: "black",
-                    fontFamily: "Times new Roman",
+                    fontFamily: "Arial",
                     fontSize: '15px',
                     textAlign: "center",
                     display: "block",
@@ -1206,14 +1206,14 @@ const ECATApplicationForm = () => {
 
 
             {/* Line 1 */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <b>Last school attended or where you are currently completing Secondary Level Education:</b>
               </td>
             </tr>
 
             {/* Line 2 */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <b style={{ whiteSpace: "nowrap", marginRight: "8px" }}>Name of School:</b>
@@ -1226,7 +1226,7 @@ const ECATApplicationForm = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontFamily: "Arial, sans-serif",
+                      fontFamily: "Arial",
                       fontSize: "12px",
                     }}
                   >
@@ -1238,7 +1238,7 @@ const ECATApplicationForm = () => {
             </tr>
 
 
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <b>Complete Address:</b>
                 <span
@@ -1248,7 +1248,7 @@ const ECATApplicationForm = () => {
                     width: "231px",
                     marginLeft: "10px",
                     textAlign: "center",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     fontSize: "12px",
                   }}
                 >
@@ -1259,10 +1259,10 @@ const ECATApplicationForm = () => {
                   style={{
                     borderBottom: "1px solid black",
                     display: "inline-block",
-                    width: "268px",
+                    width: "253px",
                     marginLeft: "10px",
                     textAlign: "center",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     fontSize: "12px",
                   }}
                 >
@@ -1273,13 +1273,13 @@ const ECATApplicationForm = () => {
 
 
             {/* Line 4 */}
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <b>Do you have any PHYSICAL DISABILITY OR CONDITION that requires special attention or</b>
               </td>
             </tr>
 
-            <tr style={{ fontFamily: "Times New Roman", fontSize: "12px", textAlign: "left" }}>
+            <tr style={{ fontFamily: "Arial", fontSize: "12px", textAlign: "left" }}>
               <td colSpan={40}>
                 <b>would make it difficult for you to take a regular test?</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 {[
@@ -1327,7 +1327,7 @@ const ECATApplicationForm = () => {
           style={{
             border: "2px solid black",
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
@@ -1349,7 +1349,7 @@ const ECATApplicationForm = () => {
                 <b>
                   <b style={{
                     color: "black",
-                    fontFamily: "Times new Roman",
+                    fontFamily: "Arial",
                     fontSize: '15px',
                     textAlign: "center",
                     display: "block",
@@ -1389,8 +1389,8 @@ const ECATApplicationForm = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     padding: "20px 40px 0 40px",
-                    fontFamily: "Times New Roman",
-                    fontSize: "14px",
+                    fontFamily: "Arial",
+                    fontSize: "12px",
                   }}
                 >
                   {/* LEFT: Applicant */}
@@ -1440,7 +1440,7 @@ const ECATApplicationForm = () => {
           style={{
 
             borderCollapse: "collapse",
-            fontFamily: "Arial, Helvetica, sans-serif",
+            fontFamily: "Arial",
             width: "8in",
             margin: "0 auto",
             textAlign: "center",

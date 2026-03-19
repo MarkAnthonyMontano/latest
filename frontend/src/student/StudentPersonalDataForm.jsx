@@ -248,7 +248,7 @@ const StudentPersonalDataForm = () => {
               padding: 0;
               width: 210mm;
               height: 297mm;
-              font-family: Arial, sans-serif;
+              font-family: Arial;
               overflow: hidden;
             }
 
@@ -317,25 +317,7 @@ const StudentPersonalDataForm = () => {
       (person?.program ?? "");
   }
 
-  // 🔒 Disable right-click
-  document.addEventListener("contextmenu", (e) => e.preventDefault());
 
-  // 🔒 Block DevTools shortcuts + Ctrl+P silently
-  document.addEventListener("keydown", (e) => {
-    const isBlockedKey =
-      e.key === "F12" || // DevTools
-      e.key === "F11" || // Fullscreen
-      (e.ctrlKey &&
-        e.shiftKey &&
-        (e.key.toLowerCase() === "i" || e.key.toLowerCase() === "j")) || // Ctrl+Shift+I/J
-      (e.ctrlKey && e.key.toLowerCase() === "u") || // Ctrl+U (View Source)
-      (e.ctrlKey && e.key.toLowerCase() === "p"); // Ctrl+P (Print)
-
-    if (isBlockedKey) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  });
 
   return (
     <Box
@@ -463,7 +445,7 @@ const StudentPersonalDataForm = () => {
                   <div
                     style={{
                       fontSize: "14px",
-                      fontFamily: "Arial, sans-serif",
+                      fontFamily: "Arial",
                       textAlign: "left",
                       marginBottom: "5px",
                     }}
@@ -478,7 +460,7 @@ const StudentPersonalDataForm = () => {
                       fontSize: "23px",
                       fontWeight: "bold",
                       color: "black",
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                       marginBottom: "5px",
                     }}
                   >
@@ -509,7 +491,7 @@ const StudentPersonalDataForm = () => {
                       textAlign: "center",
                       fontSize: "14px",
                       fontWeight: "bold",
-                      fontFamily: "Arial, sans-serif",
+                      fontFamily: "Arial",
                       marginLeft: "-130px",
                       marginTop: "-10px",
                     }}
@@ -527,7 +509,7 @@ const StudentPersonalDataForm = () => {
                 marginTop: "-23px",
                 border: "2px solid black",
                 borderCollapse: "collapse",
-                fontFamily: "Arial, Helvetica, sans-serif",
+                fontFamily: "Arial",
                 width: "8in",
                 margin: "0 auto",
                 textAlign: "center",
@@ -546,7 +528,7 @@ const StudentPersonalDataForm = () => {
                         fontSize: "25px",
                         color: "black",
                         fontWeight: "bold",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     >
                       PERSONAL DATA FORM
@@ -683,7 +665,7 @@ const StudentPersonalDataForm = () => {
                       <b
                         style={{
                           color: "black",
-                          fontFamily: "Times new Roman",
+                          fontFamily: "Arial",
                           fontSize: "15px",
                           textAlign: "left",
                           display: "block",
@@ -706,7 +688,7 @@ const StudentPersonalDataForm = () => {
                       padding: "8px",
                       fontWeight: "bold",
                       fontSize: "14px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     SURNAME
@@ -726,7 +708,7 @@ const StudentPersonalDataForm = () => {
                         fontSize: "15px",
                         fontWeight: "bold",
                         letterSpacing: "3px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -742,7 +724,7 @@ const StudentPersonalDataForm = () => {
                       padding: "8px",
                       fontWeight: "bold",
                       fontSize: "14px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     FIRST NAME
@@ -762,7 +744,7 @@ const StudentPersonalDataForm = () => {
                         fontWeight: "bold",
                         fontSize: "15px",
                         letterSpacing: "3px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -780,7 +762,7 @@ const StudentPersonalDataForm = () => {
                       textAlign: "Center",
                       fontWeight: "bold",
                       fontSize: "14px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     MIDDLE NAME
@@ -804,7 +786,7 @@ const StudentPersonalDataForm = () => {
                         fontWeight: "bold",
                         fontSize: "15px",
                         letterSpacing: "3px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -819,7 +801,7 @@ const StudentPersonalDataForm = () => {
                       fontWeight: "bold",
                       fontSize: "14px",
                       verticalAlign: "top",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     NAME EXTENSION (e.g. Jr., Sr.)
@@ -833,7 +815,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "14px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -848,7 +830,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
                       fontSize: "14px",
-                      fontFamily: "Times New Roman",
+                      fontFamily: "Arial",
                       verticalAlign: "top",
                     }}
                   >
@@ -876,7 +858,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "12px",
-                        fontFamily: "Times New Roman",
+                        fontFamily: "Arial",
                         textTransform: "uppercase", // visual effect
                       }}
                     />
@@ -889,7 +871,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                       verticalAlign: "top",
                     }}
@@ -908,7 +890,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                         textTransform: "uppercase",
                       }}
                     />
@@ -922,7 +904,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "left",
-                      fontFamily: "Times New Roman",
+                      fontFamily: "Arial",
 
                       fontSize: "14px",
                       verticalAlign: "top",
@@ -952,7 +934,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                         textTransform: "uppercase",
                       }}
                     />
@@ -967,7 +949,7 @@ const StudentPersonalDataForm = () => {
 
                       fontSize: "14px",
                       verticalAlign: "top",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     <div style={{ fontWeight: "bold" }}>PLACE OF BIRTH</div>
@@ -977,7 +959,7 @@ const StudentPersonalDataForm = () => {
                       readOnly
                       style={{
                         marginTop: "5px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                         width: "100%",
                         border: "none",
                         outline: "none",
@@ -993,7 +975,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                       verticalAlign: "top",
                     }}
@@ -1014,7 +996,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1027,7 +1009,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "left",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontWeight: "bold",
                       fontSize: "14px",
                       verticalAlign: "top",
@@ -1044,7 +1026,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1055,7 +1037,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "left",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
 
                       fontSize: "14px",
                       verticalAlign: "top",
@@ -1075,7 +1057,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1087,7 +1069,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                       verticalAlign: "top",
                     }}
@@ -1104,7 +1086,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1120,7 +1102,7 @@ const StudentPersonalDataForm = () => {
                       fontWeight: "bold",
                       fontSize: "14px",
                       verticalAlign: "top",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     SEX
@@ -1130,7 +1112,7 @@ const StudentPersonalDataForm = () => {
                         justifyContent: "center",
                         gap: "40px",
                         alignItems: "center",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                         width: "100%",
                         marginTop: "5px",
                       }}
@@ -1141,7 +1123,7 @@ const StudentPersonalDataForm = () => {
                           alignItems: "center",
                           gap: "5px",
                           fontSize: "15px",
-                          fontFamily: "Times new Roman",
+                          fontFamily: "Arial",
                           marginBottom: "10px",
                         }}
                       >
@@ -1172,7 +1154,7 @@ const StudentPersonalDataForm = () => {
                           alignItems: "center",
                           gap: "5px",
                           fontSize: "15px",
-                          fontFamily: "Times new Roman",
+                          fontFamily: "Arial",
                           marginBottom: "10px",
                         }}
                       >
@@ -1221,7 +1203,7 @@ const StudentPersonalDataForm = () => {
 
                       fontSize: "14px",
                       verticalAlign: "top",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     <div style={{ fontWeight: "bold" }}>E-MAIL ADDRESS</div>
@@ -1235,7 +1217,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1247,7 +1229,7 @@ const StudentPersonalDataForm = () => {
 
                       fontSize: "14px",
                       verticalAlign: "top",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     <div style={{ fontWeight: "bold" }}>YEAR GRADUATED</div>
@@ -1261,7 +1243,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1276,7 +1258,7 @@ const StudentPersonalDataForm = () => {
                       fontSize: "14px",
 
                       padding: "8px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     <div style={{ fontWeight: "bold", paddingLeft: "-10px" }}>
@@ -1307,7 +1289,7 @@ const StudentPersonalDataForm = () => {
                             width: "50%",
 
                             fontSize: "15px",
-                            fontFamily: "Times new roman",
+                            fontFamily: "Arial",
                           }}
                         >
                           <input
@@ -1339,7 +1321,7 @@ const StudentPersonalDataForm = () => {
                           alignItems: "center",
                           width: "100%",
                           fontSize: "15px",
-                          fontFamily: "Times new Roman",
+                          fontFamily: "Arial",
                         }}
                       >
                         <label
@@ -1423,7 +1405,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       verticalAlign: "top",
                       fontSize: "14px",
-                      fontFamily: "Times New Roman",
+                      fontFamily: "Arial",
                       textAlign: "left",
                     }}
                   >
@@ -1446,7 +1428,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         width: "100%",
                         fontSize: "15px",
-                        fontFamily: "times new roman",
+                        fontFamily: "Arial",
                         outline: "none",
                         padding: "2px 4px",
                       }}
@@ -1472,7 +1454,7 @@ const StudentPersonalDataForm = () => {
                           border: "none",
 
                           fontSize: "15px",
-                          fontFamily: "Times new roman",
+                          fontFamily: "Arial",
                           outline: "none",
                           padding: "2px 4px",
                         }}
@@ -1488,7 +1470,7 @@ const StudentPersonalDataForm = () => {
                       verticalAlign: "top",
                       fontSize: "14px",
 
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     <div style={{ fontWeight: "bold" }}>ZIP CODE</div>
@@ -1503,7 +1485,7 @@ const StudentPersonalDataForm = () => {
 
                         fontSize: "15px",
 
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                         outline: "none",
                         padding: "2px 4px",
                       }}
@@ -1519,7 +1501,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
 
                       fontSize: "14px",
                     }}
@@ -1535,7 +1517,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1546,7 +1528,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "left",
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -1561,7 +1543,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1572,7 +1554,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "left",
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -1587,7 +1569,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1599,7 +1581,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -1612,7 +1594,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1623,7 +1605,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "left",
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
 
                       fontSize: "14px",
                     }}
@@ -1643,7 +1625,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1662,7 +1644,7 @@ const StudentPersonalDataForm = () => {
                       <b
                         style={{
                           color: "black",
-                          fontFamily: "Times new Roman",
+                          fontFamily: "Arial",
                           fontSize: "15px",
                           textAlign: "left",
                           display: "block",
@@ -1683,7 +1665,7 @@ const StudentPersonalDataForm = () => {
                       textAlign: "left",
                       paddingLeft: "10px",
                       fontWeight: "bold",
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -1697,7 +1679,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                       fontSize: "13px",
                     }}
                   >
@@ -1715,7 +1697,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1727,7 +1709,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                       fontSize: "13px",
                     }}
                   >
@@ -1742,7 +1724,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1754,7 +1736,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                       fontSize: "13px",
                     }}
                   >
@@ -1769,7 +1751,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1784,7 +1766,7 @@ const StudentPersonalDataForm = () => {
                       paddingLeft: "10px",
                       fontWeight: "bold",
                       fontSize: "14px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     MOTHER`S NAME
@@ -1797,14 +1779,14 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "13px",
                     }}
                   >
                     <div
                       style={{
                         fontWeight: "bold",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     >
                       SURNAME (Not Yet Married)
@@ -1820,7 +1802,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1832,7 +1814,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
 
                       fontSize: "13px",
                     }}
@@ -1848,7 +1830,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1859,14 +1841,14 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
 
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "13px",
                     }}
                   >
                     <div
                       style={{
                         fontWeight: "bold",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     >
                       {" "}
@@ -1883,7 +1865,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -1903,7 +1885,7 @@ const StudentPersonalDataForm = () => {
                       <b
                         style={{
                           color: "black",
-                          fontFamily: "Times new Roman",
+                          fontFamily: "Arial",
                           fontSize: "15px",
                           textAlign: "left",
                           display: "block",
@@ -1926,7 +1908,7 @@ const StudentPersonalDataForm = () => {
                       textAlign: "left",
                       padding: "8px",
                       fontWeight: "bold",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "12px",
                       verticalAlign: "top",
                     }}
@@ -1944,7 +1926,7 @@ const StudentPersonalDataForm = () => {
                       fontWeight: "bold",
                       fontSize: "12px",
                       verticalAlign: "top",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     OCCUPATION
@@ -1960,7 +1942,7 @@ const StudentPersonalDataForm = () => {
                       fontWeight: "bold",
                       fontSize: "12px",
                       verticalAlign: "top",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     MONTHLY INCOME
@@ -1976,7 +1958,7 @@ const StudentPersonalDataForm = () => {
                       padding: "2px",
                       fontWeight: "bold",
                       fontSize: "14px",
-                      fontFamily: "Times new roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     Father
@@ -1988,7 +1970,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
                       padding: "2px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "12px",
                     }}
                   >
@@ -2002,7 +1984,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -2013,7 +1995,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
                       padding: "2px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -2027,7 +2009,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -2038,7 +2020,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
                       padding: "2px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -2052,7 +2034,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -2066,7 +2048,7 @@ const StudentPersonalDataForm = () => {
                       textAlign: "center",
                       padding: "2px", // Reduced padding to fit in 10px height
                       fontWeight: "bold",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -2080,7 +2062,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
                       padding: "2px", // Reduced padding to fit in 10px height
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "12px",
                     }}
                   >
@@ -2094,7 +2076,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -2106,7 +2088,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
                       padding: "2px", // Reduced padding to fit in 10px height
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -2120,7 +2102,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -2132,7 +2114,7 @@ const StudentPersonalDataForm = () => {
                       border: "1px solid black",
                       textAlign: "left",
                       padding: "2px", // Reduced padding to fit in 10px height
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       fontSize: "14px",
                     }}
                   >
@@ -2146,7 +2128,7 @@ const StudentPersonalDataForm = () => {
                         border: "none",
                         outline: "none",
                         fontSize: "15px",
-                        fontFamily: "Times new Roman",
+                        fontFamily: "Arial",
                       }}
                     />
                   </td>
@@ -2161,7 +2143,7 @@ const StudentPersonalDataForm = () => {
                       padding: "2px", // Reduced padding to fit in 10px height
                       fontWeight: "bold",
                       fontSize: "14px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     Siblings
@@ -2210,7 +2192,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "right",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       padding: "2px", // Reduced padding to fit in 10px height
                       fontWeight: "bold",
                       fontSize: "15px",
@@ -2262,7 +2244,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "right",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       padding: "2px", // Reduced padding to fit in 10px height
                       fontWeight: "bold",
                       fontSize: "15px",
@@ -2314,7 +2296,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "right",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       padding: "2px", // Reduced padding to fit in 10px height
                       fontWeight: "bold",
                       fontSize: "15px",
@@ -2366,7 +2348,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "right",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       padding: "2px",
                       fontWeight: "bold",
                       fontSize: "15px",
@@ -2418,7 +2400,7 @@ const StudentPersonalDataForm = () => {
                     style={{
                       border: "1px solid black",
                       textAlign: "right",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                       padding: "2px", // Reduced padding to fit in 10px height
                       fontWeight: "bold",
                       fontSize: "15px",
@@ -2460,7 +2442,7 @@ const StudentPersonalDataForm = () => {
                       padding: "2px",
 
                       fontSize: "15px",
-                      fontFamily: "Times new Roman",
+                      fontFamily: "Arial",
                     }}
                   >
                     Total: ₱
@@ -2480,7 +2462,7 @@ const StudentPersonalDataForm = () => {
               style={{
                 marginTop: "-50px",
                 borderCollapse: "collapse",
-                fontFamily: "Arial, Helvetica, sans-serif",
+                fontFamily: "Arial",
                 width: "8in",
                 margin: "0 auto",
                 textAlign: "center",
@@ -2513,7 +2495,7 @@ const StudentPersonalDataForm = () => {
                           style={{
                             fontSize: "12px",
                             fontWeight: "bold",
-                            fontFamily: "Times new Roman",
+                            fontFamily: "Arial",
                           }}
                         >
                           Signature

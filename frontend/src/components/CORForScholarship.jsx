@@ -1444,7 +1444,7 @@ const CertificateOfRegistration = forwardRef(
                       >
                         <b
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             color: "black",
                             textAlign: "start",
@@ -1467,7 +1467,7 @@ const CertificateOfRegistration = forwardRef(
                       >
                       <b
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "12px",
                             color: "black",
                           }}
@@ -1511,7 +1511,7 @@ const CertificateOfRegistration = forwardRef(
                             style={{
                               border: "1px solid black",
                               color: "black",
-                              fontFamily: "Arial, sans-serif",
+                              fontFamily: "Arial",
                               fontSize: "11px",
                               textAlign: "center",
                               display: "block",
@@ -1533,7 +1533,7 @@ const CertificateOfRegistration = forwardRef(
                             fontWeight: "bold",
                             color: "black",
                             width: "98%",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             border: "none",
                             outline: "none",
@@ -1548,7 +1548,7 @@ const CertificateOfRegistration = forwardRef(
                           value={data[0]?.student_number || ""}
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1568,7 +1568,7 @@ const CertificateOfRegistration = forwardRef(
                             fontWeight: "bold",
                             color: "black",
                             width: "98%",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             border: "none",
                             outline: "none",
@@ -1584,7 +1584,7 @@ const CertificateOfRegistration = forwardRef(
                           value={data[0]?.college || ""}
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1607,7 +1607,7 @@ const CertificateOfRegistration = forwardRef(
                             fontWeight: "bold",
                             color: "black",
                             width: "98%",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             border: "none",
                             outline: "none",
@@ -1622,7 +1622,7 @@ const CertificateOfRegistration = forwardRef(
                           value={`${data[0]?.last_name || ""}, ${data[0]?.first_name || ""} ${data[0]?.middle_name || ""} ${data[0]?.extension || ""}`.trim()}
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1643,7 +1643,7 @@ const CertificateOfRegistration = forwardRef(
                             fontWeight: "bold",
                             color: "black",
                             width: "98%",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             border: "none",
                             outline: "none",
@@ -1667,7 +1667,7 @@ const CertificateOfRegistration = forwardRef(
                           })()}
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1690,7 +1690,7 @@ const CertificateOfRegistration = forwardRef(
                             fontWeight: "bold",
                             color: "black",
                             width: "98%",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             border: "none",
                             outline: "none",
@@ -1712,7 +1712,7 @@ const CertificateOfRegistration = forwardRef(
                           }
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1733,7 +1733,7 @@ const CertificateOfRegistration = forwardRef(
                             fontWeight: "bold",
                             color: "black",
                             width: "98%",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             border: "none",
                             outline: "none",
@@ -1752,7 +1752,7 @@ const CertificateOfRegistration = forwardRef(
                               : ""
                           }
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1773,7 +1773,7 @@ const CertificateOfRegistration = forwardRef(
                             fontWeight: "bold",
                             color: "black",
                             width: "98%",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             border: "none",
                             outline: "none",
@@ -1789,7 +1789,7 @@ const CertificateOfRegistration = forwardRef(
                           value={`${year_desc || ""}-${year_desc + 1 || ""}`}
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1810,7 +1810,7 @@ const CertificateOfRegistration = forwardRef(
                           style={{
                             fontWeight: "bold",
                             color: "black",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             width: "98%",
                             border: "none",
@@ -1825,7 +1825,7 @@ const CertificateOfRegistration = forwardRef(
                           value={data[0]?.age || ""}
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1843,7 +1843,7 @@ const CertificateOfRegistration = forwardRef(
                           style={{
                             fontWeight: "bold",
                             color: "black",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             width: "98%",
                             border: "none",
@@ -1858,7 +1858,7 @@ const CertificateOfRegistration = forwardRef(
                           value={year_Level_Description || ""}
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1876,7 +1876,7 @@ const CertificateOfRegistration = forwardRef(
                           style={{
                             fontWeight: "bold",
                             color: "black",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             width: "98%",
                             border: "none",
@@ -1890,7 +1890,7 @@ const CertificateOfRegistration = forwardRef(
                           type="text"
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1911,7 +1911,7 @@ const CertificateOfRegistration = forwardRef(
                           style={{
                             color: "black",
                             fontWeight: "bold",
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             fontSize: "11px",
                             width: "98%",
                             border: "none",
@@ -1926,7 +1926,7 @@ const CertificateOfRegistration = forwardRef(
                           value={data[0]?.email || ""}
                           readOnly
                           style={{
-                            fontFamily: "Arial, sans-serif",
+                            fontFamily: "Arial",
                             color: "black",
                             width: "98%",
                             fontSize: "11px",
@@ -1947,7 +1947,7 @@ const CertificateOfRegistration = forwardRef(
                         style={{
                           color: "black",
                           height: "0.3in",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           fontSize: "11px",
                           fontWeight: "bold",
 
@@ -1972,7 +1972,7 @@ const CertificateOfRegistration = forwardRef(
                         style={{
                           color: "black",
                           height: "0.3in",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           fontSize: "11px",
                           fontWeight: "bold",
                           backgroundColor: "gray",
@@ -1995,7 +1995,7 @@ const CertificateOfRegistration = forwardRef(
                         style={{
                           color: "black",
                           height: "0.2in",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           fontSize: "11px",
                           fontWeight: "bold",
 
@@ -2021,7 +2021,7 @@ const CertificateOfRegistration = forwardRef(
                         style={{
                           color: "black",
                           height: "0.3in",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           fontSize: "11px",
                           fontWeight: "bold",
 
@@ -2069,7 +2069,7 @@ const CertificateOfRegistration = forwardRef(
                         style={{
                           color: "black",
                           height: "0.3in",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           fontSize: "11px",
                           fontWeight: "bold",
                           backgroundColor: "gray",
@@ -2568,7 +2568,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -2589,7 +2589,7 @@ const CertificateOfRegistration = forwardRef(
                               readOnly
                               style={{
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 color: "black",
@@ -2618,7 +2618,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -2639,7 +2639,7 @@ const CertificateOfRegistration = forwardRef(
                               readOnly
                               style={{
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 color: "black",
@@ -2670,7 +2670,7 @@ const CertificateOfRegistration = forwardRef(
                                 width: "98%",
                                 border: "none",
                                 paddingLeft: "3px",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -2692,7 +2692,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 display: isHaveNSTP === 0 ? "none" : "block",
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 color: "black",
@@ -2721,7 +2721,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -2743,7 +2743,7 @@ const CertificateOfRegistration = forwardRef(
                               readOnly
                               style={{
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 color: "black",
@@ -2772,7 +2772,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -2794,7 +2794,7 @@ const CertificateOfRegistration = forwardRef(
                               readOnly
                               style={{
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 color: "black",
@@ -2823,7 +2823,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -2845,7 +2845,7 @@ const CertificateOfRegistration = forwardRef(
                               readOnly
                               style={{
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 color: "black",
@@ -2874,7 +2874,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -2897,7 +2897,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 textAlign: "center",
                                 color: "black",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 width: "98%",
@@ -2924,7 +2924,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -2950,7 +2950,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -2976,7 +2976,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -3001,7 +3001,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -3027,7 +3027,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 paddingLeft: "3px",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3054,7 +3054,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -3081,7 +3081,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 paddingLeft: "3px",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3109,7 +3109,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -3139,7 +3139,7 @@ const CertificateOfRegistration = forwardRef(
                                 width: "98%",
                                 paddingLeft: "3px",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -3161,7 +3161,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 display: isHaveLaboratory === 0 ? "none" : "block",
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 color: "black",
@@ -3259,7 +3259,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3304,7 +3304,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3336,7 +3336,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3361,7 +3361,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3393,7 +3393,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3418,7 +3418,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3450,7 +3450,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3475,7 +3475,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3508,7 +3508,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3533,7 +3533,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3565,7 +3565,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3590,7 +3590,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3623,7 +3623,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 border: "none",
@@ -3687,7 +3687,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 width: "98%",
@@ -3711,7 +3711,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 textAlign: "center",
                                 fontWeight: "bold",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 width: "98%",
                                 border: "none",
@@ -3734,7 +3734,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 textAlign: "center",
                                 fontWeight: "bold",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 width: "98%",
                                 border: "none",
@@ -3829,7 +3829,7 @@ const CertificateOfRegistration = forwardRef(
                                 fontWeight: "bold",
                                 textDecorationThickness: "2px", // <-- Thicker underline
 
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 border: "none",
                                 outline: "none",
@@ -3883,7 +3883,7 @@ const CertificateOfRegistration = forwardRef(
                                 width: "98%",
                                 fontWeight: "bold",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 outline: "none",
                                 background: "none",
@@ -3907,7 +3907,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 width: "95%",
                                 fontWeight: "bold",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 border: "none",
                                 outline: "none",
@@ -3947,7 +3947,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -3974,7 +3974,7 @@ const CertificateOfRegistration = forwardRef(
                                   paddingLeft: "40px",
                                   width: "98%",
                                   border: "none",
-                                  fontFamily: "Arial, sans-serif",
+                                  fontFamily: "Arial",
                                   fontSize: "10px",
                                   fontWeight: "bold",
                                   outline: "none",
@@ -4001,7 +4001,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 color: "black",
                                 width: "98%",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 border: "none",
                                 outline: "none",
@@ -4023,7 +4023,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "10px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -4044,7 +4044,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 width: "98%",
                                 border: "none",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "10px",
                                 fontWeight: "bold",
                                 outline: "none",
@@ -4069,7 +4069,7 @@ const CertificateOfRegistration = forwardRef(
                                 color: "black",
                                 textAlign: "center",
                                 fontWeight: "bold",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 textDecoration: "underline",
                                 width: "98%",
@@ -4089,7 +4089,7 @@ const CertificateOfRegistration = forwardRef(
                               style={{
                                 color: "black",
                                 textAlign: "center",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 fontWeight: "bold",
                                 width: "98%",
@@ -4148,7 +4148,7 @@ const CertificateOfRegistration = forwardRef(
                             <div
                               style={{
                                 display: "inline-block",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 marginTop: "-10px",
                                 fontWeight: "bold",
@@ -4181,7 +4181,7 @@ const CertificateOfRegistration = forwardRef(
                                 textAlign: "center",
                                 width: "98%",
                                 fontWeight: "bold",
-                                fontFamily: "Arial, sans-serif",
+                                fontFamily: "Arial",
                                 fontSize: "11px",
                                 border: "none",
                                 outline: "none",

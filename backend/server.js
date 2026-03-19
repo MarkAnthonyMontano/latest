@@ -1827,7 +1827,8 @@ app.get("/api/upload_documents", async (req, res) => {
         pt.height,
         pt.generalAverage1,
         pt.emailAddress,
-        ant.applicant_number
+        ant.applicant_number,
+        pt.applyingAs
       FROM person_table pt
       LEFT JOIN applicant_numbering_table ant ON pt.person_id = ant.person_id
     `);
@@ -2109,21 +2110,8 @@ app.get("/api/all-applicants", async (req, res) => {
 
 app.get("/api/verified-ecat-applicants", async (req, res) => {
   try {
-    const [categoryCount] = await db.query(
-      `SELECT COUNT(*) AS count
-       FROM admission.requirements_table 
-       WHERE category = 'Main'`,
-    );
-
-    if (categoryCount.length === 0) {
-      return res.status(404).json({ message: "requirements not found" });
-    }
-
-    const totalMain = categoryCount[0].count;
-
-    const [rows] = await db.execute(                                                                                                                                                                           
-      `
-      SELECT
+    const [rows] = await db.execute(`
+      SELECT DISTINCT
         p.person_id,
         p.last_name,
         p.campus,
@@ -2159,13 +2147,23 @@ app.get("/api/verified-ecat-applicants", async (req, res) => {
         WHERE ru.document_status = 'Documents Verified & ECAT'
           AND rt.category = 'Main'
         GROUP BY ru.person_id
-        HAVING COUNT(DISTINCT ru.requirements_id) = ?
+        HAVING COUNT(DISTINCT ru.requirements_id) >= (
+          SELECT COUNT(*)
+          FROM admission.requirements_table rt2
+          INNER JOIN admission.person_table p2
+            ON rt2.applicant_type = p2.applyingAs
+            OR rt2.applicant_type = 0
+          WHERE rt2.category = 'Main'
+            AND p2.person_id = ru.person_id  -- ✅ correlated to the specific applicant
+        )
       )
       AND (ea.email_sent IS NULL OR ea.email_sent = 0)
       ORDER BY p.last_name ASC, p.first_name ASC;
-    `,
-      [totalMain],
-    );
+    `);
+
+    if (rows.length === 0) {
+      return res.status(404).json({ message: "No verified ECAT applicants found" });
+    }
 
     res.json(rows);
   } catch (err) {
@@ -2524,7 +2522,6 @@ app.get("/api/person_with_applicant/:id", async (req, res) => {
       LEFT JOIN enrollment.user_accounts ua ON ru.last_updated_by = ua.person_id
       WHERE ru.person_id = ?
       ORDER BY ru.created_at DESC
-      LIMIT 1
     `,
       [person.person_id],
     );
@@ -9058,8 +9055,8 @@ app.put("/api/submitted-medical/:upload_id", async (req, res) => {
 app.get("/api/requirements", async (req, res) => {
   try {
     const [rows] = await db.query(
-      `SELECT id, description, short_label, is_optional 
-       FROM requirements_table 
+      `SELECT id, description, short_label, is_optional, applicant_type, category
+       FROM requirements_table
        ORDER BY id ASC`,
     );
     res.json(rows);

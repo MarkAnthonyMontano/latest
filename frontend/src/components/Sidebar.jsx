@@ -558,6 +558,7 @@ const SideBar = ({ setIsAuthenticated, profileImage, setProfileImage }) => {
       key: "accountSettings", label: "Settings", icon: Settings, items: [
         { title: "Settings", link: "/registrar_reset_password", icon: Settings, page_id: 73 },
         { title: "Student Grade File", link: "/student_grade_file", icon: Settings, page_id: 126 },
+        { title: "Migration Data Panel", link: "/migration_data_panel", icon: Settings, page_id: 114 },
       ]
     },
     {

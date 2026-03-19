@@ -11,7 +11,7 @@ import API_BASE_URL from "../apiConfig";
 
 
 
-const AdmissionFormProcess = () => {
+const AdmissionFormProcess = () => { 
   const settings = useContext(SettingsContext);
 
     const [titleColor, setTitleColor] = useState("#000000");
