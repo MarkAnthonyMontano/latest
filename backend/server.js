@@ -3277,73 +3277,70 @@ io.on("connection", (socket) => {
   console.log("âœ… Socket.IO client connected");
 
   // ---------------------- Forgot Password: Applicant ----------------------
-  socket.on("forgot-password-applicant", async (email) => {
-    try {
-      // âœ… 1ï¸âƒ£ Check if applicant exists
-      const [rows] = await db.query(
-        `SELECT ua.email, p.campus
-         FROM user_accounts ua
-         JOIN person_table p ON ua.person_id = p.person_id
-         WHERE ua.email = ?`,
-        [email],
-      );
+socket.on("forgot-password-applicant", async (data) => {
+  const { applicant_number, email, birthdate } = data;
 
-      if (rows.length === 0) {
-        return socket.emit("password-reset-result-applicant", {
-          success: false,
-          message: "Email not found.",
-        });
-      }
+  try {
+    // ✅ Validate all 3 fields
+    const [rows] = await db.query(
+      `SELECT ua.email, p.birthOfDate
+       FROM user_accounts ua
+       JOIN person_table p ON ua.person_id = p.person_id
+       JOIN applicant_numbering_table a ON p.person_id = a.person_id
+       WHERE ua.email = ?
+         AND a.applicant_number = ?
+         AND p.birthOfDate = ?`,
+      [email, applicant_number, birthdate]
+    );
 
-      // âœ… 2ï¸âƒ£ Fetch short_term from company_settings table
-      const [[company]] = await db.query(
-        "SELECT short_term FROM company_settings WHERE id = 1",
-      );
-      const shortTerm = company?.short_term || "Institution";
-
-      // âœ… 3ï¸âƒ£ Generate new password
-      const newPassword = Array.from({ length: 8 }, () =>
-        String.fromCharCode(Math.floor(Math.random() * 26) + 65),
-      ).join("");
-
-      const hashed = await bcrypt.hash(newPassword, 10);
-
-      await db.query("UPDATE user_accounts SET password = ? WHERE email = ?", [
-        hashed,
-        email,
-      ]);
-
-      // âœ… 4ï¸âƒ£ Configure email sender
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
-        },
-      });
-
-      // âœ… 5ï¸âƒ£ Send email with institutional short term (same as student/faculty)
-      await transporter.sendMail({
-        from: `"${shortTerm} - Information System" <${process.env.EMAIL_USER}>`,
-        to: email,
-        subject: "Your Password hasReset",
-        text: `Your new temporary password is: ${newPassword}\n\nPlease change it after logging in.`,
-      });
-
-      // âœ… 6ï¸âƒ£ Notify frontend that email was sent successfully
-      socket.emit("password-reset-result-applicant", {
-        success: true,
-        message:
-          "Password reset successfully. Check your email for the new password.",
-      });
-    } catch (error) {
-      console.error("Reset error (applicant):", error);
-      socket.emit("password-reset-result-applicant", {
+    if (rows.length === 0) {
+      return socket.emit("password-reset-result-applicant", {
         success: false,
-        message: "Internal server error.",
+        message: "Invalid Applicant Number, Birthday, or Email.",
       });
     }
-  });
+
+    // ✅ Generate password
+    const newPassword = Array.from({ length: 8 }, () =>
+      String.fromCharCode(Math.floor(Math.random() * 26) + 65)
+    ).join("");
+
+    const hashed = await bcrypt.hash(newPassword, 10);
+
+    await db.query(
+      "UPDATE user_accounts SET password = ? WHERE email = ?",
+      [hashed, email]
+    );
+
+    // ✅ Send email (same as your code)
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    await transporter.sendMail({
+      from: `"System" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Password Reset",
+      text: `Your new password is: ${newPassword}`,
+    });
+
+    socket.emit("password-reset-result-applicant", {
+      success: true,
+      message: "Password reset successful. Check your email.",
+    });
+
+  } catch (error) {
+    console.error(error);
+    socket.emit("password-reset-result-applicant", {
+      success: false,
+      message: "Server error.",
+    });
+  }
+});
 
   // ---------------- Registrar: Reset Password ----------------
   // FORGOT PASSWORD (handles student, registrar, faculty)

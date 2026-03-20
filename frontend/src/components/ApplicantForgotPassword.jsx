@@ -10,7 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { Email } from "@mui/icons-material";
+import { Email, Badge, Cake } from "@mui/icons-material";
 // import ReCAPTCHA from "react-google-recaptcha";
 import { SettingsContext } from "../App";
 import Logo from "../assets/Logo.png";
@@ -43,6 +43,9 @@ const ApplicantForgotPassword = () => {
   const [snack, setSnack] = useState({ open: false, message: "", severity: "info" });
   const [currentYear, setCurrentYear] = useState("");
   const [cooldown, setCooldown] = useState(0);
+
+  const [applicantNumber, setApplicantNumber] = useState("");
+  const [birthdate, setBirthdate] = useState("");
 
   useEffect(() => {
     if (cooldown <= 0) return;
@@ -115,7 +118,11 @@ const ApplicantForgotPassword = () => {
     //   return;
     // }
 
-    socket.current.emit("forgot-password-applicant", email);
+    socket.current.emit("forgot-password-applicant", {
+      email,
+      applicant_number: applicantNumber,
+      birthdate,
+    });
   };
 
 
@@ -133,8 +140,8 @@ const ApplicantForgotPassword = () => {
     : Logo;
 
 
-  const isButtonDisabled = !email || resetSent || cooldown > 0;
-
+  const isButtonDisabled =
+    !email || !applicantNumber || !birthdate || resetSent || cooldown > 0;
 
 
   return (
@@ -149,12 +156,18 @@ const ApplicantForgotPassword = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        marginTop: "-50px"
       }}
     >
-      <Container
-        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-        maxWidth={false}
-      >
+    <Container
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+  
+          }}
+          maxWidth={false}
+        >
         <div style={{ border: "5px solid black" }} className="Container">
           {/* Header */}
           <div
@@ -190,13 +203,37 @@ const ApplicantForgotPassword = () => {
 
           {/* Body */}
           <div className="Body">
+
+
+            <label>Applicant Number:</label>
+            <TextField
+              fullWidth
+              value={applicantNumber}
+              onChange={(e) => setApplicantNumber(e.target.value)}
+              placeholder="Enter Applicant Number"
+              style={{
+                borderRadius: "5px",
+                border: `2px solid ${borderColor}`,
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Badge />
+                  </InputAdornment>
+                ),
+              }}
+            />
+
             <label htmlFor="email">Email Address:</label>
             <TextField
               fullWidth
               type="email"
               placeholder="Enter your Email Address (e.g., username@gmail.com)"
               variant="outlined"
-              style={{ border: `2px solid ${borderColor}`, borderRadius: "5px" }}
+              style={{
+                borderRadius: "5px",
+                border: `2px solid ${borderColor}`,
+              }}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               InputProps={{
@@ -213,6 +250,28 @@ const ApplicantForgotPassword = () => {
                     boxSizing: "border-box",
                   },
                 },
+              }}
+            />
+
+            <label>Birthday:</label>
+            <TextField
+              fullWidth
+              type="date"
+              value={birthdate}
+              style={{
+                borderRadius: "5px",
+                border: `2px solid ${borderColor}`,
+              }}
+              onChange={(e) => setBirthdate(e.target.value)}
+              InputLabelProps={{
+                shrink: true, // ✅ keeps label visible
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Cake />
+                  </InputAdornment>
+                ),
               }}
             />
 
@@ -264,7 +323,7 @@ const ApplicantForgotPassword = () => {
           {/* Footer */}
           <div className="Footer">
             <div className="FooterText">
-               &copy; {currentYear} {settings?.company_name || "EARIST"} <br />
+              &copy; {currentYear} {settings?.company_name || "EARIST"} <br />
               Student Information System. <br />
               All rights reserved.
             </div>
