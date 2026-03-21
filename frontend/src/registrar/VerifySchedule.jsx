@@ -380,6 +380,21 @@ const AssignScheduleToApplicants = () => {
         fetchRequirements();
     }, []);
 
+    const filterRequirementsForApplicant = (applicant, list = requirements) => {
+        if (!Array.isArray(list)) return [];
+
+        const applyingAs = String(applicant?.applyingAs ?? "");
+
+        return list.filter((req) => {
+            const applicantType = String(req.applicant_type ?? 0);
+            return (
+                applicantType === applyingAs ||
+                applicantType === "0" ||
+                applicantType.toLowerCase() === "all"
+            );
+        });
+    };
+
 
 
     const handleAssignSingle = (applicantNumber) => {
@@ -592,13 +607,14 @@ const AssignScheduleToApplicants = () => {
     const [emailSubject, setEmailSubject] = useState("Document Verification Schedule");
     const [emailMessage, setEmailMessage] = useState("");
 
-    const buildRequirementsText = (requirements) => {
-        if (!requirements || requirements.length === 0) {
+    const buildRequirementsText = (applicant, list = requirements) => {
+        const filteredRequirements = filterRequirementsForApplicant(applicant, list);
+        if (!filteredRequirements || filteredRequirements.length === 0) {
             return "• No requirements listed at this time.";
         }
 
         // Group by category (Regular, Medical, etc.)
-        const grouped = requirements.reduce((acc, req) => {
+        const grouped = filteredRequirements.reduce((acc, req) => {
             const category = req.category || "Other";
             if (!acc[category]) acc[category] = [];
             acc[category].push(req);
@@ -635,7 +651,7 @@ const AssignScheduleToApplicants = () => {
             return;
         }
 
-        const reqText = buildRequirementsText(requirements);
+        const reqText = buildRequirementsText(person, requirements);
 
         const formatTime = (timeStr) => {
             if (!timeStr) return "";

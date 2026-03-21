@@ -195,6 +195,7 @@ router.get("/verified-for-verify-schedule", async (req, res) => {
     const [rows] = await db.execute(`
       SELECT DISTINCT
         p.person_id,
+        p.applyingAs,
         p.last_name,
         p.first_name,
         p.middle_name,
