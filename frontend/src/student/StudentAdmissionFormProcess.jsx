@@ -191,61 +191,63 @@ const StudentAdmissionFormProcess = () => {
   const divToPrintRef = useRef();
 
   const printDiv = () => {
-    const divToPrint = divToPrintRef.current;
-    if (divToPrint) {
-      const newWin = window.open("", "Print-Window");
-      newWin.document.open();
-      newWin.document.write(`
+  const divToPrint = divToPrintRef.current;
+  if (divToPrint) {
+    const newWin = window.open("", "Print-Window");
+    newWin.document.open();
+    newWin.document.write(`
       <html>
         <head>
           <title>Print</title>
-       <style>
-  @page {
-    size: Legal;
-    margin: 0;
-  }
+          <style>
+              @page {
+              size: A4;
+              margin: 0;
+            }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 210mm;
-    height: 297mm;
-    font-family: Arial;
-  }
+            html, body {
+              margin: 0;
+              padding: 0;
+              width: 210mm;
+              height: 297mm;
+              font-family: Arial;
+              overflow: hidden;
+            }
 
-  *, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+            *, *::before, *::after {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+            }
 
-.print-container {
-  width: 100%;
-  height: auto;
-  padding: 10px 20px;
-}
+            .print-container {
+              width: 100%;
+              height: auto;
+              padding: 10px 20px;
 
-  .student-table {
-    margin-top: 15px !important;
-  }
+              /* 🔹 Apply 10% zoom out */
+              transform: scale(0.90);
+          
+            }
 
-  button {
-    display: none;
-  }
+            .student-table {
+              margin-top: -50px !important;
+            }
 
-  
+            button {
+              display: none;
+            }
 
-  .dataField{
-    margin-top: 2px !important;
-  }
+            .dataField {
+              margin-top: 2px !important;
+            }
 
-  svg.MuiSvgIcon-root {
-  margin-top: -53px;
-    width: 70px !important;
-    height: 70px !important;
-  }
-</style>
-
+            svg.MuiSvgIcon-root {
+              margin-top: -53px;
+              width: 70px !important;
+              height: 70px !important;
+            }
+          </style>
         </head>
         <body onload="window.print(); setTimeout(() => window.close(), 100);">
           <div class="print-container">
@@ -254,11 +256,11 @@ const StudentAdmissionFormProcess = () => {
         </body>
       </html>
     `);
-      newWin.document.close();
-    } else {
-      console.error("divToPrintRef is not set.");
-    }
-  };
+    newWin.document.close();
+  } else {
+    console.error("divToPrintRef is not set.");
+  }
+};
 
   const [campusAddress, setCampusAddress] = useState("");
 
@@ -292,7 +294,7 @@ const StudentAdmissionFormProcess = () => {
   }
 
 
-  return (
+ return (
     <Box
       sx={{
         height: "calc(100vh - 150px)",
@@ -417,6 +419,8 @@ const StudentAdmissionFormProcess = () => {
                     style={{
                       letterSpacing: "2px",
                       fontWeight: "bold",
+                      fontFamily: "Arial",
+                      fontSize: "12px"
                     }}
                   >
                     {firstLine}
@@ -426,6 +430,8 @@ const StudentAdmissionFormProcess = () => {
                       style={{
                         letterSpacing: "2px",
                         fontWeight: "bold",
+                          fontFamily: "Arial",
+                      fontSize: "12px"
                       }}
                     >
                       {secondLine}
@@ -451,7 +457,7 @@ const StudentAdmissionFormProcess = () => {
 
                   <div
                     style={{
-                      fontSize: "21px",
+                      fontSize: "12px",
                       fontFamily: "Arial",
                       fontWeight: "bold",
                       marginBottom: "5px",
@@ -473,33 +479,6 @@ const StudentAdmissionFormProcess = () => {
                     gap: "10px", // ✅ 10px space between them
                   }}
                 >
-                  {/* Profile Image (2x2) */}
-                  <div
-                    style={{
-                      width: "1.3in",
-                      height: "1.3in",
-                      border: "1px solid black",
-                      overflow: "hidden",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {person?.profile_img ? (
-                      <img
-                        src={`${API_BASE_URL}/uploads/Applicant1by1/${person.profile_img}`}
-                        alt="Profile"
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                        }}
-                      />
-                    ) : (
-                      <span style={{ fontSize: "12px", color: "#888" }}>
-                        No Image
-                      </span>
-                    )}
-                  </div>
-
                   <div
                     style={{
                       width: "1.3in",
@@ -566,7 +545,7 @@ const StudentAdmissionFormProcess = () => {
                 <td
                   colSpan={40}
                   style={{
-                    fontSize: "13px",
+                    fontSize: "12px",
                     paddingTop: "5px",
                     marginTop: 0,
                   }}
@@ -696,7 +675,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "14px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -727,11 +706,11 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "14px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
-                        {person.applicant_number}
+                        {person.emailAddress}
                       </div>
                     </span>
                   </div>
@@ -763,7 +742,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -800,7 +779,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -831,7 +810,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -862,7 +841,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -902,7 +881,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -933,7 +912,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -964,7 +943,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -1032,7 +1011,7 @@ const StudentAdmissionFormProcess = () => {
                         height: "1.3em",
                         textAlign: "center",
                         display: "inline-block",
-                        fontSize: "13px",
+                        fontSize: "12px",
                         fontWeight: "bold",
                       }}
                     >
@@ -1070,7 +1049,7 @@ const StudentAdmissionFormProcess = () => {
                         height: "1.3em",
                         textAlign: "center",
                         display: "inline-block",
-                        fontSize: "13px",
+                        fontSize: "12px",
                         fontWeight: "bold",
                       }}
                     >
@@ -1110,7 +1089,7 @@ const StudentAdmissionFormProcess = () => {
                         height: "1.3em",
                         textAlign: "center",
                         display: "inline-block",
-                        fontSize: "13px",
+                        fontSize: "12px",
                         fontWeight: "bold",
                       }}
                     >
@@ -1146,7 +1125,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -1256,7 +1235,7 @@ const StudentAdmissionFormProcess = () => {
                     style={{
                       color: "black",
 
-                      fontSize: "13px",
+                      fontSize: "12px",
                       textAlign: "left",
                       display: "block",
                     }}
@@ -1544,7 +1523,7 @@ const StudentAdmissionFormProcess = () => {
                   <div
                     style={{
                       fontWeight: "normal",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       color: "black",
                       textAlign: "right",
                     }}
@@ -1655,7 +1634,7 @@ const StudentAdmissionFormProcess = () => {
 
                   <div
                     style={{
-                      fontSize: "21px",
+                      fontSize: "12px",
                       fontFamily: "Arial",
                       fontWeight: "bold",
                       marginBottom: "5px",
@@ -1698,7 +1677,7 @@ const StudentAdmissionFormProcess = () => {
                       />
                     ) : (
                       <QRCodeSVG
-                        value={`http://localhost:5173/examination_profile/${person.applicant_number}`}
+                        value={`${window.location.origin}/applicant_profile/${person.applicant_number}`}
                         size={110}
                         level="H"
                       />
@@ -1743,7 +1722,7 @@ const StudentAdmissionFormProcess = () => {
                 <td
                   colSpan={40}
                   style={{
-                    fontSize: "13px",
+                    fontSize: "12px",
                     paddingTop: "5px",
                     marginTop: 0,
                   }}
@@ -1873,7 +1852,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "14px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -1904,11 +1883,11 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "14px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
-                        {person.applicant_number}
+                        {person.emailAddress}
                       </div>
                     </span>
                   </div>
@@ -1939,7 +1918,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -1976,7 +1955,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -2007,7 +1986,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -2038,7 +2017,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -2078,7 +2057,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -2109,7 +2088,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -2140,7 +2119,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -2208,7 +2187,7 @@ const StudentAdmissionFormProcess = () => {
                         height: "1.3em",
                         textAlign: "center",
                         display: "inline-block",
-                        fontSize: "13px",
+                        fontSize: "12px",
                         fontWeight: "bold",
                       }}
                     >
@@ -2246,7 +2225,7 @@ const StudentAdmissionFormProcess = () => {
                         height: "1.3em",
                         textAlign: "center",
                         display: "inline-block",
-                        fontSize: "13px",
+                        fontSize: "12px",
                         fontWeight: "bold",
                       }}
                     >
@@ -2286,7 +2265,7 @@ const StudentAdmissionFormProcess = () => {
                         height: "1.3em",
                         textAlign: "center",
                         display: "inline-block",
-                        fontSize: "13px",
+                        fontSize: "12px",
                         fontWeight: "bold",
                       }}
                     >
@@ -2322,7 +2301,7 @@ const StudentAdmissionFormProcess = () => {
                         flexGrow: 1,
                         borderBottom: "1px solid black",
                         height: "1.3em",
-                        fontSize: "13px",
+                        fontSize: "12px",
                       }}
                     >
                       <div style={{ marginTop: "-3px" }} className="dataField">
@@ -2432,7 +2411,7 @@ const StudentAdmissionFormProcess = () => {
                     style={{
                       color: "black",
 
-                      fontSize: "13px",
+                      fontSize: "12px",
                       textAlign: "left",
                       display: "block",
                     }}
@@ -2706,8 +2685,7 @@ const StudentAdmissionFormProcess = () => {
                   {" "}
                 </td>
               </tr>
-
-              <tr>
+                 <tr>
                 <td
                   colSpan={40}
                   style={{
@@ -2720,7 +2698,7 @@ const StudentAdmissionFormProcess = () => {
                   <div
                     style={{
                       fontWeight: "normal",
-                      fontSize: "14px",
+                      fontSize: "12px",
                       color: "black",
                       textAlign: "right",
                     }}
@@ -2729,6 +2707,8 @@ const StudentAdmissionFormProcess = () => {
                   </div>
                 </td>
               </tr>
+
+        
             </tbody>
           </table>
         </div>

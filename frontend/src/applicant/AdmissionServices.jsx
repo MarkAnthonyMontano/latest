@@ -399,9 +399,10 @@ const AdmissionServices = () => {
                                             <div
                                                 style={{
                                                     marginLeft: "-145px",
-                                                    fontSize: "15px",
+                                                    fontFamily: "Arial",
+                                                    fontSize: "12px",
                                                     letterSpacing: "2px",
-                                                    fontFamily: "Arial"
+
                                                 }}
                                             >
                                                 <b>{firstLine}</b>
@@ -411,9 +412,10 @@ const AdmissionServices = () => {
                                                 <div
                                                     style={{
                                                         marginLeft: "-145px",
-                                                        fontSize: "15px",
+                                                        fontFamily: "Arial",
+                                                        fontSize: "12px",
                                                         letterSpacing: "2px",
-                                                        fontFamily: "Arial"
+                                                       
                                                     }}
                                                 >
                                                     <b>{secondLine}</b>
@@ -438,7 +440,7 @@ const AdmissionServices = () => {
                                             <br />
 
                                             <div style={{
-                                                fontSize: "18px",
+                                                fontSize: "12px",
                                                 fontFamily: "Arial",
                                                 fontWeight: "bold",
                                                 marginBottom: "5px",
@@ -805,7 +807,7 @@ const AdmissionServices = () => {
                                                 padding: "8px",
                                                 textAlign: "center",
                                                 fontFamily: "Arial",
-                                                fontSize: "14px",
+                                                fontSize: "12px",
                                                 verticalAlign: "middle",
                                             }}
                                         >
@@ -825,7 +827,7 @@ const AdmissionServices = () => {
                                                 padding: "8px",
                                                 textAlign: "center",
                                                 fontFamily: "Arial",
-                                                fontSize: "14px",
+                                                fontSize: "12px",
                                                 verticalAlign: "middle",
                                             }}
                                         >
@@ -846,7 +848,7 @@ const AdmissionServices = () => {
                                                 padding: "8px",
                                                 textAlign: "center",
                                                 fontFamily: "Arial",
-                                                fontSize: "14px",
+                                                fontSize: "12px",
                                                 verticalAlign: "middle",
                                             }}
                                         >
@@ -863,7 +865,7 @@ const AdmissionServices = () => {
                                                 padding: "8px",
                                                 textAlign: "center",
                                                 fontFamily: "Arial",
-                                                fontSize: "14px",
+                                                fontSize: "12px",
                                                 verticalAlign: "middle",
                                             }}
                                         >
@@ -884,7 +886,7 @@ const AdmissionServices = () => {
                                                 padding: "8px",
                                                 textAlign: "center",
                                                 fontFamily: "Arial",
-                                                fontSize: "14px",
+                                                fontSize: "12px",
                                                 verticalAlign: "middle",
                                             }}
                                         >
@@ -934,7 +936,7 @@ const AdmissionServices = () => {
                                                 fontFamily: "Arial",
                                             }}
                                         >
-                                            SQD0. I am satisfied with the service that I availed.
+                                            <b>SQD0.</b> I am satisfied with the service that I availed.
 
 
                                         </td>
@@ -1015,7 +1017,7 @@ const AdmissionServices = () => {
                                                 fontFamily: "Arial",
                                             }}
                                         >
-                                            SQD1. I spent a reasonable amount of time for my transaction
+                                           <b>SQD1.</b>  I spent a reasonable amount of time for my transaction
 
                                         </td>
                                         <td
@@ -1094,167 +1096,7 @@ const AdmissionServices = () => {
                                                 fontSize: "11px",
                                             }}
                                         >
-                                            SQD2. The office followed the transaction's requirements and steps based on the information provided.
-
-                                        </td>
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            colSpan={16}
-                                            style={{
-                                                border: "1px solid black",
-                                                textAlign: "left",
-                                                padding: "8px",
-
-                                                fontSize: "11px",
-                                                fontFamily: "Arial",
-                                            }}
-                                        >
-                                            SQD3. The steps (including payment) I needed to do for my transaction were easy and simple.
-
-                                        </td>
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-
-                                        <td
-                                            colSpan={4}
-                                            style={{
-                                                border: "1px solid black",
-                                                padding: "8px",
-                                                textAlign: "Center",
-                                            }}
-                                        >
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td
-                                            colSpan={16}
-                                            style={{
-                                                border: "1px solid black",
-                                                textAlign: "left",
-                                                padding: "8px",
-
-                                                fontFamily: "Arial",
-                                                fontSize: "11px",
-                                            }}
-                                        >
-                                            SQD4. I easily found information about my transaction from the office or its website.
+                                            <b>SQD2.</b>  The office followed the transaction's requirements and steps based on the information provided.
 
                                         </td>
                                         <td
@@ -1334,7 +1176,87 @@ const AdmissionServices = () => {
                                                 fontFamily: "Arial",
                                             }}
                                         >
-                                            SQD5. I paid reasonable amount of fees for my transaction. (if service was free, mark the 'N/A' column)
+                                           <b>SQD3.</b>  The steps (including payment) I needed to do for my transaction were easy and simple.
+
+                                        </td>
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            colSpan={16}
+                                            style={{
+                                                border: "1px solid black",
+                                                textAlign: "left",
+                                                padding: "8px",
+
+                                                fontFamily: "Arial",
+                                                fontSize: "11px",
+                                            }}
+                                        >
+                                            <b>SQD4.</b> I easily found information about my transaction from the office or its website.
 
                                         </td>
                                         <td
@@ -1414,7 +1336,7 @@ const AdmissionServices = () => {
                                                 fontFamily: "Arial",
                                             }}
                                         >
-                                            SQD6. I feel the office was fair to everyone, or "walang palakasan", during my transaction.
+                                            <b>SQD5.</b> I paid reasonable amount of fees for my transaction. (if service was free, mark the 'N/A' column)
 
                                         </td>
                                         <td
@@ -1494,7 +1416,7 @@ const AdmissionServices = () => {
                                                 fontFamily: "Arial",
                                             }}
                                         >
-                                            SQD7. I was treated courteously by the staff, and (if asked for help) the staff was helpful.
+                                            <b>SQD6.</b> I feel the office was fair to everyone, or "walang palakasan", during my transaction.
 
                                         </td>
                                         <td
@@ -1574,7 +1496,87 @@ const AdmissionServices = () => {
                                                 fontFamily: "Arial",
                                             }}
                                         >
-                                            SQD8. I got what I needed from the government office, or  (if denied) denial of request was sufficiently explained to me.
+                                            <b>SQD7.</b> I was treated courteously by the staff, and (if asked for help) the staff was helpful.
+
+                                        </td>
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+
+                                        <td
+                                            colSpan={4}
+                                            style={{
+                                                border: "1px solid black",
+                                                padding: "8px",
+                                                textAlign: "Center",
+                                            }}
+                                        >
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            colSpan={16}
+                                            style={{
+                                                border: "1px solid black",
+                                                textAlign: "left",
+                                                padding: "8px",
+
+                                                fontSize: "11px",
+                                                fontFamily: "Arial",
+                                            }}
+                                        >
+                                            <b>SQD8.</b> I got what I needed from the government office, or  (if denied) denial of request was sufficiently explained to me.
 
                                         </td>
                                         <td

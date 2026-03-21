@@ -808,7 +808,7 @@ const PersonalDataForm = () => {
 
                                 <tr>
                                     {/* DATE OF BIRTH */}
-                                    <td colSpan={13} style={{
+                                    <td colSpan={11} style={{
                                         border: "1px solid black",
                                         textAlign: "left",
                                         fontFamily: "Arial",
@@ -843,7 +843,7 @@ const PersonalDataForm = () => {
 
 
                                     {/* PLACE OF BIRTH */}
-                                    <td colSpan={13} style={{
+                                    <td colSpan={15} style={{
                                         border: "1px solid black",
                                         textAlign: "left",
 
@@ -900,7 +900,7 @@ const PersonalDataForm = () => {
                                 {/* STUDENT ID NUMBER */}
                                 <tr>
                                     {/* STUDENT ID NUMBER */}
-                                    <td colSpan={13}
+                                    <td colSpan={11}
                                         style={{
                                             border: "1px solid black",
                                             textAlign: "left",
@@ -931,7 +931,7 @@ const PersonalDataForm = () => {
 
 
                                     {/* LEARNER’S REFERENCE NUMBER */}
-                                    <td colSpan={13}
+                                    <td colSpan={15}
 
                                         style={{
                                             border: "1px solid black",
@@ -990,7 +990,7 @@ const PersonalDataForm = () => {
                                 <tr>
                                     {/* SEX */}
                                     <td
-                                        colSpan={15}
+                                        colSpan={11}
                                         style={{
                                             border: "1px solid black",
                                             textAlign: "left",
@@ -1095,7 +1095,7 @@ const PersonalDataForm = () => {
 
 
                                     {/* E-MAIL ADDRESS */}
-                                    <td colSpan={10} style={{
+                                    <td colSpan={15} style={{
                                         border: "1px solid black",
                                         textAlign: "left",
 
@@ -1118,7 +1118,7 @@ const PersonalDataForm = () => {
                                             }}
                                         />
                                     </td>
-                                    <td colSpan={15} style={{
+                                    <td colSpan={14} style={{
                                         border: "1px solid black",
                                         textAlign: "left",
 

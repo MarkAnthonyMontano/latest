@@ -218,6 +218,7 @@ const OfficeOfTheRegistrar = () => {
 
   html, body {
     margin: 1;
+    margin-top: 15px;
     padding: 0;
     width: 210mm;
     height: 297mm;
@@ -428,13 +429,13 @@ const OfficeOfTheRegistrar = () => {
                                     paddingBottom: 0,
                                     letterSpacing: '1px',
                                 }}>
-                                    <div style={{ marginLeft: "-155px", fontFamily: "Arial", fontsize: "14px", }}>Republic of the Philippines</div>
+                                    <div style={{ marginLeft: "-155px", fontFamily: "Arial", fontSize: "12px", }}>Republic of the Philippines</div>
                                     <div
                                         style={{
                                             marginLeft: "-155px",
                                             fontFamily: "Arial",
                                             fontWeight: "bold",
-                                            fontSize: "16px",
+                                            fontSize: "12px",
                                             letterSpacing: "2px",
                                         }}
                                     >
@@ -446,7 +447,7 @@ const OfficeOfTheRegistrar = () => {
                                                 marginLeft: "-155px",
                                                 fontFamily: "Arial",
                                                 fontWeight: "bold",
-                                                fontSize: "16px",
+                                                fontSize: "12px",
                                                 letterSpacing: "2px",
                                             }}
                                         >
@@ -461,7 +462,7 @@ const OfficeOfTheRegistrar = () => {
 
 
                                     <div style={{
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         fontFamily: "Arial",
                                         fontWeight: "bold",
                                         marginBottom: "5px",
@@ -503,7 +504,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={23}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: -10,
 
@@ -520,7 +521,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={7}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: -10,
                                         textAlign: "right",
@@ -535,7 +536,7 @@ const OfficeOfTheRegistrar = () => {
                                         textAlign: "left",
                                         fontFamily: "Arial",
                                         fontWeight: "bold",
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         verticalAlign: "top"
                                     }}
                                 >
@@ -567,7 +568,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={10}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "center",
@@ -619,7 +620,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={10}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "center",
@@ -741,7 +742,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={10}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",
                                         marginTop: 0,
                                         textAlign: "left",
@@ -799,7 +800,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={10}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -855,7 +856,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={40}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -928,7 +929,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={9}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -1191,7 +1192,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={9}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -1459,7 +1460,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={9}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -1874,7 +1875,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={13}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "14px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -1950,7 +1951,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={13}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -2002,7 +2003,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={9}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -2211,7 +2212,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={13}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -2264,7 +2265,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={9}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",
@@ -2729,7 +2730,7 @@ const OfficeOfTheRegistrar = () => {
                                     colSpan={7}
                                     style={{
                                         fontFamily: "Arial",
-                                        fontSize: "13px",
+                                        fontSize: "12px",
                                         paddingTop: "5px",  // you can reduce this if needed
                                         marginTop: 0,
                                         textAlign: "left",

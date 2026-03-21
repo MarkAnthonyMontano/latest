@@ -1967,31 +1967,31 @@ th {
               </TableRow>
             ) : (
               currentPersons.map((person, index) => (
-                <TableRow
-                  key={person.person_id}
-                  sx={{
-                    backgroundColor:
-                      Number(person.submitted_documents) === 1
-                        ? "#C8E6C9" // 🌿 light green when submitted
-                        : isDuplicateApplicant(person)
-                          ? "#FFA50080" // orange for duplicates
-                          : "transparent",
+              <TableRow
+  key={person.person_id}
+  sx={{
+    backgroundColor:
+      Number(person.submitted_documents) === 1
+        ? "#C8E6C9" // keep priority (green)
+        : isDuplicateApplicant(person)
+        ? "#FFA50080" // keep priority (orange)
+        : index % 2 === 0
+        ? "#ffffff" // white
+        : "lightgray", // light gray
 
-                    color:
-                      Number(person.submitted_documents) === 1
-                        ? "black"
-                        : isDuplicateApplicant(person)
-                          ? "black"
-                          : "inherit",
+    color: "black",
 
-                    fontWeight:
-                      Number(person.submitted_documents) === 1
-                        ? "bold"
-                        : isDuplicateApplicant(person)
-                          ? "bold"
-                          : "normal",
-                  }}
-                >
+    "& td": {
+      color: "black",
+    },
+
+    fontWeight:
+      Number(person.submitted_documents) === 1 ||
+      isDuplicateApplicant(person)
+        ? "bold"
+        : "normal",
+  }}
+>
                   {/* # */}
                   <TableCell
                     sx={{

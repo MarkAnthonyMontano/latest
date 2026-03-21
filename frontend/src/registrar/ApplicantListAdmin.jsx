@@ -1959,31 +1959,32 @@ const AdminApplicantList = () => {
 
           <TableBody>
             {currentPersons.map((person, index) => (
-              <TableRow
+                 <TableRow
                 key={person.person_id}
                 sx={{
                   backgroundColor:
                     Number(person.submitted_documents) === 1
-                      ? "#C8E6C9" // 🌿 light green when submitted
+                      ? "#C8E6C9" // keep priority (green)
                       : isDuplicateApplicant(person)
-                        ? "#FFA50080" // orange for duplicates
-                        : "transparent",
-
-                  color:
-                    Number(person.submitted_documents) === 1
-                      ? "black"
-                      : isDuplicateApplicant(person)
-                        ? "black"
-                        : "inherit",
-
+                      ? "#FFA50080" // keep priority (orange)
+                      : index % 2 === 0
+                      ? "#ffffff" // white
+                      : "lightgray", // light gray
+              
+                  color: "black",
+              
+                  "& td": {
+                    color: "black",
+                  },
+              
                   fontWeight:
-                    Number(person.submitted_documents) === 1
+                    Number(person.submitted_documents) === 1 ||
+                    isDuplicateApplicant(person)
                       ? "bold"
-                      : isDuplicateApplicant(person)
-                        ? "bold"
-                        : "normal",
+                      : "normal",
                 }}
               >
+                              
                 {/* # */}
                 <TableCell
                   sx={{

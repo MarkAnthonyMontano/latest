@@ -67,6 +67,9 @@ const RegistrarExamPermit = ({ personId }) => {
         final: null,
         status: null,
     });
+
+
+    
     const [scheduledBy, setScheduledBy] = useState(""); // ✅ added
     const [printed, setPrinted] = useState(false);
 

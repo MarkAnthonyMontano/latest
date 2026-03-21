@@ -960,7 +960,11 @@ const SuperAdminApplicantDashboard1 = () => {
     const handleImportExcel = async () => {
         try {
             if (!excelFile) {
-                alert("⚠️ Please select an Excel file first.");
+                setSnackbar({
+                    open: true,
+                    message: "⚠️ Please select an Excel file first.",
+                    severity: "warning"
+                });
                 return;
             }
 
@@ -972,14 +976,25 @@ const SuperAdminApplicantDashboard1 = () => {
             });
 
             if (res.data.success) {
-                alert("✅ Excel imported successfully!");
+                setSnackbar({
+                    open: true,
+                    message: "✅ Excel imported successfully!",
+                    severity: "success"
+                });
                 window.location.reload();
             } else {
-                alert("❌ Failed: " + (res.data.error || "Unknown error"));
+                setSnackbar({
+                    open: true,
+                    message: "❌ Failed: " + (res.data.error || "Unknown error"),
+                    severity: "error"
+                });
             }
         } catch (err) {
-            console.error("❌ Import failed:", err);
-            alert("❌ Import failed: " + (err.response?.data?.error || err.message));
+            setSnackbar({
+                open: true,
+                message: "❌ Import failed: " + (err.response?.data?.error || err.message),
+                severity: "error"
+            });
         }
     };
 
@@ -1117,7 +1132,11 @@ const SuperAdminApplicantDashboard1 = () => {
 
             const res = await axios.post(`${API_BASE_URL}/form/add-applicant`, payload);
 
-            alert(`Applicant created! Applicant Number: ${res.data.applicant_number}`);
+            setSnackbar({
+                open: true,
+                message: `Applicant created! Applicant Number: ${res.data.applicant_number}`,
+                severity: "success"
+            });
 
             setOpenAddApplicant(false);
 
@@ -1134,7 +1153,11 @@ const SuperAdminApplicantDashboard1 = () => {
 
         } catch (error) {
             console.error(error);
-            alert(error.response?.data?.message || "Error adding applicant");
+            setSnackbar({
+                open: true,
+                message: error.response?.data?.message || "Error adding applicant",
+                severity: "error"
+            });
         }
     };
 
@@ -1651,33 +1674,33 @@ const SuperAdminApplicantDashboard1 = () => {
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                 >
-                                      <MenuItem value="">
-                                                      <em>Select Applying</em>
-                                                    </MenuItem>
-                                                    <MenuItem value="1">
-                                                      Senior High School Graduate
-                                                    </MenuItem>
-                                                    <MenuItem value="2">
-                                                      Senior High School Graduating Student
-                                                    </MenuItem>
-                                                    <MenuItem value="3">
-                                                      ALS (Alternative Learning System) Passer
-                                                    </MenuItem>
-                                                    <MenuItem value="4">
-                                                      Transferee from other University/College
-                                                    </MenuItem>
-                                                    <MenuItem value="5">
-                                                      Cross Enrolee Student
-                                                    </MenuItem>
-                                                    <MenuItem value="6">
-                                                      Foreign Applicant/Student
-                                                    </MenuItem>
-                                                    <MenuItem value="7">
-                                                      Baccalaureate Graduate
-                                                    </MenuItem>
-                                                    <MenuItem value="8">
-                                                      Master Degree Graduate
-                                                    </MenuItem>
+                                    <MenuItem value="">
+                                        <em>Select Applying</em>
+                                    </MenuItem>
+                                    <MenuItem value="1">
+                                        Senior High School Graduate
+                                    </MenuItem>
+                                    <MenuItem value="2">
+                                        Senior High School Graduating Student
+                                    </MenuItem>
+                                    <MenuItem value="3">
+                                        ALS (Alternative Learning System) Passer
+                                    </MenuItem>
+                                    <MenuItem value="4">
+                                        Transferee from other University/College
+                                    </MenuItem>
+                                    <MenuItem value="5">
+                                        Cross Enrolee Student
+                                    </MenuItem>
+                                    <MenuItem value="6">
+                                        Foreign Applicant/Student
+                                    </MenuItem>
+                                    <MenuItem value="7">
+                                        Baccalaureate Graduate
+                                    </MenuItem>
+                                    <MenuItem value="8">
+                                        Master Degree Graduate
+                                    </MenuItem>
                                 </Select>
                                 {errors.applyingAs && (
                                     <FormHelperText>This field is required.</FormHelperText>
@@ -2235,7 +2258,7 @@ const SuperAdminApplicantDashboard1 = () => {
                                     onBlur={handleBlur}
                                     error={!!errors.birthOfDate}
                                     helperText={errors.birthOfDate ? "This field is required." : ""}
-                                 />
+                                />
                             </Box>
 
                             {/* 👤 Age (auto-filled, read-only) */}
@@ -3192,64 +3215,64 @@ const SuperAdminApplicantDashboard1 = () => {
                                     </Box>
 
                                     {/* Preview Image */}
-                                 {(preview || person.profile_img) && (
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "center",
-      my: 2,
-      position: "relative",
-    }}
-  >
-    <Box
-      component="img"
-      src={
-        preview
-          ? preview
-          : `${API_BASE_URL}/uploads/Applicant1by1/${person.profile_img}`
-      }
-      alt="Preview"
-      sx={{
-        width: "192px",
-        height: "192px",
-        objectFit: "cover",
-        border: "2px solid #6D2323",
-        borderRadius: 2,
-      }}
-    />
+                                    {(preview || person.profile_img) && (
+                                        <Box
+                                            sx={{
+                                                display: "flex",
+                                                justifyContent: "center",
+                                                my: 2,
+                                                position: "relative",
+                                            }}
+                                        >
+                                            <Box
+                                                component="img"
+                                                src={
+                                                    preview
+                                                        ? preview
+                                                        : `${API_BASE_URL}/uploads/Applicant1by1/${person.profile_img}`
+                                                }
+                                                alt="Preview"
+                                                sx={{
+                                                    width: "192px",
+                                                    height: "192px",
+                                                    objectFit: "cover",
+                                                    border: "2px solid #6D2323",
+                                                    borderRadius: 2,
+                                                }}
+                                            />
 
-    {/* ❌ REMOVE BUTTON */}
-    <Button
-      size="small"
-      onClick={() => {
-        setSelectedFile(null);
-        setPreview(null);
+                                            {/* ❌ REMOVE BUTTON */}
+                                            <Button
+                                                size="small"
+                                                onClick={() => {
+                                                    setSelectedFile(null);
+                                                    setPreview(null);
 
-        // ✅ IMPORTANT: remove existing image
-        setPerson((prev) => ({
-          ...prev,
-          profile_img: "",
-        }));
-      }}
-      sx={{
-        position: "absolute",
-        top: -8,
-        right: "calc(50% - 96px)",
-        minWidth: 0,
-        width: 28,
-        height: 28,
-        fontSize: "18px",
-        p: 0,
-        color: "#fff",
-        bgcolor: "#d32f2f",
-        borderRadius: "50%",
-        "&:hover": { bgcolor: "#b71c1c" },
-      }}
-    >
-      ×
-    </Button>
-  </Box>
-)}
+                                                    // ✅ IMPORTANT: remove existing image
+                                                    setPerson((prev) => ({
+                                                        ...prev,
+                                                        profile_img: "",
+                                                    }));
+                                                }}
+                                                sx={{
+                                                    position: "absolute",
+                                                    top: -8,
+                                                    right: "calc(50% - 96px)",
+                                                    minWidth: 0,
+                                                    width: 28,
+                                                    height: 28,
+                                                    fontSize: "18px",
+                                                    p: 0,
+                                                    color: "#fff",
+                                                    bgcolor: "#d32f2f",
+                                                    borderRadius: "50%",
+                                                    "&:hover": { bgcolor: "#b71c1c" },
+                                                }}
+                                            >
+                                                ×
+                                            </Button>
+                                        </Box>
+                                    )}
 
                                     {/* Guidelines Section */}
                                     <Box
@@ -3489,7 +3512,7 @@ const SuperAdminApplicantDashboard1 = () => {
                                     margin="normal"
                                     value={applicantForm.birthOfDate}
                                     onChange={handleApplicantChange}
-                                 />
+                                />
                                 <FormControl fullWidth margin="normal">
                                     <InputLabel id="applying-as-label">Applying As</InputLabel>
                                     <Select

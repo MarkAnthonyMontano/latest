@@ -9,61 +9,61 @@ import API_BASE_URL from "../apiConfig";
 
 
 const ECATApplicationForm = () => {
-   const settings = useContext(SettingsContext);
+  const settings = useContext(SettingsContext);
 
-    const [titleColor, setTitleColor] = useState("#000000");
-    const [subtitleColor, setSubtitleColor] = useState("#555555");
-    const [borderColor, setBorderColor] = useState("#000000");
-    const [mainButtonColor, setMainButtonColor] = useState("#1976d2");
-    const [subButtonColor, setSubButtonColor] = useState("#ffffff");   // ✅ NEW
-    const [stepperColor, setStepperColor] = useState("#000000");       // ✅ NEW
+  const [titleColor, setTitleColor] = useState("#000000");
+  const [subtitleColor, setSubtitleColor] = useState("#555555");
+  const [borderColor, setBorderColor] = useState("#000000");
+  const [mainButtonColor, setMainButtonColor] = useState("#1976d2");
+  const [subButtonColor, setSubButtonColor] = useState("#ffffff");   // ✅ NEW
+  const [stepperColor, setStepperColor] = useState("#000000");       // ✅ NEW
 
-    const [fetchedLogo, setFetchedLogo] = useState(null);
-    const [companyName, setCompanyName] = useState("");
-    const [shortTerm, setShortTerm] = useState("");
-    const [campusAddress, setCampusAddress] = useState("");
-    const [branches, setBranches] = useState([]);
+  const [fetchedLogo, setFetchedLogo] = useState(null);
+  const [companyName, setCompanyName] = useState("");
+  const [shortTerm, setShortTerm] = useState("");
+  const [campusAddress, setCampusAddress] = useState("");
+  const [branches, setBranches] = useState([]);
 
-    useEffect(() => {
-        if (!settings) return;
+  useEffect(() => {
+    if (!settings) return;
 
-        // 🎨 Colors
-        if (settings.title_color) setTitleColor(settings.title_color);
-        if (settings.subtitle_color) setSubtitleColor(settings.subtitle_color);
-        if (settings.border_color) setBorderColor(settings.border_color);
-        if (settings.main_button_color) setMainButtonColor(settings.main_button_color);
-        if (settings.sub_button_color) setSubButtonColor(settings.sub_button_color);
-        if (settings.stepper_color) setStepperColor(settings.stepper_color);
+    // 🎨 Colors
+    if (settings.title_color) setTitleColor(settings.title_color);
+    if (settings.subtitle_color) setSubtitleColor(settings.subtitle_color);
+    if (settings.border_color) setBorderColor(settings.border_color);
+    if (settings.main_button_color) setMainButtonColor(settings.main_button_color);
+    if (settings.sub_button_color) setSubButtonColor(settings.sub_button_color);
+    if (settings.stepper_color) setStepperColor(settings.stepper_color);
 
-        // 🏫 Logo
-        if (settings.logo_url) {
-            setFetchedLogo(`${API_BASE_URL}${settings.logo_url}`);
-        } else {
-            setFetchedLogo(EaristLogo);
-        }
+    // 🏫 Logo
+    if (settings.logo_url) {
+      setFetchedLogo(`${API_BASE_URL}${settings.logo_url}`);
+    } else {
+      setFetchedLogo(EaristLogo);
+    }
 
-        // 🏷️ School Info
-        if (settings.company_name) setCompanyName(settings.company_name);
-        if (settings.short_term) setShortTerm(settings.short_term);
-        if (settings.campus_address) setCampusAddress(settings.campus_address);
+    // 🏷️ School Info
+    if (settings.company_name) setCompanyName(settings.company_name);
+    if (settings.short_term) setShortTerm(settings.short_term);
+    if (settings.campus_address) setCampusAddress(settings.campus_address);
 
-        // ✅ Branches (JSON stored in DB)
-        if (settings?.branches) {
-            try {
-                const parsed =
-                    typeof settings.branches === "string"
-                        ? JSON.parse(settings.branches)
-                        : settings.branches;
+    // ✅ Branches (JSON stored in DB)
+    if (settings?.branches) {
+      try {
+        const parsed =
+          typeof settings.branches === "string"
+            ? JSON.parse(settings.branches)
+            : settings.branches;
 
-                setBranches(parsed);
-            } catch (err) {
-                console.error("Failed to parse branches:", err);
-                setBranches([]);
-            }
-        }
+        setBranches(parsed);
+      } catch (err) {
+        console.error("Failed to parse branches:", err);
+        setBranches([]);
+      }
+    }
 
 
-    }, [settings]);
+  }, [settings]);
 
   const [userID, setUserID] = useState("");
   const [user, setUser] = useState("");
@@ -226,7 +226,7 @@ const ECATApplicationForm = () => {
 
       html, body {
         margin: 0;
-        margin-top: -115px;
+        margin-top: -100px;
         padding: 0;
         font-family: Arial, sans-serif;
         width: auto;
@@ -375,6 +375,7 @@ const ECATApplicationForm = () => {
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
+            marginBottom: "20px",
             tableLayout: "fixed",
             border: "2px solid black"
           }}
@@ -436,7 +437,8 @@ const ECATApplicationForm = () => {
                             fontSize: "12px",
                             letterSpacing: "1px",
                             marginLeft: "-60px",
-                            fontFamily: "Arial"
+                            fontFamily: "Arial",
+                            fontWeight: "bold"
                           }}
                         >
                           <b>{firstLine}</b>
@@ -447,7 +449,8 @@ const ECATApplicationForm = () => {
                               fontSize: "12px",
                               letterSpacing: "1px",
                               marginLeft: "-60px",
-                              fontFamily: "Arial"
+                              fontFamily: "Arial",
+                              fontWeight: "bold"
                             }}
                           >
                             <b>{secondLine}</b>
@@ -761,7 +764,7 @@ const ECATApplicationForm = () => {
                   <b style={{
                     color: "black",
                     fontFamily: "Arial",
-                    fontSize: '15px',
+                    fontSize: '12px',
                     textAlign: "center",
                     display: "block",
                     fontStyle: 'italic',
@@ -1014,7 +1017,7 @@ const ECATApplicationForm = () => {
                   <b style={{
                     color: "black",
                     fontFamily: "Arial",
-                    fontSize: '15px',
+                    fontSize: '12px',
                     textAlign: "center",
                     display: "block",
                     fontStyle: 'italic',
@@ -1036,7 +1039,7 @@ const ECATApplicationForm = () => {
                     style={{
                       flex: 1,
                       borderBottom: "1px solid black",
-                      minHeight: "18px",
+                      height: "12px",
                       fontFamily: "Arial",
                       fontSize: "12px",
                     }}
@@ -1055,13 +1058,13 @@ const ECATApplicationForm = () => {
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px",  }}>{person.father_occupation}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.father_occupation}</span>
 
                   <b>Monthly Income:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.father_income}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.father_income}</span>
 
                   <b>Contact No:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.father_contact}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.father_contact}</span>
                 </div>
               </td>
             </tr>
@@ -1075,9 +1078,10 @@ const ECATApplicationForm = () => {
                     style={{
                       flex: 1,
                       borderBottom: "1px solid black",
-                      minHeight: "18px",
+                      height: "12px",
                       fontFamily: "Arial",
                       fontSize: "12px",
+
                     }}
                   >
                     {`${person.mother_given_name || ""} ${person.mother_middle_name || ""} ${person.mother_family_name || ""}`.toUpperCase()}
@@ -1094,13 +1098,13 @@ const ECATApplicationForm = () => {
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.mother_occupation}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.mother_occupation}</span>
 
                   <b>Monthly Income:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.mother_income}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.mother_income}</span>
 
                   <b>Contact No:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.mother_contact}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.mother_contact}</span>
                 </div>
               </td>
             </tr>
@@ -1114,7 +1118,7 @@ const ECATApplicationForm = () => {
                     style={{
                       flex: 1,
                       borderBottom: "1px solid black",
-                      minHeight: "18px",
+                      height: "12px",
                       fontFamily: "Arial",
                       fontSize: "12px",
                     }}
@@ -1134,13 +1138,13 @@ const ECATApplicationForm = () => {
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}></span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}></span>
 
                   <b>Monthly Income:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>0</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>0</span>
 
                   <b>Contact No:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.guardian_contact}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.guardian_contact}</span>
                 </div>
               </td>
             </tr>
@@ -1185,7 +1189,7 @@ const ECATApplicationForm = () => {
                   <b style={{
                     color: "black",
                     fontFamily: "Arial",
-                    fontSize: '15px',
+                    fontSize: '12px',
                     textAlign: "center",
                     display: "block",
                     fontStyle: 'italic',
@@ -1221,7 +1225,7 @@ const ECATApplicationForm = () => {
                     style={{
                       flex: 1,
                       borderBottom: "1px solid black",
-                      minHeight: "18px", // visible line even without text
+                      height: "12px", // visible line even without text
                       textAlign: "center", // centers text
                       display: "flex",
                       alignItems: "center",
@@ -1350,7 +1354,7 @@ const ECATApplicationForm = () => {
                   <b style={{
                     color: "black",
                     fontFamily: "Arial",
-                    fontSize: '15px',
+                    fontSize: '12px',
                     textAlign: "center",
                     display: "block",
                     border: "2px solid black",
@@ -1374,7 +1378,7 @@ const ECATApplicationForm = () => {
                 <strong>
                   I certify that the information given above is true, complete, and accurate to the best of my knowledge and belief.
 
-                  I promise to abide by the rules and regulations of {companyName} 
+                  I promise to abide by the rules and regulations of {companyName}
                   regarding the ECAT and my possible admission.
 
                   I am aware that any false or misleading information and/or statement may result in the refusal or disqualification

@@ -407,7 +407,7 @@ const SideBar = ({ setIsAuthenticated, profileImage, setProfileImage }) => {
       key: "admissionOffice", label: "Admission Office", icon: AdminPanelSettings, items: [
         { title: "Applicant List", link: "/applicant_list_admin", icon: ListAltOutlined, page_id: 7 },
         { title: "Applicant Profile", link: "/admin_dashboard1", icon: AccountCircle, page_id: 1 },
-        { title: "Documents Submitted", link: "/student_requirements", icon: Description, page_id: 61 },
+        { title: "Documents Submitted", link: "/student_requirements", icon: FolderCopy, page_id: 61 },
         { title: "Exam Schedule Mgmt", link: "/assign_schedule_applicant", icon: EditCalendar, page_id: 11 },
         { title: "Examination Permit", link: "/registrar_examination_profile", icon: Badge, page_id: 48 },
         { title: "Entrance Exam Scores", link: "/applicant_scoring", icon: Score, page_id: 8 },

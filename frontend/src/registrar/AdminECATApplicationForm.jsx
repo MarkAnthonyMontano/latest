@@ -9,53 +9,53 @@ import API_BASE_URL from "../apiConfig";
 
 const ECATApplicationForm = () => {
 
-   const settings = useContext(SettingsContext);
-   
-     const [titleColor, setTitleColor] = useState("#000000");
-     const [subtitleColor, setSubtitleColor] = useState("#555555");
-     const [borderColor, setBorderColor] = useState("#000000");
-     const [mainButtonColor, setMainButtonColor] = useState("#1976d2");
-     const [subButtonColor, setSubButtonColor] = useState("#ffffff");   // ✅ NEW
-     const [stepperColor, setStepperColor] = useState("#000000");       // ✅ NEW
-   
-     const [fetchedLogo, setFetchedLogo] = useState(null);
-     const [companyName, setCompanyName] = useState("");
-     const [shortTerm, setShortTerm] = useState("");
-     const [branches, setBranches] = useState([]);
-   
-     useEffect(() => {
-       if (!settings) return;
-   
-       // 🎨 Colors
-       if (settings.title_color) setTitleColor(settings.title_color);
-       if (settings.subtitle_color) setSubtitleColor(settings.subtitle_color);
-       if (settings.border_color) setBorderColor(settings.border_color);
-       if (settings.main_button_color) setMainButtonColor(settings.main_button_color);
-       if (settings.sub_button_color) setSubButtonColor(settings.sub_button_color);
-       if (settings.stepper_color) setStepperColor(settings.stepper_color);
-   
-       // 🏫 Logo
-       if (settings.logo_url) {
-         setFetchedLogo(`${API_BASE_URL}${settings.logo_url}`);
-       } else {
-         setFetchedLogo(EaristLogo);
-       }
-   
-       // 🏷️ School Info
-       if (settings.company_name) setCompanyName(settings.company_name);
-       if (settings.short_term) setShortTerm(settings.short_term);
-       if (settings.campus_address) setCampusAddress(settings.campus_address);
-   
-       // ✅ Branches (JSON stored in DB)
-       if (settings.branches) {
-         setBranches(
-           typeof settings.branches === "string"
-             ? JSON.parse(settings.branches)
-             : settings.branches
-         );
-       }
-   
-     }, [settings]);
+  const settings = useContext(SettingsContext);
+
+  const [titleColor, setTitleColor] = useState("#000000");
+  const [subtitleColor, setSubtitleColor] = useState("#555555");
+  const [borderColor, setBorderColor] = useState("#000000");
+  const [mainButtonColor, setMainButtonColor] = useState("#1976d2");
+  const [subButtonColor, setSubButtonColor] = useState("#ffffff");   // ✅ NEW
+  const [stepperColor, setStepperColor] = useState("#000000");       // ✅ NEW
+
+  const [fetchedLogo, setFetchedLogo] = useState(null);
+  const [companyName, setCompanyName] = useState("");
+  const [shortTerm, setShortTerm] = useState("");
+  const [branches, setBranches] = useState([]);
+
+  useEffect(() => {
+    if (!settings) return;
+
+    // 🎨 Colors
+    if (settings.title_color) setTitleColor(settings.title_color);
+    if (settings.subtitle_color) setSubtitleColor(settings.subtitle_color);
+    if (settings.border_color) setBorderColor(settings.border_color);
+    if (settings.main_button_color) setMainButtonColor(settings.main_button_color);
+    if (settings.sub_button_color) setSubButtonColor(settings.sub_button_color);
+    if (settings.stepper_color) setStepperColor(settings.stepper_color);
+
+    // 🏫 Logo
+    if (settings.logo_url) {
+      setFetchedLogo(`${API_BASE_URL}${settings.logo_url}`);
+    } else {
+      setFetchedLogo(EaristLogo);
+    }
+
+    // 🏷️ School Info
+    if (settings.company_name) setCompanyName(settings.company_name);
+    if (settings.short_term) setShortTerm(settings.short_term);
+    if (settings.campus_address) setCampusAddress(settings.campus_address);
+
+    // ✅ Branches (JSON stored in DB)
+    if (settings.branches) {
+      setBranches(
+        typeof settings.branches === "string"
+          ? JSON.parse(settings.branches)
+          : settings.branches
+      );
+    }
+
+  }, [settings]);
 
   const words = companyName.trim().split(" ");
   const middle = Math.ceil(words.length / 2);
@@ -66,75 +66,75 @@ const ECATApplicationForm = () => {
   const [user, setUser] = useState("");
   const [userRole, setUserRole] = useState("");
   const [person, setPerson] = useState({
-  
-      profile_img: "",
-      campus: "",
-      academicProgram: "",
-      classifiedAs: "",
-      program: "",
-      program2: "",
-      program3: "",
-      yearLevel: "",
-      last_name: "",
-      first_name: "",
-      middle_name: "",
-      extension: "",
-      nickname: "",
-      height: "",
-      weight: "",
-      lrnNumber: "",
-      gender: "",
-      pwdType: "",
-      pwdId: "",
-      birthOfDate: "",
-      age: "",
-      birthPlace: "",
-      languageDialectSpoken: "",
-      citizenship: "",
-      religion: "",
-      civilStatus: "",
-      tribeEthnicGroup: "",
-      otherEthnicGroup: "",
-      cellphoneNumber: "",
-      emailAddress: "",
-      telephoneNumber: "",
-      facebookAccount: "",
-      presentStreet: "",
-      presentBarangay: "",
-      presentZipCode: "",
-      presentRegion: "",
-      presentProvince: "",
-      presentMunicipality: "",
-      presentDswdHouseholdNumber: "",
-      permanentStreet: "",
-      permanentBarangay: "",
-      permanentZipCode: "",
-      permanentRegion: "",
-      permanentProvince: "",
-      permanentMunicipality: "",
-      permanentDswdHouseholdNumber: "",
-      father_deceased: "",
-      father_family_name: "", father_given_name: "", father_middle_name: "", father_ext: "", father_contact: "", father_occupation: "",
-      father_income: "", father_email: "", mother_deceased: "", mother_family_name: "", mother_given_name: "", mother_middle_name: "",
-      mother_contact: "", mother_occupation: "", mother_income: "", guardian: "", guardian_family_name: "", guardian_given_name: "",
-      guardian_middle_name: "", guardian_ext: "", guardian_nickname: "", guardian_address: "", guardian_contact: "", guardian_email: "",
-      schoolLevel: "",
-      schoolLastAttended: "",
-      schoolAddress: "",
-      courseProgram: "",
-      honor: "",
-      generalAverage: "",
-      yearGraduated: "",
-      schoolLevel1: "",
-      schoolLastAttended1: "",
-      schoolAddress1: "",
-      courseProgram1: "",
-      honor1: "",
-      generalAverage1: "",
-      yearGraduated1: "",
-      strand: "",
-    });
-  
+
+    profile_img: "",
+    campus: "",
+    academicProgram: "",
+    classifiedAs: "",
+    program: "",
+    program2: "",
+    program3: "",
+    yearLevel: "",
+    last_name: "",
+    first_name: "",
+    middle_name: "",
+    extension: "",
+    nickname: "",
+    height: "",
+    weight: "",
+    lrnNumber: "",
+    gender: "",
+    pwdType: "",
+    pwdId: "",
+    birthOfDate: "",
+    age: "",
+    birthPlace: "",
+    languageDialectSpoken: "",
+    citizenship: "",
+    religion: "",
+    civilStatus: "",
+    tribeEthnicGroup: "",
+    otherEthnicGroup: "",
+    cellphoneNumber: "",
+    emailAddress: "",
+    telephoneNumber: "",
+    facebookAccount: "",
+    presentStreet: "",
+    presentBarangay: "",
+    presentZipCode: "",
+    presentRegion: "",
+    presentProvince: "",
+    presentMunicipality: "",
+    presentDswdHouseholdNumber: "",
+    permanentStreet: "",
+    permanentBarangay: "",
+    permanentZipCode: "",
+    permanentRegion: "",
+    permanentProvince: "",
+    permanentMunicipality: "",
+    permanentDswdHouseholdNumber: "",
+    father_deceased: "",
+    father_family_name: "", father_given_name: "", father_middle_name: "", father_ext: "", father_contact: "", father_occupation: "",
+    father_income: "", father_email: "", mother_deceased: "", mother_family_name: "", mother_given_name: "", mother_middle_name: "",
+    mother_contact: "", mother_occupation: "", mother_income: "", guardian: "", guardian_family_name: "", guardian_given_name: "",
+    guardian_middle_name: "", guardian_ext: "", guardian_nickname: "", guardian_address: "", guardian_contact: "", guardian_email: "",
+    schoolLevel: "",
+    schoolLastAttended: "",
+    schoolAddress: "",
+    courseProgram: "",
+    honor: "",
+    generalAverage: "",
+    yearGraduated: "",
+    schoolLevel1: "",
+    schoolLastAttended1: "",
+    schoolAddress1: "",
+    courseProgram1: "",
+    honor1: "",
+    generalAverage1: "",
+    yearGraduated1: "",
+    strand: "",
+  });
+
 
 
   const [campusAddress, setCampusAddress] = useState("");
@@ -159,38 +159,38 @@ const ECATApplicationForm = () => {
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-   const queryPersonId = queryParams.get("person_id");
- 
-   useEffect(() => {
-     const storedUser = localStorage.getItem("email");
-     const storedRole = localStorage.getItem("role");
-     const loggedInPersonId = localStorage.getItem("person_id");
- 
-     if (!storedUser || !storedRole || !loggedInPersonId) {
-       window.location.href = "/login";
-       return;
-     }
- 
-     setUser(storedUser);
-     setUserRole(storedRole);
- 
-     const allowedRoles = ["registrar", "applicant", "student"];
-     if (!allowedRoles.includes(storedRole)) {
-       window.location.href = "/login";
-       return;
-     }
- 
-     // ⭐ ONLY LOAD IF URL HAS ?person_id=
-     if (queryPersonId && queryPersonId.trim() !== "") {
-       setUserID(queryPersonId);
-       fetchPersonData(queryPersonId);
-     } else {
-       // CLEAR — do not load any old data
-       setUserID("");
-       setPerson({});
-     }
-   }, [queryPersonId]);
- 
+  const queryPersonId = queryParams.get("person_id");
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("email");
+    const storedRole = localStorage.getItem("role");
+    const loggedInPersonId = localStorage.getItem("person_id");
+
+    if (!storedUser || !storedRole || !loggedInPersonId) {
+      window.location.href = "/login";
+      return;
+    }
+
+    setUser(storedUser);
+    setUserRole(storedRole);
+
+    const allowedRoles = ["registrar", "applicant", "student"];
+    if (!allowedRoles.includes(storedRole)) {
+      window.location.href = "/login";
+      return;
+    }
+
+    // ⭐ ONLY LOAD IF URL HAS ?person_id=
+    if (queryPersonId && queryPersonId.trim() !== "") {
+      setUserID(queryPersonId);
+      fetchPersonData(queryPersonId);
+    } else {
+      // CLEAR — do not load any old data
+      setUserID("");
+      setPerson({});
+    }
+  }, [queryPersonId]);
+
 
   const [shortDate, setShortDate] = useState("");
 
@@ -311,7 +311,7 @@ const ECATApplicationForm = () => {
 
 
 
- return (
+  return (
     <Box sx={{ height: "calc(100vh - 150px)", overflowY: "auto", paddingRight: 1, backgroundColor: "transparent", mt: 1, padding: 2 }}>
       <div ref={divToPrintRef}>
         <div>
@@ -393,6 +393,7 @@ const ECATApplicationForm = () => {
             width: "8in",
             margin: "0 auto",
             textAlign: "center",
+            marginBottom: "20px",
             tableLayout: "fixed",
             border: "2px solid black"
           }}
@@ -451,10 +452,11 @@ const ECATApplicationForm = () => {
                       <>
                         <div
                           style={{
-                            fontSize: "14px",
+                            fontSize: "12px",
                             letterSpacing: "1px",
                             marginLeft: "-60px",
-                            fontFamily: "Arial"
+                            fontFamily: "Arial",
+                            fontWeight: "bold"
                           }}
                         >
                           <b>{firstLine}</b>
@@ -462,10 +464,11 @@ const ECATApplicationForm = () => {
                         {secondLine && (
                           <div
                             style={{
-                              fontSize: "14px",
+                              fontSize: "12px",
                               letterSpacing: "1px",
                               marginLeft: "-60px",
-                              fontFamily: "Arial"
+                              fontFamily: "Arial",
+                              fontWeight: "bold"
                             }}
                           >
                             <b>{secondLine}</b>
@@ -502,7 +505,7 @@ const ECATApplicationForm = () => {
                 <table style={{
                   width: "100%",
                   borderCollapse: "collapse",
-                  fontFamily: "Arial, sans-serif",
+                  fontFamily: "Arial",
                   textAlign: "Left",
                   fontSize: "11px"
                 }}>
@@ -620,7 +623,7 @@ const ECATApplicationForm = () => {
                 }}
               >
                 <div>Course & Major:</div>
-                <div style={{ fontFamily: "Arial", fontSize: "14px", paddingTop: "2px", fontWeight: "Normal" }}>
+                <div style={{ fontFamily: "Arial", fontSize: "12px", paddingTop: "2px", fontWeight: "Normal" }}>
                   {curriculumOptions.length > 0
                     ? curriculumOptions.find(
                       (item) =>
@@ -659,7 +662,7 @@ const ECATApplicationForm = () => {
                   style={{
                     fontWeight: "bold",
                     fontSize: "12px",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     marginBottom: "4px",
                     textAlign: "left",
                   }}
@@ -674,7 +677,7 @@ const ECATApplicationForm = () => {
                     flexDirection: "column",
                     gap: "5px",
                     fontSize: "12px",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                   }}
                 >
                   {/* Row 1 */}
@@ -690,7 +693,7 @@ const ECATApplicationForm = () => {
                           width: "150px",
                           marginLeft: "10px",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -714,7 +717,7 @@ const ECATApplicationForm = () => {
                           marginLeft: "15px",
                           textAlign: "center",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -736,7 +739,7 @@ const ECATApplicationForm = () => {
                           width: "150px",
                           marginLeft: "10px",
                           fontSize: "12px",
-                          fontFamily: "Arial, sans-serif",
+                          fontFamily: "Arial",
                           background: "none",
                           outline: "none",
                         }}
@@ -779,7 +782,7 @@ const ECATApplicationForm = () => {
                   <b style={{
                     color: "black",
                     fontFamily: "Arial",
-                    fontSize: '15px',
+                    fontSize: '12px',
                     textAlign: "center",
                     display: "block",
                     fontStyle: 'italic',
@@ -820,7 +823,7 @@ const ECATApplicationForm = () => {
 
             {/* Labels under Name */}
             <tr>
-              <td colSpan={40} style={{ fontFamily: "Arial", fontSize: "14px", paddingTop: "2px" }}>
+              <td colSpan={40} style={{ fontFamily: "Arial", fontSize: "12px", paddingTop: "2px" }}>
                 <div
                   style={{
                     width: "92%",
@@ -829,11 +832,11 @@ const ECATApplicationForm = () => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <span style={{ width: "20%", textAlign: "center" }}>Last Name</span>
-                  <span style={{ width: "20%", textAlign: "center" }}>Given Name</span>
-                  <span style={{ width: "20%", textAlign: "center" }}>Middle Name</span>
-                  <span style={{ width: "20%", textAlign: "center" }}>Ext. Name</span>
-                  <span style={{ width: "20%", textAlign: "center" }}>Nickname</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Last Name</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Given Name</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Middle Name</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Ext. Name</span>
+                  <span style={{ width: "20%", textAlign: "center", fontSize: "12px" }}>Nickname</span>
                 </div>
               </td>
             </tr>
@@ -893,7 +896,7 @@ const ECATApplicationForm = () => {
                   style={{
                     borderBottom: "1px solid black",
                     display: "inline-block",
-                    width: "316px",
+                    width: "305px",
                     marginLeft: "10px",
                   }}
                 >
@@ -910,7 +913,7 @@ const ECATApplicationForm = () => {
                   style={{
                     display: "inline-block",
                     borderBottom: "1px solid black",
-                    width: "84.50%",
+                    width: "83%",
                     verticalAlign: "bottom",
                   }}
                 >
@@ -925,7 +928,7 @@ const ECATApplicationForm = () => {
 
             {/* Address Labels */}
             <tr>
-              <td colSpan={40} style={{ fontFamily: "Arial", fontSize: "14px", paddingTop: "2px" }}>
+              <td colSpan={40} style={{ fontFamily: "Arial", fontSize: "12px", paddingTop: "2px" }}>
                 <div
                   style={{
                     display: "flex",
@@ -1032,7 +1035,7 @@ const ECATApplicationForm = () => {
                   <b style={{
                     color: "black",
                     fontFamily: "Arial",
-                    fontSize: '15px',
+                    fontSize: '12px',
                     textAlign: "center",
                     display: "block",
                     fontStyle: 'italic',
@@ -1054,14 +1057,14 @@ const ECATApplicationForm = () => {
                     style={{
                       flex: 1,
                       borderBottom: "1px solid black",
-                      minHeight: "18px",
+                      height: "12px",
                       fontFamily: "Arial",
-                      fontSize: "14px",
+                      fontSize: "12px",
                     }}
                   >
                     {`${person.father_given_name || ""} ${person.father_middle_name || ""} ${person.father_family_name || ""} ${person.father_ext || ""}`.toUpperCase()}
                   </span>
-                  <span style={{ fontSize: "14px" }}>
+                  <span style={{ fontSize: "12px" }}>
                     ({person.father_deceased === "1" ? " " : "✓"}) Living&nbsp;&nbsp;
                     ({person.father_deceased === "1" ? "✓" : " "}) Deceased
                   </span>
@@ -1073,13 +1076,13 @@ const ECATApplicationForm = () => {
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.father_occupation}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.father_occupation}</span>
 
                   <b>Monthly Income:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.father_income}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.father_income}</span>
 
                   <b>Contact No:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.father_contact}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.father_contact}</span>
                 </div>
               </td>
             </tr>
@@ -1093,14 +1096,15 @@ const ECATApplicationForm = () => {
                     style={{
                       flex: 1,
                       borderBottom: "1px solid black",
-                      minHeight: "18px",
+                      height: "12px",
                       fontFamily: "Arial",
-                      fontSize: "14px",
+                      fontSize: "12px",
+
                     }}
                   >
                     {`${person.mother_given_name || ""} ${person.mother_middle_name || ""} ${person.mother_family_name || ""}`.toUpperCase()}
                   </span>
-                  <span style={{ fontSize: "14px" }}>
+                  <span style={{ fontSize: "12px" }}>
                     ({person.mother_deceased === "Yes" ? " " : "✓"}) Living&nbsp;&nbsp;
                     ({person.mother_deceased === "Yes" ? "✓" : " "}) Deceased
                   </span>
@@ -1112,13 +1116,13 @@ const ECATApplicationForm = () => {
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.mother_occupation}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.mother_occupation}</span>
 
                   <b>Monthly Income:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.mother_income}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.mother_income}</span>
 
                   <b>Contact No:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.mother_contact}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.mother_contact}</span>
                 </div>
               </td>
             </tr>
@@ -1132,9 +1136,9 @@ const ECATApplicationForm = () => {
                     style={{
                       flex: 1,
                       borderBottom: "1px solid black",
-                      minHeight: "18px",
+                      height: "12px",
                       fontFamily: "Arial",
-                      fontSize: "14px",
+                      fontSize: "12px",
                     }}
                   >
                     {`${person.guardian_given_name || ""} ${person.guardian_middle_name || ""} ${person.guardian_family_name || ""} ${person.guardian_ext || ""}`.toUpperCase()}
@@ -1152,13 +1156,13 @@ const ECATApplicationForm = () => {
               <td colSpan={40}>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
                   <b>Occupation:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}></span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}></span>
 
                   <b>Monthly Income:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>0</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>0</span>
 
                   <b>Contact No:</b>
-                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px" }}>{person.guardian_contact}</span>
+                  <span style={{ flex: 1, borderBottom: "1px solid black", minWidth: "120px", height: "12px" }}>{person.guardian_contact}</span>
                 </div>
               </td>
             </tr>
@@ -1203,7 +1207,7 @@ const ECATApplicationForm = () => {
                   <b style={{
                     color: "black",
                     fontFamily: "Arial",
-                    fontSize: '15px',
+                    fontSize: '12px',
                     textAlign: "center",
                     display: "block",
                     fontStyle: 'italic',
@@ -1239,12 +1243,12 @@ const ECATApplicationForm = () => {
                     style={{
                       flex: 1,
                       borderBottom: "1px solid black",
-                      minHeight: "18px", // visible line even without text
+                      height: "12px", // visible line even without text
                       textAlign: "center", // centers text
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontFamily: "Arial, sans-serif",
+                      fontFamily: "Arial",
                       fontSize: "12px",
                     }}
                   >
@@ -1266,7 +1270,7 @@ const ECATApplicationForm = () => {
                     width: "231px",
                     marginLeft: "10px",
                     textAlign: "center",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     fontSize: "12px",
                   }}
                 >
@@ -1277,10 +1281,10 @@ const ECATApplicationForm = () => {
                   style={{
                     borderBottom: "1px solid black",
                     display: "inline-block",
-                    width: "268px",
+                    width: "253px",
                     marginLeft: "10px",
                     textAlign: "center",
-                    fontFamily: "Arial, sans-serif",
+                    fontFamily: "Arial",
                     fontSize: "12px",
                   }}
                 >
@@ -1368,7 +1372,7 @@ const ECATApplicationForm = () => {
                   <b style={{
                     color: "black",
                     fontFamily: "Arial",
-                    fontSize: '15px',
+                    fontSize: '12px',
                     textAlign: "center",
                     display: "block",
                     border: "2px solid black",
@@ -1408,7 +1412,7 @@ const ECATApplicationForm = () => {
                     justifyContent: "space-between",
                     padding: "20px 40px 0 40px",
                     fontFamily: "Arial",
-                    fontSize: "14px",
+                    fontSize: "12px",
                   }}
                 >
                   {/* LEFT: Applicant */}
