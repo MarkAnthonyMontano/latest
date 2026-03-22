@@ -32,6 +32,12 @@ app.use(
 );
 app.use("/assets", express.static(path.join(__dirname, "assets")));
 
+const applicantDocsDir = path.join(
+  __dirname,
+  "uploads",
+  "applicant_documents"
+);
+
 const allowedOrigins = [
   "http://localhost:5173",
   "http://192.168.50.77:5173",
@@ -39,7 +45,7 @@ const allowedOrigins = [
   "http://192.168.50.211:5173",
   "http://136.239.248.62:5173",
   "http://192.168.50.44:5173",
-  "http://192.168.0.180:5173",
+  "http://192.168.1.5:5173",
 ];
 
 app.use(
@@ -1378,17 +1384,60 @@ app.put("/uploads/status/:upload_id", async (req, res) => {
   const { upload_id } = req.params;
   const { status, user_id } = req.body;
 
-  console.log("User Id: ", user_id);
-
   try {
+    // 1. Update single row status
     await db.query(
       `UPDATE requirement_uploads
        SET status = ?, last_updated_by = ?
        WHERE upload_id = ?`,
-      [status, user_id, upload_id],
+      [status, user_id, upload_id]
     );
 
-    res.json({ message: "Status updated successfully." });
+    // 2. Get person_id of that upload
+    const [[upload]] = await db.query(
+      `SELECT person_id FROM requirement_uploads WHERE upload_id = ?`,
+      [upload_id]
+    );
+
+    if (!upload) {
+      return res.status(404).json({ message: "Upload not found" });
+    }
+
+    const person_id = upload.person_id;
+
+    // 3. Get all verifiable documents of this applicant
+    const [docs] = await db.query(
+      `SELECT status
+       FROM requirement_uploads ru
+       JOIN requirements_table rt ON ru.requirements_id = rt.id
+       WHERE ru.person_id = ?
+       AND rt.is_verifiable = 1`,
+      [person_id]
+    );
+
+    // 4. Check if ALL are verified (status = 1)
+    const allVerified = docs.length > 0 && docs.every(d => d.status === 1);
+
+    if (allVerified) {
+      // 🔥 5. AUTO UPDATE document_status
+      await db.query(
+        `UPDATE requirement_uploads
+         SET document_status = 'Documents Verified & ECAT'
+         WHERE person_id = ?`,
+        [person_id]
+      );
+
+      // 🔥 6. OPTIONAL: ensure ALL status = 1 (safety sync)
+      await db.query(
+        `UPDATE requirement_uploads
+         SET status = 1
+         WHERE person_id = ?`,
+        [person_id]
+      );
+    }
+
+    res.json({ message: "Status updated and auto-sync checked." });
+
   } catch (err) {
     console.error("Error updating status:", err);
     res.status(500).json({ message: "Internal Server Error" });
@@ -1521,6 +1570,8 @@ app.put("/api/submitted-documents/:upload_id", async (req, res) => {
     res.status(500).json({ error: "Failed to toggle submitted documents" });
   }
 });
+
+
 
 
 app.get("/api/verified-exam-applicants", async (req, res) => {
@@ -8872,7 +8923,6 @@ app.get("/api/document_status/:applicant_number", async (req, res) => {
 });
 
 
-
 app.put("/api/document_status/:applicant_number", async (req, res) => {
   const { applicant_number } = req.params;
   const { document_status, user_id } = req.body;
@@ -8884,67 +8934,66 @@ app.put("/api/document_status/:applicant_number", async (req, res) => {
   }
 
   try {
+    // 1. Get person_id
     const [personRows] = await db.query(
-      `
-      SELECT pt.person_id, pt.applyingAs
-      FROM applicant_numbering_table ant
-      INNER JOIN person_table pt
-        ON ant.person_id = pt.person_id
-      WHERE ant.applicant_number = ?
-      `,
-      [applicant_number],
+      `SELECT pt.person_id
+       FROM applicant_numbering_table ant
+       INNER JOIN person_table pt
+       ON ant.person_id = pt.person_id
+       WHERE ant.applicant_number = ?`,
+      [applicant_number]
     );
 
     if (personRows.length === 0) {
       return res.status(404).json({ message: "Applicant not found." });
     }
 
-    const { person_id, applyingAs } = personRows[0];
+    const { person_id } = personRows[0];
 
-    //  1. Get requirement IDs that should reflect in overall document_status
-    const [verifiableReqs] = await db.query(
-      `
-      SELECT id
-      FROM requirements_table
-      WHERE is_verifiable = 1
-        AND (
-          applicant_type = ?
-          OR applicant_type = '0'
-          OR applicant_type = 0
-          OR applicant_type = 'All'
-        )
-      `,
-      [applyingAs],
-    );
-
-    const ids = verifiableReqs.map((r) => r.id);
-    if (ids.length === 0) {
-      return res
-        .status(400)
-        .json({ message: "No verifiable requirements found." });
+    // 🔥 2. IF VERIFIED → FORCE ALL STATUS = 1
+    if (document_status === "Documents Verified & ECAT") {
+      await db.query(
+        `UPDATE requirement_uploads
+         SET status = 1,
+             document_status = ?,
+             last_updated_by = ?
+         WHERE person_id = ?`,
+        [document_status, user_id, person_id]
+      );
     }
 
-    //  2. Update only those requirements for the applicant
-    await db.query(
-      `UPDATE requirement_uploads
-       SET document_status = ?,
-           last_updated_by = ?
-       WHERE person_id = ?
-       AND requirements_id IN (?)`,
-      [document_status, user_id, person_id, ids],
-    );
+    // 🔥 3. IF DISAPPROVED → FORCE ALL STATUS = 2
+    else if (document_status === "Disapproved / Program Closed") {
+      await db.query(
+        `UPDATE requirement_uploads
+         SET status = 2,
+             document_status = ?,
+             last_updated_by = ?
+         WHERE person_id = ?`,
+        [document_status, user_id, person_id]
+      );
+    }
+
+    // 🔄 4. ON PROCESS → do not override row statuses
+    else {
+      await db.query(
+        `UPDATE requirement_uploads
+         SET document_status = ?,
+             last_updated_by = ?
+         WHERE person_id = ?`,
+        [document_status, user_id, person_id]
+      );
+    }
 
     res.json({
-      message:
-        "ðŸ“ Document status updated dynamically for verifiable requirements.",
+      message: "✅ Document status + row statuses synced successfully.",
     });
+
   } catch (err) {
     console.error("Error updating document status:", err);
     res.status(500).json({ error: "Failed to update document status" });
   }
 });
-
-
 
 //  Dynamic: Check if applicant's required verifiable documents are verified
 app.get("/api/document_status/check/:applicant_number", async (req, res) => {
@@ -11131,6 +11180,26 @@ app.post("/api/generate-cor-pdf", async (req, res) => {
     if (browser) {
       await browser.close();
     }
+  }
+});
+
+app.get("/api/submitted-status/:person_id", async (req, res) => {
+  const { person_id } = req.params;
+
+  try {
+    const [[row]] = await db.query(
+      `
+      SELECT COALESCE(MAX(submitted_documents), 0) AS submitted_documents
+      FROM requirement_uploads
+      WHERE person_id = ?
+      `,
+      [person_id]
+    );
+
+    res.json({ submitted_documents: row.submitted_documents });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch submitted status" });
   }
 });
 

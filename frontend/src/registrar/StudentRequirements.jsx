@@ -754,7 +754,6 @@ const StudentRequirements = () => {
 
                 await axios.put(`${API_BASE_URL}/uploads/remarks/${uploadId}`, {
                   remarks: finalRemark,
-                  status: uploads.find((u) => u.upload_id === uploadId)?.status || "0",
                   user_id: userID,
                 });
 
@@ -771,7 +770,6 @@ const StudentRequirements = () => {
 
                   await axios.put(`${API_BASE_URL}/uploads/remarks/${uploadId}`, {
                     remarks: finalRemark,
-                    status: uploads.find((u) => u.upload_id === uploadId)?.status || "0",
                     user_id: userID,
                   });
 

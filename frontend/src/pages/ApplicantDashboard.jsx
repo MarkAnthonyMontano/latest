@@ -253,10 +253,10 @@ const ApplicantDashboard = (props) => {
   const formatTime = (time) =>
     time
       ? new Date(`1970-01-01T${time}`).toLocaleTimeString("en-US", {
-          hour: "numeric",
-          minute: "2-digit",
-          hour12: true,
-        })
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      })
       : "";
 
   const [dateTime, setDateTime] = useState(new Date());
@@ -447,10 +447,13 @@ const ApplicantDashboard = (props) => {
   const [docsCompleted, setDocsCompleted] = useState(false);
   const [mainStatus, setMainStatus] = useState(null);
 
+
+  const [registrarApproved, setRegistrarApproved] = useState(false);
+
   const fetchDocumentsStatus = async () => {
     try {
       const res = await axios.get(
-        `${API_BASE_URL}/api/applicant_uploaded_requirements/${person_id}`,
+        `${API_BASE_URL}/api/applicant_uploaded_requirements/${person_id}`
       );
 
       const rows = res.data;
@@ -460,36 +463,51 @@ const ApplicantDashboard = (props) => {
         return;
       }
 
-      // ✅ 1. Get ONLY MAIN & verifiable requirements
-      const mainRequirements = rows.filter(
-        (doc) => doc.category === "Main" && Number(doc.is_verifiable) === 1,
-      );
+      // Only check rows that actually have file_path (meaning uploaded)
+      const uploaded = rows.filter((doc) => doc.file_path !== null);
 
-      if (mainRequirements.length === 0) {
-        setDocsCompleted(false);
-        return;
-      }
+      // Total required = how many requirement IDs exist in DB for this person
+      const totalRequired = rows.length;
 
-      // ✅ 2. Count ONLY VERIFIED documents
-      const verifiedCount = mainRequirements.filter(
-        (doc) => doc.document_status === "Documents Verified & ECAT",
+      // How many are submitted
+      const submittedCount = uploaded.filter(
+        (doc) => Number(doc.submitted_documents) === 1
       ).length;
 
-      // ✅ 3. Compare with total required
-      const totalRequired = mainRequirements.length;
+      // Completed if uploaded == required
+      const allSubmitted = submittedCount === totalRequired;
 
-      const allVerified = verifiedCount === totalRequired;
+      setDocsCompleted(allSubmitted);
 
-      // ✅ 4. This controls your STEP 5
-      setDocsCompleted(allVerified);
+      // Auto-tag Document Verified
+      if (allSubmitted) {
+        setPerson((prev) => ({
+          ...prev,
+          document_status: "Documents Verified & ECAT",
+        }));
+      }
+
     } catch (err) {
       console.error("❌ Failed fetching document status:", err);
     }
   };
 
+  const fetchRegistrarStatus = async () => {
+    try {
+      const res = await axios.get(
+        `${API_BASE_URL}/api/submitted-status/${person_id}`
+      );
+
+      setRegistrarApproved(Number(res.data.submitted_documents) === 1);
+    } catch (err) {
+      console.error("❌ Failed fetching registrar status:", err);
+    }
+  };
+
   useEffect(() => {
     if (person_id) {
-      fetchDocumentsStatus();
+      fetchDocumentsStatus();   // uploads
+      fetchRegistrarStatus();   // checkbox
     }
   }, [person_id]);
 
@@ -520,8 +538,8 @@ const ApplicantDashboard = (props) => {
       return 5;
     }
 
-    // STEP 5 — Medical
-    if (docsCompleted) {
+    // STEP 5 — Medical (ONLY if registrar approved)
+    if (registrarApproved) {
       return 4;
     }
 
@@ -545,13 +563,15 @@ const ApplicantDashboard = (props) => {
       return 1;
     }
 
-    // STEP 1 — Documents
-    if (person?.document_status === "Documents Verified & ECAT") {
+    // STEP 1 — Documents uploaded
+    if (docsCompleted) {
       return 0;
     }
 
     return 0;
   };
+
+
   const activeStep = Math.min(getCurrentStep(), steps.length - 1);
 
   const interview = person?.interview || null;
@@ -1503,7 +1523,7 @@ const ApplicantDashboard = (props) => {
                     {index === 0 && (
                       <>
                         {person?.document_status ===
-                        "Documents Verified & ECAT" ? (
+                          "Documents Verified & ECAT" ? (
                           <div>
                             ✅ Your submitted documents have been successfully
                             verified.
@@ -1642,7 +1662,7 @@ const ApplicantDashboard = (props) => {
                     {/* Step 5: Medical Submitted */}
                     {index === 4 && (
                       <>
-                        {docsCompleted
+                        {registrarApproved
                           ? "⬇️ Your documents have been verified. Please proceed to your respective college to finalize your schedule and subjects."
                           : "⏳ Apply For Medical Processing"}
                       </>

@@ -423,12 +423,12 @@ const SuperAdminApplicantList = () => {
         prev.map((p) =>
           p.person_id === person_id
             ? {
-                ...p,
-                registrar_status: status,
-                submitted_documents: status, // sync with checkbox
-                remarks: status ? 1 : 0,
-                missing_documents: status ? [] : null,
-              }
+              ...p,
+              registrar_status: status,
+              submitted_documents: status, // sync with checkbox
+              remarks: status ? 1 : 0,
+              missing_documents: status ? [] : null,
+            }
             : p,
         ),
       );
@@ -926,22 +926,20 @@ th {
               <div>Republic of the Philippines</div>
 
               <!-- ✅ Dynamic company name -->
-              ${
-                name
-                  ? `
+              ${name
+        ? `
                     <b style="letter-spacing: 1px; font-size: 20px;">
                       ${firstLine}
                     </b>
-                    ${
-                      secondLine
-                        ? `<div style="letter-spacing: 1px; font-size: 20px;">
+                    ${secondLine
+          ? `<div style="letter-spacing: 1px; font-size: 20px;">
                             <b>${secondLine}</b>
                           </div>`
-                        : ""
-                    }
+          : ""
+        }
                   `
-                  : ""
-              }
+        : ""
+      }
 
               <!-- ✅ Dynamic campus address -->
               <div style="font-size: 12px;">${campusAddress}</div>
@@ -966,8 +964,8 @@ th {
             </thead>
             <tbody>
               ${filteredPersons
-                .map(
-                  (person) => `
+        .map(
+          (person) => `
                     <tr>
                       <td>${person.applicant_number || ""}</td>
                       <td>${person.last_name}, ${person.first_name} ${person.middle_name || ""} ${person.extension || ""}</td>
@@ -975,23 +973,22 @@ th {
                       <td>${person.generalAverage || ""}</td>
                       <td>${person.generalAverage1 || ""}</td>
                       <td>${new Date(
-                        person.created_at.split("T")[0],
-                      ).toLocaleDateString("en-PH", {
-                        year: "numeric",
-                        month: "short",
-                        day: "2-digit",
-                      })}</td>
-                      <td>${
-                        person.registrar_status === 1
-                          ? "Submitted"
-                          : person.registrar_status === 0
-                            ? "Unsubmitted / Incomplete"
-                            : ""
-                      }</td>
+            person.created_at.split("T")[0],
+          ).toLocaleDateString("en-PH", {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+          })}</td>
+                      <td>${person.registrar_status === 1
+              ? "Submitted"
+              : person.registrar_status === 0
+                ? "Unsubmitted / Incomplete"
+                : ""
+            }</td>
                     </tr>
                   `,
-                )
-                .join("")}
+        )
+        .join("")}
             </tbody>
           </table>
         </div>
@@ -1241,7 +1238,7 @@ th {
                 onChange={(e) =>
                   setPerson((prev) => ({ ...prev, fromDate: e.target.value }))
                 }
-               />
+              />
             </FormControl>
 
             <FormControl size="small" sx={{ width: 200 }}>
@@ -1256,7 +1253,7 @@ th {
                 onChange={(e) =>
                   setPerson((prev) => ({ ...prev, toDate: e.target.value }))
                 }
-               />
+              />
             </FormControl>
           </Box>
         </Box>
@@ -1853,32 +1850,33 @@ th {
 
           <TableBody>
             {currentPersons.map((person, index) => (
-               <TableRow
-              key={person.person_id}
-              sx={{
-                backgroundColor:
-                  Number(person.submitted_documents) === 1
-                    ? "#C8E6C9" // keep priority (green)
-                    : isDuplicateApplicant(person)
-                    ? "#FFA50080" // keep priority (orange)
-                    : index % 2 === 0
-                    ? "#ffffff" // white
-                    : "lightgray", // light gray
-            
-                color: "black",
-            
-                "& td": {
+              <TableRow
+                key={person.person_id}
+                sx={{
+                  backgroundColor:
+                    Number(person.submitted_documents) === 1
+                      ? "#C8E6C9" // keep priority (green)
+                      : isDuplicateApplicant(person)
+                        ? "#FFA50080" // keep priority (orange)
+                        : index % 2 === 0
+                          ? "#ffffff" // white
+                          : "lightgray", // light gray
+
                   color: "black",
-                },
-            
-                fontWeight:
-                  Number(person.submitted_documents) === 1 ||
-                  isDuplicateApplicant(person)
-                    ? "bold"
-                    : "normal",
-              }}
-            >
-                            
+
+                  "& td:not(.clickable-cell)": {
+                    color: "black",
+                  },
+
+
+                  fontWeight:
+                    Number(person.submitted_documents) === 1 ||
+                      isDuplicateApplicant(person)
+                      ? "bold"
+                      : "normal",
+                }}
+              >
+
                 {/* # */}
                 <TableCell
                   sx={{
@@ -1933,6 +1931,7 @@ th {
 
                 {/* Applicant ID */}
                 <TableCell
+                  className="clickable-cell"
                   sx={{
                     textAlign: "center",
                     border: `2px solid ${borderColor}`,
@@ -1947,6 +1946,7 @@ th {
 
                 {/* Name */}
                 <TableCell
+                  className="clickable-cell"
                   sx={{
                     textAlign: "left",
                     border: `2px solid ${borderColor}`,
@@ -2097,20 +2097,20 @@ th {
                         width: "160px",
                         backgroundColor:
                           person.submitted_documents === 1 &&
-                          person.registrar_status === 1 &&
-                          Array.isArray(person.missing_documents) &&
-                          person.missing_documents.length === 0
+                            person.registrar_status === 1 &&
+                            Array.isArray(person.missing_documents) &&
+                            person.missing_documents.length === 0
                             ? "#4CAF50"
                             : Array.isArray(person.missing_documents) &&
-                                person.missing_documents.length > 0
+                              person.missing_documents.length > 0
                               ? "#FFD580"
                               : "#D6F0FF",
                         border: "3px solid black",
                         color:
                           person.submitted_documents === 1 &&
-                          person.registrar_status === 1 &&
-                          Array.isArray(person.missing_documents) &&
-                          person.missing_documents.length === 0
+                            person.registrar_status === 1 &&
+                            Array.isArray(person.missing_documents) &&
+                            person.missing_documents.length === 0
                             ? "white"
                             : "black",
                         fontWeight: "bold",
@@ -2119,21 +2119,21 @@ th {
                         "&:hover": {
                           backgroundColor:
                             person.submitted_documents === 1 &&
-                            person.registrar_status === 1 &&
-                            Array.isArray(person.missing_documents) &&
-                            person.missing_documents.length === 0
+                              person.registrar_status === 1 &&
+                              Array.isArray(person.missing_documents) &&
+                              person.missing_documents.length === 0
                               ? "#45A049"
                               : Array.isArray(person.missing_documents) &&
-                                  person.missing_documents.length > 0
+                                person.missing_documents.length > 0
                                 ? "#FFC04D"
                                 : "#B9E3FF",
                         },
                       }}
                     >
                       {person.submitted_documents === 1 &&
-                      person.registrar_status === 1 &&
-                      Array.isArray(person.missing_documents) &&
-                      person.missing_documents.length === 0
+                        person.registrar_status === 1 &&
+                        Array.isArray(person.missing_documents) &&
+                        person.missing_documents.length === 0
                         ? "✅ Completed"
                         : "📋 Missing Docs"}
                     </Button>
@@ -2217,17 +2217,17 @@ th {
                 textAlign: "center",
                 color:
                   Array.isArray(activePerson?.missing_documents) &&
-                  activePerson.missing_documents.length === 0 &&
-                  activePerson?.submitted_documents === 1 &&
-                  activePerson?.registrar_status === 1
+                    activePerson.missing_documents.length === 0 &&
+                    activePerson?.submitted_documents === 1 &&
+                    activePerson?.registrar_status === 1
                     ? "#4CAF50"
                     : "maroon",
               }}
             >
               {Array.isArray(activePerson?.missing_documents) &&
-              activePerson.missing_documents.length === 0 &&
-              activePerson?.submitted_documents === 1 &&
-              activePerson?.registrar_status === 1
+                activePerson.missing_documents.length === 0 &&
+                activePerson?.submitted_documents === 1 &&
+                activePerson?.registrar_status === 1
                 ? "✅ Completed All Documents"
                 : "Mark Missing Documents"}
             </DialogTitle>
@@ -2312,14 +2312,14 @@ th {
                 activePerson?.submitted_documents === 1 &&
                 activePerson?.registrar_status === 1
               ) && (
-                <Button
-                  variant="contained"
-                  onClick={handleSaveMissingDocs}
-                  sx={{ background: "maroon" }}
-                >
-                  Save
-                </Button>
-              )}
+                  <Button
+                    variant="contained"
+                    onClick={handleSaveMissingDocs}
+                    sx={{ background: "maroon" }}
+                  >
+                    Save
+                  </Button>
+                )}
             </DialogActions>
           </Dialog>
         </Table>

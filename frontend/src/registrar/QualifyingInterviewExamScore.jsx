@@ -421,9 +421,7 @@ const QualifyingExamScore = () => {
 
       const data = Array.isArray(res.data) ? res.data : [];
 
-      const withAssignedFlag = data
-        .filter((p) => Number(p.applicant_interview_status) !== 1)
-        .map((p) => ({
+      const withAssignedFlag = data.map((p) => ({
           ...p,
           assigned: false,
         }));
@@ -755,9 +753,7 @@ const QualifyingExamScore = () => {
         .get(`${API_BASE_URL}/api/applicants-with-number`)
         .then((res) =>
           setPersons(
-            (Array.isArray(res.data) ? res.data : []).filter(
-              (p) => Number(p.applicant_interview_status) !== 1,
-            ),
+            Array.isArray(res.data) ? res.data : [],
           ),
         )
         .catch((err) => {
@@ -1683,6 +1679,7 @@ Thank you, best regards
     }
 
     let successCount = 0;
+    const successfulApplicantNumbers = new Set();
 
     for (const applicant of targets) {
       // ✅ Try all possible email fields
@@ -1712,6 +1709,7 @@ Thank you, best regards
         );
 
         successCount++;
+        successfulApplicantNumbers.add(applicant.applicant_number);
       } catch (err) {
         console.error(`❌ Failed for ${applicant.applicant_number}`, err);
         // Continue to next instead of breaking everything
@@ -1721,10 +1719,11 @@ Thank you, best regards
       await new Promise((res) => setTimeout(res, 200));
     }
 
-    // remove the successfully emailed applicants
     setPersons((prev) =>
-      prev.filter(
-        (p) => !targets.some((t) => t.applicant_number === p.applicant_number),
+      prev.map((p) =>
+        successfulApplicantNumbers.has(p.applicant_number)
+          ? { ...p, applicant_interview_status: 1 }
+          : p,
       ),
     );
 
@@ -1734,7 +1733,7 @@ Thank you, best regards
       severity: successCount === targets.length ? "success" : "warning",
     });
 
-    setConfirmOpen(false);
+    setSingleConfirmOpen(false);
     setSelectedApplicant(null);
     setLoading2(false);
   };
@@ -1760,6 +1759,7 @@ Thank you, best regards
     }
 
     let successCount = 0;
+    const successfulApplicantNumbers = new Set();
 
     for (const applicant of targets) {
       // ✅ Try all possible email fields
@@ -1789,6 +1789,7 @@ Thank you, best regards
         );
 
         successCount++;
+        successfulApplicantNumbers.add(applicant.applicant_number);
       } catch (err) {
         console.error(`❌ Failed for ${applicant.applicant_number}`, err);
         // Continue to next instead of breaking everything
@@ -1798,10 +1799,11 @@ Thank you, best regards
       await new Promise((res) => setTimeout(res, 200));
     }
 
-    // remove the successfully emailed applicants
     setPersons((prev) =>
-      prev.filter(
-        (p) => !targets.some((t) => t.applicant_number === p.applicant_number),
+      prev.map((p) =>
+        successfulApplicantNumbers.has(p.applicant_number)
+          ? { ...p, applicant_interview_status: 1 }
+          : p,
       ),
     );
 
@@ -3590,3 +3592,4 @@ Thank you, best regards
 };
 
 export default QualifyingExamScore;
+

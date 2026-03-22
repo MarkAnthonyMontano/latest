@@ -162,39 +162,39 @@ const AdminApplicantList = () => {
   };
 
   const tabs = [
-   {
-       label: "Admission Process for Registrar",
-       to: "/applicant_list_admin",
-       icon: <SchoolIcon fontSize="large" />,
-     },
-     {
-       label: "Applicant Form",
-       to: "/admin_dashboard1",
-       icon: <DashboardIcon fontSize="large" />,
-     },
-     {
-       label: "Student Requirements",
-       to: "/student_requirements",
-       icon: <AssignmentIcon fontSize="large" />,
-     },
-     {
-       label: "Entrance Exam Schedule Management",
-       to: "/assign_schedule_applicant",
-       icon: <ScheduleIcon fontSize="large" />,
-     },
- 
-     {
-       label: "Examination Permit",
-       to: "/registrar_examination_profile",
-       icon: <PersonSearchIcon fontSize="large" />,
-     },
- 
- 
-     {
-       label: "Entrance Examination Score",
-       to: "/applicant_scoring",
-       icon: <ScoreIcon fontSize="large" />,
-     },
+    {
+      label: "Admission Process for Registrar",
+      to: "/applicant_list_admin",
+      icon: <SchoolIcon fontSize="large" />,
+    },
+    {
+      label: "Applicant Form",
+      to: "/admin_dashboard1",
+      icon: <DashboardIcon fontSize="large" />,
+    },
+    {
+      label: "Student Requirements",
+      to: "/student_requirements",
+      icon: <AssignmentIcon fontSize="large" />,
+    },
+    {
+      label: "Entrance Exam Schedule Management",
+      to: "/assign_schedule_applicant",
+      icon: <ScheduleIcon fontSize="large" />,
+    },
+
+    {
+      label: "Examination Permit",
+      to: "/registrar_examination_profile",
+      icon: <PersonSearchIcon fontSize="large" />,
+    },
+
+
+    {
+      label: "Entrance Examination Score",
+      to: "/applicant_scoring",
+      icon: <ScoreIcon fontSize="large" />,
+    },
   ];
 
   const [hasAccess, setHasAccess] = useState(null);
@@ -1379,7 +1379,7 @@ const AdminApplicantList = () => {
                 onChange={(e) =>
                   setPerson((prev) => ({ ...prev, fromDate: e.target.value }))
                 }
-               />
+              />
             </FormControl>
 
             <FormControl size="small" sx={{ width: 200 }}>
@@ -1394,7 +1394,7 @@ const AdminApplicantList = () => {
                 onChange={(e) =>
                   setPerson((prev) => ({ ...prev, toDate: e.target.value }))
                 }
-               />
+              />
             </FormControl>
           </Box>
         </Box>
@@ -1986,32 +1986,32 @@ const AdminApplicantList = () => {
 
           <TableBody>
             {currentPersons.map((person, index) => (
-                 <TableRow
+              <TableRow
                 key={person.person_id}
                 sx={{
                   backgroundColor:
                     Number(person.submitted_documents) === 1
                       ? "#C8E6C9" // keep priority (green)
                       : isDuplicateApplicant(person)
-                      ? "#FFA50080" // keep priority (orange)
-                      : index % 2 === 0
-                      ? "#ffffff" // white
-                      : "lightgray", // light gray
-              
+                        ? "#FFA50080" // keep priority (orange)
+                        : index % 2 === 0
+                          ? "#ffffff" // white
+                          : "lightgray", // light gray
+
                   color: "black",
-              
-                  "& td": {
+
+                  "& td:not(.clickable-cell)": {
                     color: "black",
                   },
-              
+
                   fontWeight:
                     Number(person.submitted_documents) === 1 ||
-                    isDuplicateApplicant(person)
+                      isDuplicateApplicant(person)
                       ? "bold"
                       : "normal",
                 }}
               >
-                              
+
                 {/* # */}
                 <TableCell
                   sx={{
@@ -2068,6 +2068,7 @@ const AdminApplicantList = () => {
 
                 {/* Applicant ID */}
                 <TableCell
+                className="clickable-cell"
                   sx={{
                     textAlign: "center",
                     border: `2px solid ${borderColor}`,
@@ -2082,6 +2083,7 @@ const AdminApplicantList = () => {
 
                 {/* Name */}
                 <TableCell
+                className="clickable-cell"
                   sx={{
                     textAlign: "left",
                     border: `2px solid ${borderColor}`,
