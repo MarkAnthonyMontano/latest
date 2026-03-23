@@ -687,11 +687,11 @@ router.post("/import-xlsx-into-enrolled-subject", upload.single("file"), async (
           if (!courseRows.length) {
             console.log("[IMPORT][ROW] Course not found", {
               studentNumber,
-              courseCode,
+              courseRows,
             });
             skippedItems.push({
               studentNumber,
-              reason: `Course not found: ${courseCode}`,
+              reason: `Course not found: ${courseRows}`,
             });
             continue;
           }

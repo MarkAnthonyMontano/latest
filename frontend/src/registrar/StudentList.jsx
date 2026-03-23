@@ -334,7 +334,7 @@ const StudentList = () => {
             });
 
             setPersons(mergedData);
-            console.log("Student Data: ",mergedData)
+            console.log("Student Data: ", mergedData)
         } catch (err) {
             console.error("Error fetching students:", err);
         } finally {
@@ -1309,7 +1309,19 @@ const StudentList = () => {
                                 </TableCell>
 
                                 <TableCell sx={{ textAlign: "center", border: `2px solid ${borderColor}` }}>
-                                    <input type="checkbox" checked readOnly />
+                                    <Checkbox
+                                        readOnly
+                                        checked
+                                        sx={{
+                                            color: mainButtonColor,
+                                            "&.Mui-checked": { color: mainButtonColor },
+                                            width: 25,
+                                            height: 25,
+                                            padding: 0,
+                                            "& svg": { width: 25, height: 25 }, // ensures the check icon scales correctly
+                                        }}>
+
+                                    </Checkbox>
                                 </TableCell>
 
                                 {/* Applicant Number */}

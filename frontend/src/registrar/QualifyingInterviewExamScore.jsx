@@ -844,6 +844,7 @@ const QualifyingExamScore = () => {
     justify-content: center;
     position: relative;
     width: 100%;
+      margin-top: 30px;
   }
 
   .print-header img {

@@ -121,13 +121,13 @@ const StudentListForEnrollment = () => {
     };
 
     const tabs1 = [
-    { label: "Student List", to: "/student_list_for_enrollment", icon: <ListAltIcon /> },
-    { label: "Applicant Form", to: "/official_student_dashboard1", icon: <PersonAddIcon /> },
-    { label: "Submitted Documents", to: "/student_official_requirements", icon: <UploadFileIcon /> },
-    { label: "Course Tagging", to: "/course_tagging_for_college", icon: <UploadFileIcon /> },
-    { label: "Search COR", to: "/search_cor_for_college", icon: <MenuBookIcon /> },
+        { label: "Student List", to: "/student_list_for_enrollment", icon: <ListAltIcon /> },
+        { label: "Applicant Form", to: "/official_student_dashboard1", icon: <PersonAddIcon /> },
+        { label: "Submitted Documents", to: "/student_official_requirements", icon: <UploadFileIcon /> },
+        { label: "Course Tagging", to: "/course_tagging_for_college", icon: <UploadFileIcon /> },
+        { label: "Search COR", to: "/search_cor_for_college", icon: <MenuBookIcon /> },
 
-    { label: "Class List", to: "/class_roster_enrollment", icon: <PersonSearchIcon /> },
+        { label: "Class List", to: "/class_roster_enrollment", icon: <PersonSearchIcon /> },
 
     ];
 
@@ -948,7 +948,19 @@ const StudentListForEnrollment = () => {
                                     {index + 1}
                                 </TableCell>
                                 <TableCell sx={{ textAlign: "center", border: `2px solid ${borderColor}` }}>
-                                    <input type="checkbox" checked readOnly />
+                                    <Checkbox 
+                                    readOnly
+                                    checked
+                                    sx={{
+                                        color: mainButtonColor,
+                                        "&.Mui-checked": { color: mainButtonColor },
+                                        width: 25,
+                                        height: 25,
+                                        padding: 0,
+                                        "& svg": { width: 25, height: 25 }, // ensures the check icon scales correctly
+                                    }}>
+
+                                    </Checkbox>
                                 </TableCell>
                                 <TableCell
                                     sx={{ textAlign: "center", border: `2px solid ${borderColor}`, color: "blue", cursor: "pointer" }}

@@ -107,6 +107,11 @@ const AdminDashboard1 = () => {
       icon: <AssignmentIcon fontSize="large" />,
     },
     {
+      label: "Verify Schedule Management",
+      to: "/verify_schedule",
+      icon: <ScheduleIcon fontSize="large" />,
+    },
+    {
       label: "Entrance Exam Schedule Management",
       to: "/assign_schedule_applicant",
       icon: <ScheduleIcon fontSize="large" />,

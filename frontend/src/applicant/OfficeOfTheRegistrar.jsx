@@ -8,7 +8,7 @@ import { SettingsContext } from "../App";
 import API_BASE_URL from "../apiConfig";
 
 const OfficeOfTheRegistrar = () => {
-   const settings = useContext(SettingsContext);
+    const settings = useContext(SettingsContext);
 
     const [titleColor, setTitleColor] = useState("#000000");
     const [subtitleColor, setSubtitleColor] = useState("#555555");
@@ -433,10 +433,10 @@ const OfficeOfTheRegistrar = () => {
                                     <div
                                         style={{
                                             marginLeft: "-155px",
-                                            fontFamily: "Arial",
-                                            fontWeight: "bold",
-                                            fontSize: "12px",
+                                            fontSize: "14px",
                                             letterSpacing: "2px",
+                                            fontFamily: "Arial",
+                                            fontWeight: "bold"
                                         }}
                                     >
                                         {firstLine}
@@ -445,10 +445,10 @@ const OfficeOfTheRegistrar = () => {
                                         <div
                                             style={{
                                                 marginLeft: "-155px",
-                                                fontFamily: "Arial",
-                                                fontWeight: "bold",
-                                                fontSize: "12px",
+                                                fontSize: "14px",
                                                 letterSpacing: "2px",
+                                                fontFamily: "Arial",
+                                                fontWeight: "bold"
                                             }}
                                         >
                                             {secondLine}

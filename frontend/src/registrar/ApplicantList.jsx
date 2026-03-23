@@ -928,6 +928,7 @@ const ApplicantList = () => {
             display: flex;
             align-items: center;
             justify-content: center;
+              margin-top: 30px;
             position: relative;
             width: 100%;
           }
@@ -938,6 +939,7 @@ const ApplicantList = () => {
             width: 120px;
             height: 120px;
             border-radius: 50%;
+            margin-top: 20px;
             object-fit: cover;
           }
 
@@ -954,6 +956,9 @@ th, td {
   border: 1.2px solid black;
   padding: 4px 6px;
   font-size: 12px;
+      margin-top: 20px;
+              margin-left: 20px;
+              margin-right: 20px;
   text-align: center;
   box-sizing: border-box;
 }

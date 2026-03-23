@@ -540,18 +540,20 @@ const StudentNumbering = () => {
 
 Hi, ${firstName} ${middleName || ""} ${lastName},
 
-🎉 Congratulations! You are now officially accepted and part of the ${schoolName} community.
+We would like to inform you that your application account has been deactivated.
 
-Please visit your respective college offices to tag your schedule to your account and obtain your class schedule.
+As a result, you will no longer be able to access your application using this account.
 
-Your Student Number is: [Assigned after confirmation]
-Your Email Address is: ${emailAddress}
+If you need to continue or reapply, please use the official login page and follow the appropriate instructions.
 
-Your temporary password is: [Generated automatically]
-
-You may change your password and keep it secure.
+Your registered email address is: ${emailAddress}
 
 👉 Click the link below to log in:
+[Insert Login Link Here]
+
+If you believe this action was made in error or you require further assistance, please contact the Admissions Office.
+
+Thank you.
 ${loginUrl}`;
     };
 

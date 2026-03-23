@@ -7,57 +7,57 @@ import "../styles/Print.css";
 import API_BASE_URL from "../apiConfig";
 // ✅ Accept personId as a prop
 const ExamPermit = ({ personId }) => {
-     const settings = useContext(SettingsContext);
-   
-       const [titleColor, setTitleColor] = useState("#000000");
-       const [subtitleColor, setSubtitleColor] = useState("#555555");
-       const [borderColor, setBorderColor] = useState("#000000");
-       const [mainButtonColor, setMainButtonColor] = useState("#1976d2");
-       const [subButtonColor, setSubButtonColor] = useState("#ffffff");   // ✅ NEW
-       const [stepperColor, setStepperColor] = useState("#000000");       // ✅ NEW
-   
-       const [fetchedLogo, setFetchedLogo] = useState(null);
-       const [companyName, setCompanyName] = useState("");
-       const [shortTerm, setShortTerm] = useState("");
-       const [branches, setBranches] = useState([]);
-   
-       useEffect(() => {
-           if (!settings) return;
-   
-           // 🎨 Colors
-           if (settings.title_color) setTitleColor(settings.title_color);
-           if (settings.subtitle_color) setSubtitleColor(settings.subtitle_color);
-           if (settings.border_color) setBorderColor(settings.border_color);
-           if (settings.main_button_color) setMainButtonColor(settings.main_button_color);
-           if (settings.sub_button_color) setSubButtonColor(settings.sub_button_color);
-           if (settings.stepper_color) setStepperColor(settings.stepper_color);
-   
-           // 🏫 Logo
-           if (settings.logo_url) {
-               setFetchedLogo(`${API_BASE_URL}${settings.logo_url}`);
-           } else {
-               setFetchedLogo(EaristLogo);
-           }
-   
-           // 🏷️ School Info
-           if (settings.company_name) setCompanyName(settings.company_name);
-           if (settings.short_term) setShortTerm(settings.short_term);
-   
-           // ✅ Branches (JSON stored in DB)
-           if (settings?.branches) {
-               try {
-                   const parsed =
-                       typeof settings.branches === "string"
-                           ? JSON.parse(settings.branches)
-                           : settings.branches;
-                   setBranches(parsed);
-               } catch (err) {
-                   console.error("Failed to parse branches:", err);
-                   setBranches([]);
-               }
-           }
-   
-       }, [settings]);
+    const settings = useContext(SettingsContext);
+
+    const [titleColor, setTitleColor] = useState("#000000");
+    const [subtitleColor, setSubtitleColor] = useState("#555555");
+    const [borderColor, setBorderColor] = useState("#000000");
+    const [mainButtonColor, setMainButtonColor] = useState("#1976d2");
+    const [subButtonColor, setSubButtonColor] = useState("#ffffff");   // ✅ NEW
+    const [stepperColor, setStepperColor] = useState("#000000");       // ✅ NEW
+
+    const [fetchedLogo, setFetchedLogo] = useState(null);
+    const [companyName, setCompanyName] = useState("");
+    const [shortTerm, setShortTerm] = useState("");
+    const [branches, setBranches] = useState([]);
+
+    useEffect(() => {
+        if (!settings) return;
+
+        // 🎨 Colors
+        if (settings.title_color) setTitleColor(settings.title_color);
+        if (settings.subtitle_color) setSubtitleColor(settings.subtitle_color);
+        if (settings.border_color) setBorderColor(settings.border_color);
+        if (settings.main_button_color) setMainButtonColor(settings.main_button_color);
+        if (settings.sub_button_color) setSubButtonColor(settings.sub_button_color);
+        if (settings.stepper_color) setStepperColor(settings.stepper_color);
+
+        // 🏫 Logo
+        if (settings.logo_url) {
+            setFetchedLogo(`${API_BASE_URL}${settings.logo_url}`);
+        } else {
+            setFetchedLogo(EaristLogo);
+        }
+
+        // 🏷️ School Info
+        if (settings.company_name) setCompanyName(settings.company_name);
+        if (settings.short_term) setShortTerm(settings.short_term);
+
+        // ✅ Branches (JSON stored in DB)
+        if (settings?.branches) {
+            try {
+                const parsed =
+                    typeof settings.branches === "string"
+                        ? JSON.parse(settings.branches)
+                        : settings.branches;
+                setBranches(parsed);
+            } catch (err) {
+                console.error("Failed to parse branches:", err);
+                setBranches([]);
+            }
+        }
+
+    }, [settings]);
 
 
 
@@ -101,7 +101,7 @@ const ExamPermit = ({ personId }) => {
 
                     const { verified, totalRequired, totalVerified, hasSchedule } = verifyStatusRes.data;
 
-              setIsVerified(verified || verifyStatusRes.data.hasSchedule);
+                    setIsVerified(verified || verifyStatusRes.data.hasSchedule);
 
                     if (!verified) {
                         console.warn(
@@ -221,7 +221,7 @@ const ExamPermit = ({ personId }) => {
     const [isVerified, setIsVerified] = useState(false);
 
 
-   
+
 
 
 
@@ -320,9 +320,11 @@ const ExamPermit = ({ personId }) => {
                             <div>Republic of the Philippines</div>
                             <div
                                 style={{
-                                    letterSpacing: "1px",
-                                    fontSize: "20px",
+                                    fontSize: "14px",
+                                    letterSpacing: "2px",
+
                                     fontFamily: "Arial",
+                                    fontWeight: "bold"
 
                                 }}
                             >
@@ -331,9 +333,11 @@ const ExamPermit = ({ personId }) => {
                             {secondLine && (
                                 <div
                                     style={{
-                                        letterSpacing: "1px",
-                                        fontSize: "20px",
+                                        fontSize: "14px",
+                                        letterSpacing: "2px",
+
                                         fontFamily: "Arial",
+                                        fontWeight: "bold"
 
                                     }}
                                 >

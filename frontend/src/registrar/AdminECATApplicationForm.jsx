@@ -452,11 +452,12 @@ const ECATApplicationForm = () => {
                       <>
                         <div
                           style={{
-                            fontSize: "12px",
-                            letterSpacing: "1px",
-                            marginLeft: "-60px",
+                            fontSize: "14px",
+                            letterSpacing: "2px",
                             fontFamily: "Arial",
-                            fontWeight: "bold"
+                            fontWeight: "bold",
+                            marginLeft: "-60px",
+
                           }}
                         >
                           <b>{firstLine}</b>
@@ -464,9 +465,10 @@ const ECATApplicationForm = () => {
                         {secondLine && (
                           <div
                             style={{
-                              fontSize: "12px",
-                              letterSpacing: "1px",
+
                               marginLeft: "-60px",
+                              fontSize: "14px",
+                              letterSpacing: "2px",
                               fontFamily: "Arial",
                               fontWeight: "bold"
                             }}

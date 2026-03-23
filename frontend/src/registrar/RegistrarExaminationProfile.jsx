@@ -102,39 +102,44 @@ const ExaminationProfile = ({ personId }) => {
 
 
     const tabs = [
-         {
-      label: "Admission Process for Registrar",
-      to: "/applicant_list_admin",
-      icon: <SchoolIcon fontSize="large" />,
-    },
-    {
-      label: "Applicant Form",
-      to: "/admin_dashboard1",
-      icon: <DashboardIcon fontSize="large" />,
-    },
-    {
-      label: "Student Requirements",
-      to: "/student_requirements",
-      icon: <AssignmentIcon fontSize="large" />,
-    },
-    {
-      label: "Entrance Exam Schedule Management",
-      to: "/assign_schedule_applicant",
-      icon: <ScheduleIcon fontSize="large" />,
-    },
+        {
+            label: "Admission Process for Registrar",
+            to: "/applicant_list_admin",
+            icon: <SchoolIcon fontSize="large" />,
+        },
+        {
+            label: "Applicant Form",
+            to: "/admin_dashboard1",
+            icon: <DashboardIcon fontSize="large" />,
+        },
+        {
+            label: "Student Requirements",
+            to: "/student_requirements",
+            icon: <AssignmentIcon fontSize="large" />,
+        },
+        {
+            label: "Verify Schedule Management",
+            to: "/verify_schedule",
+            icon: <ScheduleIcon fontSize="large" />,
+        },
+        {
+            label: "Entrance Exam Schedule Management",
+            to: "/assign_schedule_applicant",
+            icon: <ScheduleIcon fontSize="large" />,
+        },
 
-    {
-      label: "Examination Permit",
-      to: "/registrar_examination_profile",
-      icon: <PersonSearchIcon fontSize="large" />,
-    },
+        {
+            label: "Examination Permit",
+            to: "/registrar_examination_profile",
+            icon: <PersonSearchIcon fontSize="large" />,
+        },
 
 
-    {
-      label: "Entrance Examination Score",
-      to: "/applicant_scoring",
-      icon: <ScoreIcon fontSize="large" />,
-    },
+        {
+            label: "Entrance Examination Score",
+            to: "/applicant_scoring",
+            icon: <ScoreIcon fontSize="large" />,
+        },
     ];
 
     const location = useLocation();
@@ -168,7 +173,7 @@ const ExaminationProfile = ({ personId }) => {
     }, [location.search]);
 
     const navigate = useNavigate();
-    const [activeStep, setActiveStep] = useState(4);
+    const [activeStep, setActiveStep] = useState(5);
     const [clickedSteps, setClickedSteps] = useState(Array(tabs.length).fill(false));
 
 
@@ -423,6 +428,7 @@ const ExaminationProfile = ({ personId }) => {
                             margin: 0;
                             padding: 0;
                             font-family: Arial;
+                            
                         }
 
                         /* 🔥 THIS IS YOUR MISSING STYLE */
@@ -914,26 +920,26 @@ const ExaminationProfile = ({ personId }) => {
                                                             <div style={{ fontSize: "14px", fontWeight: "normal", fontFamily: "Arial" }}>Republic of the Philippines</div>
                                                             <div
                                                                 style={{
-                                                                    letterSpacing: "1px",
-                                                                    fontSize: "20px",
+                                                                    fontSize: "14px",
+                                                                    letterSpacing: "2px",
                                                                     fontFamily: "Arial",
                                                                     fontWeight: "bold"
                                                                 }}
                                                             >
                                                                 {firstLine}
                                                             </div>
-                                                            {secondLine && (
-                                                                <div
-                                                                    style={{
-                                                                        letterSpacing: "1px",
-                                                                        fontSize: "20px",
-                                                                        fontFamily: "Arial",
-                                                                        fontWeight: "bold"
-                                                                    }}
-                                                                >
-                                                                    <b>{secondLine}</b>
-                                                                </div>
-                                                            )}
+
+                                                            <div
+                                                                style={{
+                                                                    fontSize: "14px",
+                                                                    letterSpacing: "2px",
+                                                                    fontFamily: "Arial",
+                                                                    fontWeight: "bold"
+                                                                }}
+                                                            >
+                                                                {secondLine}
+                                                            </div>
+
                                                             {campusAddress && (
                                                                 <div style={{ fontSize: "14px", fontWeight: "normal", letterSpacing: "1px", fontFamily: "Arial" }}>
                                                                     {campusAddress}
@@ -1429,7 +1435,7 @@ const ExaminationProfile = ({ personId }) => {
                         <div
                             style={{
                                 position: "absolute",
-                                top: "22%",
+                                top: "18%",
                                 left: "50%",
                                 transform: "translate(-50%, -50%)",
                                 fontSize: "120px",
@@ -1508,8 +1514,9 @@ const ExaminationProfile = ({ personId }) => {
                                     <div style={{ fontSize: "14px", fontWeight: "normal", fontFamily: "Arial" }}>Republic of the Philippines</div>
                                     <div
                                         style={{
-                                            letterSpacing: "1px",
-                                            fontSize: "20px",
+                                            fontSize: "14px",
+                                            letterSpacing: "2px",
+
                                             fontFamily: "Arial",
                                             fontWeight: "bold"
                                         }}
@@ -1519,13 +1526,14 @@ const ExaminationProfile = ({ personId }) => {
                                     {secondLine && (
                                         <div
                                             style={{
-                                                letterSpacing: "1px",
-                                                fontSize: "20px",
+                                                fontSize: "14px",
+                                                letterSpacing: "2px",
+
                                                 fontFamily: "Arial",
                                                 fontWeight: "bold"
                                             }}
                                         >
-                                            <b>{secondLine}</b>
+                                            {secondLine}
                                         </div>
                                     )}
                                     {campusAddress && (
@@ -2198,7 +2206,7 @@ const ExaminationProfile = ({ personId }) => {
                         <div
                             style={{
                                 position: "absolute",
-                                top: "70%",   // lower half
+                                top: "66%",   // lower half
                                 left: "50%",
                                 transform: "translate(-50%, -50%)",
                                 fontSize: "120px",
@@ -2279,8 +2287,9 @@ const ExaminationProfile = ({ personId }) => {
                                     <div style={{ fontSize: "14px", fontWeight: "normal", fontFamily: "Arial" }}>Republic of the Philippines</div>
                                     <div
                                         style={{
-                                            letterSpacing: "1px",
-                                            fontSize: "20px",
+                                            fontSize: "14px",
+                                            letterSpacing: "2px",
+
                                             fontFamily: "Arial",
                                             fontWeight: "bold"
                                         }}
@@ -2290,13 +2299,14 @@ const ExaminationProfile = ({ personId }) => {
                                     {secondLine && (
                                         <div
                                             style={{
-                                                letterSpacing: "1px",
-                                                fontSize: "20px",
+                                                fontSize: "14px",
+                                                letterSpacing: "2px",
+
                                                 fontFamily: "Arial",
                                                 fontWeight: "bold"
                                             }}
                                         >
-                                            <b>{secondLine}</b>
+                                            {secondLine}
                                         </div>
                                     )}
                                     {campusAddress && (
@@ -3015,8 +3025,9 @@ const ExaminationProfile = ({ personId }) => {
 
                                     <div
                                         style={{
-                                            letterSpacing: "1px",
-                                            fontSize: "20px",
+                                            fontSize: "14px",
+                                            letterSpacing: "2px",
+
                                             fontFamily: "Arial",
                                             fontWeight: "bold"
                                         }}
@@ -3027,8 +3038,9 @@ const ExaminationProfile = ({ personId }) => {
                                     {secondLine && (
                                         <div
                                             style={{
-                                                letterSpacing: "1px",
-                                                fontSize: "20px",
+                                                fontSize: "14px",
+                                                letterSpacing: "2px",
+
                                                 fontFamily: "Arial",
                                                 fontWeight: "bold"
                                             }}
@@ -3692,8 +3704,9 @@ const ExaminationProfile = ({ personId }) => {
 
                                     <div
                                         style={{
-                                            letterSpacing: "1px",
-                                            fontSize: "20px",
+                                            fontSize: "14px",
+                                            letterSpacing: "2px",
+
                                             fontFamily: "Arial",
                                             fontWeight: "bold"
                                         }}
@@ -3704,8 +3717,9 @@ const ExaminationProfile = ({ personId }) => {
                                     {secondLine && (
                                         <div
                                             style={{
-                                                letterSpacing: "1px",
-                                                fontSize: "20px",
+                                                fontSize: "14px",
+                                                letterSpacing: "2px",
+
                                                 fontFamily: "Arial",
                                                 fontWeight: "bold"
                                             }}

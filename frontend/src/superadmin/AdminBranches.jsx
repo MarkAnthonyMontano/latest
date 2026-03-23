@@ -216,10 +216,7 @@ const AdminBranches = () => {
 
   const formatLocal = (date) => {
     if (!date) return "";
-    const d = new Date(date);
-    return new Date(d.toLocaleString("en-US", { timeZone: "Asia/Manila" }))
-      .toISOString()
-      .slice(0, 16);
+    return date.slice(0, 16); // ✅ NO conversion
   };
 
   if (loading || hasAccess === null) {
@@ -314,7 +311,7 @@ const AdminBranches = () => {
                   {/* HEADER */}
                   <Stack direction="row" justifyContent="space-between" alignItems="center">
                     <Typography fontWeight={600} variant="subtitle1">
-                    {b.branch}  Branch #{b.id} 
+                      {b.branch}  Branch #{b.id}
                     </Typography>
                     <Chip
                       label={b.registration_open ? "Open" : "Closed"}

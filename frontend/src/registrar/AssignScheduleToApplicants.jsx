@@ -107,7 +107,7 @@ const AssignScheduleToApplicants = () => {
 
 
   const tabs = [
-    {
+     {
       label: "Admission Process for Registrar",
       to: "/applicant_list_admin",
       icon: <SchoolIcon fontSize="large" />,
@@ -121,6 +121,11 @@ const AssignScheduleToApplicants = () => {
       label: "Student Requirements",
       to: "/student_requirements",
       icon: <AssignmentIcon fontSize="large" />,
+    },
+    {
+      label: "Verify Schedule Management",
+      to: "/verify_schedule",
+      icon: <ScheduleIcon fontSize="large" />,
     },
     {
       label: "Entrance Exam Schedule Management",
@@ -145,14 +150,127 @@ const AssignScheduleToApplicants = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const [activeStep, setActiveStep] = useState(3);
+  const [activeStep, setActiveStep] = useState(4);
   const [clickedSteps, setClickedSteps] = useState(Array(tabs.length).fill(false));
+
 
 
   const handleStepClick = (index, to) => {
     setActiveStep(index);
-    navigate(to); // this will actually change the page
+    const pid = sessionStorage.getItem("admin_edit_person_id");
+
+    if (pid && to !== "/applicant_list_admin") {
+      navigate(`${to}?person_id=${pid}`);
+    } else {
+      navigate(to);
+    }
   };
+
+
+
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const personIdFromUrl = queryParams.get("person_id");
+
+    if (!personIdFromUrl) return;
+
+    // fetch info of that person
+    axios
+      .get(`${API_BASE_URL}/api/person_with_applicant/${personIdFromUrl}`)
+      .then((res) => {
+        if (res.data?.applicant_number) {
+
+          // AUTO-INSERT applicant_number into search bar
+          setSearchQuery(res.data.applicant_number);
+
+          // If you have a fetchUploads() or fetchExamScore() — call it
+          if (typeof fetchUploadsByApplicantNumber === "function") {
+            fetchUploadsByApplicantNumber(res.data.applicant_number);
+          }
+
+          if (typeof fetchApplicants === "function") {
+            fetchApplicants();
+          }
+        }
+      })
+      .catch((err) => console.error("Auto search failed:", err));
+  }, [location.search]);
+
+
+  const queryParams = new URLSearchParams(location.search);
+  const queryPersonId = queryParams.get("person_id")?.trim() || "";
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("email");
+    const storedRole = localStorage.getItem("role");
+    const loggedInPersonId = localStorage.getItem("person_id");
+
+    if (!storedUser || !storedRole || !loggedInPersonId) {
+      window.location.href = "/login";
+      return;
+    }
+
+    setUser(storedUser);
+    setUserRole(storedRole);
+
+    const allowedRoles = ["registrar", "applicant", "superadmin"];
+    if (!allowedRoles.includes(storedRole)) {
+      window.location.href = "/login";
+      return;
+    }
+
+    const lastSelected = sessionStorage.getItem("admin_edit_person_id");
+
+    // ⭐ CASE 1: URL HAS ?person_id=
+    if (queryPersonId !== "") {
+      sessionStorage.setItem("admin_edit_person_id", queryPersonId);
+      setUserID(queryPersonId);
+      return;
+    }
+
+
+
+    // ⭐ CASE 3: No URL ID and no last selected → start blank
+    setUserID("");
+  }, [queryPersonId]);
+
+
+
+
+  useEffect(() => {
+    let consumedFlag = false;
+
+    const tryLoad = async () => {
+      if (queryPersonId) {
+        await fetchByPersonId(queryPersonId);
+        setExplicitSelection(true);
+        consumedFlag = true;
+        return;
+      }
+
+      // fallback only if it's a fresh selection from Applicant List
+      const source = sessionStorage.getItem("admin_edit_person_id_source");
+      const tsStr = sessionStorage.getItem("admin_edit_person_id_ts");
+      const id = sessionStorage.getItem("admin_edit_person_id");
+      const ts = tsStr ? parseInt(tsStr, 10) : 0;
+      const isFresh = source === "applicant_list" && Date.now() - ts < 5 * 60 * 1000;
+
+      if (id && isFresh) {
+        await fetchByPersonId(id);
+        setExplicitSelection(true);
+        consumedFlag = true;
+      }
+    };
+
+    tryLoad().finally(() => {
+      // consume the freshness so it won't auto-load again later
+      if (consumedFlag) {
+        sessionStorage.removeItem("admin_edit_person_id_source");
+        sessionStorage.removeItem("admin_edit_person_id_ts");
+      }
+    });
+  }, [queryPersonId]);
 
 
   const [applicants, setApplicants] = useState([]);

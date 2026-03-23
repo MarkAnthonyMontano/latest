@@ -622,6 +622,11 @@ const ProgramTagging = () => {
   const [selectedCampus, setSelectedCampus] = useState("");
   const [selectedAcademicProgram, setSelectedAcademicProgram] = useState("");
 
+    const getBranchLabel = (branchId) => {
+      const branch = branches.find((item) => Number(item.id) === Number(branchId));
+      return branch?.branch || "�";
+  };
+
   const filteredCurriculumList = Array.from(
     new Map(
       curriculumList
@@ -669,10 +674,6 @@ const ProgramTagging = () => {
     return `${startYear} - ${startYear + 1}`;
   };
 
-  const getBranchLabel = (branchId) => {
-      const branch = branches.find((item) => Number(item.id) === Number(branchId));
-      return branch?.branch || "�";
-  };
 
   if (loading || hasAccess === null) {
     return <LoadingOverlay open={loading} message="Loading..." />;

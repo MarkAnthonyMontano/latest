@@ -216,12 +216,12 @@ const AdmissionFormProcess = () => {
 
   const divToPrintRef = useRef();
 
-const printDiv = () => {
-  const divToPrint = divToPrintRef.current;
-  if (divToPrint) {
-    const newWin = window.open("", "Print-Window");
-    newWin.document.open();
-    newWin.document.write(`
+  const printDiv = () => {
+    const divToPrint = divToPrintRef.current;
+    if (divToPrint) {
+      const newWin = window.open("", "Print-Window");
+      newWin.document.open();
+      newWin.document.write(`
       <html>
         <head>
           <title>Print</title>
@@ -282,11 +282,11 @@ const printDiv = () => {
         </body>
       </html>
     `);
-    newWin.document.close();
-  } else {
-    console.error("divToPrintRef is not set.");
-  }
-};
+      newWin.document.close();
+    } else {
+      console.error("divToPrintRef is not set.");
+    }
+  };
 
   const [campusAddress, setCampusAddress] = useState("");
 
@@ -489,10 +489,11 @@ const printDiv = () => {
                   </div>
                   <div
                     style={{
+                      fontSize: "14px",
                       letterSpacing: "2px",
-                      fontWeight: "bold",
+
                       fontFamily: "Arial",
-                      fontSize: "12px"
+                      fontWeight: "bold"
                     }}
                   >
                     {firstLine}
@@ -500,10 +501,11 @@ const printDiv = () => {
                   {secondLine && (
                     <div
                       style={{
+                        fontSize: "14px",
                         letterSpacing: "2px",
-                        fontWeight: "bold",
-                          fontFamily: "Arial",
-                      fontSize: "12px"
+
+                        fontFamily: "Arial",
+                        fontWeight: "bold"
                       }}
                     >
                       {secondLine}
@@ -1240,11 +1242,11 @@ const printDiv = () => {
                     >
                       {curriculumOptions.length > 0
                         ? curriculumOptions.find(
-                            (item) =>
-                              item?.curriculum_id?.toString() ===
-                              (person?.program ?? "").toString(),
-                          )?.program_description ||
-                          (person?.program ?? "")
+                          (item) =>
+                            item?.curriculum_id?.toString() ===
+                            (person?.program ?? "").toString(),
+                        )?.program_description ||
+                        (person?.program ?? "")
                         : "Loading..."}
                     </div>
                   </div>
@@ -1280,10 +1282,10 @@ const printDiv = () => {
                     >
                       {curriculumOptions.length > 0
                         ? curriculumOptions.find(
-                            (item) =>
-                              item?.curriculum_id?.toString() ===
-                              (person?.program ?? "").toString(),
-                          )?.major || ""
+                          (item) =>
+                            item?.curriculum_id?.toString() ===
+                            (person?.program ?? "").toString(),
+                        )?.major || ""
                         : "Loading..."}
                     </div>
                   </div>
@@ -2416,11 +2418,11 @@ const printDiv = () => {
                     >
                       {curriculumOptions.length > 0
                         ? curriculumOptions.find(
-                            (item) =>
-                              item?.curriculum_id?.toString() ===
-                              (person?.program ?? "").toString(),
-                          )?.program_description ||
-                          (person?.program ?? "")
+                          (item) =>
+                            item?.curriculum_id?.toString() ===
+                            (person?.program ?? "").toString(),
+                        )?.program_description ||
+                        (person?.program ?? "")
                         : "Loading..."}
                     </div>
                   </div>
@@ -2456,10 +2458,10 @@ const printDiv = () => {
                     >
                       {curriculumOptions.length > 0
                         ? curriculumOptions.find(
-                            (item) =>
-                              item?.curriculum_id?.toString() ===
-                              (person?.program ?? "").toString(),
-                          )?.major || ""
+                          (item) =>
+                            item?.curriculum_id?.toString() ===
+                            (person?.program ?? "").toString(),
+                        )?.major || ""
                         : "Loading..."}
                     </div>
                   </div>
@@ -2757,7 +2759,7 @@ const printDiv = () => {
                   {" "}
                 </td>
               </tr>
-                 <tr>
+              <tr>
                 <td
                   colSpan={40}
                   style={{
@@ -2780,7 +2782,7 @@ const printDiv = () => {
                 </td>
               </tr>
 
-        
+
             </tbody>
           </table>
         </div>

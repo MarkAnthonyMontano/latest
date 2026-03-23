@@ -184,8 +184,8 @@ router.post(
           border_color ?? currentSettings.border_color ?? "#000000",
           stepper_color ?? currentSettings.stepper_color ?? "#000000",
           sidebar_button_color ??
-            currentSettings.sidebar_button_color ??
-            "#000000",
+          currentSettings.sidebar_button_color ??
+          "#000000",
           title_color ?? currentSettings.title_color ?? "#000000",
           subtitle_color ?? currentSettings.subtitle_color ?? "#555555",
           parsedBranches,
@@ -439,25 +439,28 @@ router.get("/registration-status/:branch_id", async (req, res) => {
 
     let branches = JSON.parse(rows[0].branches || "[]");
 
-    const now = new Date();
+    const now = new Date(
+      new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" })
+    );
 
     let updated = false;
 
     const updatedBranches = branches.map((b) => {
       if (b.id == branch_id) {
-        const parseManilaDate = (dateStr) => {
+        const parseDate = (dateStr, isEnd = false) => {
           if (!dateStr) return null;
 
-          // Treat stored string as Manila time
-          const local = new Date(dateStr);
+          const d = new Date(dateStr);
 
-          return new Date(
-            local.toLocaleString("en-US", { timeZone: "Asia/Manila" }),
-          );
+          if (isEnd) {
+            d.setHours(23, 59, 59, 999); // ✅ make end of day
+          }
+
+          return d;
         };
 
-        const start = parseManilaDate(b.start_date);
-        const end = parseManilaDate(b.end_date);
+        const start = parseDate(b.start_date);
+        const end = parseDate(b.end_date, true);
 
         if (end && now > end) {
           updated = true;

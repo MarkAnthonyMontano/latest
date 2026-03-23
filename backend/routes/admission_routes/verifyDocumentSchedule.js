@@ -26,7 +26,7 @@ router.post("/create_verify_document_schedule", async (req, res) => {
       !room_description ||
       !start_time ||
       !end_time ||
-      !room_quota || 
+      !room_quota ||
       !active_school_year_id
     ) {
       return res.status(400).json({ error: "Missing required fields." });
@@ -222,10 +222,19 @@ router.get("/verified-for-verify-schedule", async (req, res) => {
       WHERE p.person_id IN (
         SELECT ru.person_id
         FROM admission.requirement_uploads ru
+        INNER JOIN admission.person_table pt2 ON ru.person_id = pt2.person_id
+        INNER JOIN admission.requirements_table rt2 ON ru.requirements_id = rt2.id
         WHERE ru.document_status = 'Documents Verified & ECAT'
-          AND ru.requirements_id IN (1,2,3,4)
         GROUP BY ru.person_id
-        HAVING COUNT(DISTINCT ru.requirements_id) = 4
+        HAVING COUNT(DISTINCT ru.requirements_id) >= (
+            SELECT COUNT(*)
+            FROM requirements_table rt2
+            INNER JOIN person_table p2
+              ON rt2.applicant_type = p2.applyingAs
+            WHERE rt2.category = 'Main'
+              AND rt2.is_verifiable = 1
+              AND p2.person_id = ru.person_id
+          )
       )
       AND (ea.email_sent IS NULL OR ea.email_sent = 0)   -- ⬅️ only show those not yet emailed
       ORDER BY p.last_name ASC, p.first_name ASC;

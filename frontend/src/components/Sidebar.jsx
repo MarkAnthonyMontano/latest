@@ -29,6 +29,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import API_BASE_URL from "../apiConfig";
 import EaristLogo from "../assets/EaristLogo.png";
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 const GLOBAL_PAGE_IDS = [13, 15, 17, 38, 39, 40, 41, 42, 50, 56, 59, 62, 73, 80, 92, 96, 101, 104, 105, 106, 117];
 const GLOBAL_ACCESS_THRESHOLD = 10;
@@ -408,11 +409,17 @@ const SideBar = ({ setIsAuthenticated, profileImage, setProfileImage }) => {
         { title: "Applicant List", link: "/applicant_list_admin", icon: ListAltOutlined, page_id: 7 },
         { title: "Applicant Profile", link: "/admin_dashboard1", icon: AccountCircle, page_id: 1 },
         { title: "Documents Submitted", link: "/student_requirements", icon: FolderCopy, page_id: 61 },
+        { title: "Verify Schedule Mgmt", link: "/verify_schedule", icon: EditCalendar, page_id: 118 },
         { title: "Exam Schedule Mgmt", link: "/assign_schedule_applicant", icon: EditCalendar, page_id: 11 },
         { title: "Examination Permit", link: "/registrar_examination_profile", icon: Badge, page_id: 48 },
         { title: "Entrance Exam Scores", link: "/applicant_scoring", icon: Score, page_id: 8 },
         { title: "Room Registration", link: "/room_registration", icon: MeetingRoom, page_id: 52 },
-        { title: "Exam Room Assignment", link: "/assign_entrance_exam", icon: MeetingRoom, page_id: 9 },
+        { title: "Verify Schedule Assignment", link: "/verify_document_schedule", icon: MeetingRoom, page_id: 115 },
+        { title: "Evaluator Applicant List", link: "/evaluator_schedule_room_list", icon: MeetingRoom, page_id: 120 },
+
+        { title: "Exam Room Assignment", link: "/assign_entrance_exam", icon: AccessTimeIcon, page_id: 9 },
+
+
         { title: "Proctor's Applicant List", link: "/admission_schedule_room_list", icon: People, page_id: 33 },
         { title: "Announcement", link: "/announcement_for_admission", icon: Campaign, page_id: 98 },
         { title: "Program Slot Remaining", link: "/program_slot_limit", icon: People, page_id: 110 },

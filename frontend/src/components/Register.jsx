@@ -274,32 +274,10 @@ const Register = () => {
 
   const [openBranchDialog, setOpenBranchDialog] = useState(false);
 
-  const handleBranchSelect = (e) => {
-    const selectedId = e.target.value;
-    setBranchId(selectedId);
-
-    checkBranchStatus(selectedId);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setBranches(prev =>
-        prev.map(b => {
-          if (b.start_date && b.end_date) {
-            const now = new Date();
-            const isOpen =
-              now >= new Date(b.start_date) &&
-              now <= new Date(b.end_date);
-
-            return { ...b, is_open: isOpen }; // 👈 sets `is_open`, NOT `registration_open`
-          }
-          return b;
-        })
-      );
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+const handleBranchSelect = (e) => {
+  const selectedId = e.target.value;
+  setBranchId(selectedId);
+};
 
   const isDisabled = !registrationOpen;
 
@@ -316,7 +294,7 @@ const Register = () => {
         setRegistrationOpen(res.data.registration_open);
 
         if (!res.data.registration_open) {
-          setOpenClosedDialog(true);
+          setOpenBranchDialog(true); // ✅ not openClosedDialog
         }
       } catch (err) {
         console.error(err);
@@ -330,29 +308,62 @@ const Register = () => {
 
   const fieldDisabled = !branchSelected || !registrationOpen;
 
-  const checkBranchStatus = (branchIdToCheck) => {
-    if (!branchIdToCheck) return false;
+const checkBranchStatus = (branchIdToCheck) => {
+  if (!branchIdToCheck) return false;
 
-    const branch = branches.find(b => b.id.toString() === branchIdToCheck);
-    if (!branch) return false;
+  const branch = branches.find(
+    (b) => b.id.toString() === branchIdToCheck
+  );
 
-    let isOpen = branch.registration_open === 1;
+  if (!branch) return false;
 
-    if (branch.start_date && branch.end_date) {
-      const now = new Date();
-      isOpen = now >= new Date(branch.start_date) && now <= new Date(branch.end_date);
+  const now = new Date(
+    new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" })
+  );
+
+  const parseDate = (dateStr, isEnd = false) => {
+    if (!dateStr) return null;
+
+    const d = new Date(
+      new Date(dateStr).toLocaleString("en-US", { timeZone: "Asia/Manila" })
+    );
+
+    if (isEnd) {
+      d.setHours(23, 59, 59, 999);
     }
 
-    setRegistrationOpen(isOpen);
-
-    if (!isOpen) {
-      setOpenBranchDialog(true);
-    }
-
-    return isOpen;
+    return d;
   };
 
+  const start = parseDate(branch.start_date);
+  const end = parseDate(branch.end_date, true);
 
+  let isOpen = true;
+
+  // ❌ NOT YET STARTED
+  if (start && now < start) {
+    isOpen = false;
+  }
+
+  // ❌ ENDED
+  if (end && now > end) {
+    isOpen = false;
+  }
+
+  // ❌ ADMIN CLOSED
+  if (branch.registration_open !== 1) {
+    isOpen = false;
+  }
+
+  setRegistrationOpen(isOpen);
+
+  // 🔥 THIS IS THE KEY FIX
+  if (!isOpen) {
+    setOpenBranchDialog(true);
+  }
+
+  return isOpen;
+};
 
   const handleKeyDownRegister = (e) => {
     if (e.key === "Enter" && !isSubmitting) {
@@ -383,6 +394,14 @@ const Register = () => {
       verifyOtp();
     }
   };
+
+  const [branchStatusMessage, setBranchStatusMessage] = useState("");
+
+  useEffect(() => {
+  if (!branchId) return;
+
+  checkBranchStatus(branchId);
+}, [branchId, branches]); // 🔥 IMPORTANT: include branches
 
 
   {/* Unified Dialog Style */ }
@@ -487,11 +506,34 @@ const Register = () => {
                   }}
                 >
                   <option value="">Select Branch</option>
-                  {branches.map((b) => (
-                    <option key={b.id} value={b.id}>
-                      {b.branch} {b.is_open === false ? " (Closed)" : ""}
-                    </option>
-                  ))}
+                  {branches.map((b) => {
+                    const now = new Date(
+                      new Date().toLocaleString("en-US", { timeZone: "Asia/Manila" })
+                    );
+
+                    const start = b.start_date ? new Date(b.start_date) : null;
+                    const end = b.end_date ? new Date(b.end_date) : null;
+
+                    let isClosed = false;
+
+                    // 🔥 Check date range
+                    if (start && end) {
+                      if (now < start || now > end) {
+                        isClosed = true;
+                      }
+                    }
+
+                    // 🔥 Check admin toggle
+                    if (b.registration_open !== 1) {
+                      isClosed = true;
+                    }
+
+                    return (
+                      <option key={b.id} value={b.id} d             >
+                        {b.branch} {isClosed ? " (Closed)" : ""}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
 

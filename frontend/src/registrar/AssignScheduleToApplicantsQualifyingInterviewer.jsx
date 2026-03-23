@@ -910,7 +910,7 @@ Thank you and good luck!`
 
 
     // Email fields - start empty
-    const [emailSubject, setEmailSubject] = useState("");
+    const [emailSubject, setEmailSubject] = useState("Qualifying / Interview Examination Schedule");
     const [emailMessage, setEmailMessage] = useState("");
     const [schedules, setSchedules] = useState([]);
 

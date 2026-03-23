@@ -178,6 +178,11 @@ const AdminApplicantList = () => {
       icon: <AssignmentIcon fontSize="large" />,
     },
     {
+      label: "Verify Schedule Management",
+      to: "/verify_schedule",
+      icon: <ScheduleIcon fontSize="large" />,
+    },
+    {
       label: "Entrance Exam Schedule Management",
       to: "/assign_schedule_applicant",
       icon: <ScheduleIcon fontSize="large" />,
@@ -950,11 +955,12 @@ const AdminApplicantList = () => {
               justify-content: center;
               position: relative;
               width: 100%;
+          margin-top: 30px;
             }
             .print-header img {
               position: absolute;
               left: 0;
-              margin-left: 10px;
+          
               width: 120px;
               height: 120px;
               border-radius: 50%;
@@ -965,7 +971,9 @@ const AdminApplicantList = () => {
   table {
     border-collapse: collapse; /* better for print consistency */
     width: 100%;
-    margin-top: 20px;
+        margin-top: 20px;
+              margin-left: 20px;
+              margin-right: 20px;
     border: 1.2px solid black; /* slightly thicker for print clarity */
     table-layout: fixed;
   }
@@ -2068,7 +2076,7 @@ const AdminApplicantList = () => {
 
                 {/* Applicant ID */}
                 <TableCell
-                className="clickable-cell"
+                  className="clickable-cell"
                   sx={{
                     textAlign: "center",
                     border: `2px solid ${borderColor}`,
@@ -2083,7 +2091,7 @@ const AdminApplicantList = () => {
 
                 {/* Name */}
                 <TableCell
-                className="clickable-cell"
+                  className="clickable-cell"
                   sx={{
                     textAlign: "left",
                     border: `2px solid ${borderColor}`,

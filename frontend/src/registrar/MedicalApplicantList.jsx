@@ -823,6 +823,7 @@ const MedicalApplicantList = () => {
                align-items: center;
                justify-content: center;
                position: relative;
+                 margin-top: 30px;
                width: 100%;
              }
              .print-header img {

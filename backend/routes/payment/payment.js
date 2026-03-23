@@ -74,7 +74,7 @@ router.post("/save_to_unifast", async (req, res) => {
     active_school_year_id,
     status,
   } = req.body;
-
+  
   try {
     const statusValue = Number.isFinite(Number(status)) ? Number(status) : 1;
     const [unifastScholarships] = await db3.query(

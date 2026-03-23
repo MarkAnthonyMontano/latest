@@ -121,7 +121,7 @@ const ApplicantScoring = () => {
     };
 
     const tabs = [
-  {
+   {
       label: "Admission Process for Registrar",
       to: "/applicant_list_admin",
       icon: <SchoolIcon fontSize="large" />,
@@ -135,6 +135,11 @@ const ApplicantScoring = () => {
       label: "Student Requirements",
       to: "/student_requirements",
       icon: <AssignmentIcon fontSize="large" />,
+    },
+    {
+      label: "Verify Schedule Management",
+      to: "/verify_schedule",
+      icon: <ScheduleIcon fontSize="large" />,
     },
     {
       label: "Entrance Exam Schedule Management",
@@ -210,7 +215,7 @@ const ApplicantScoring = () => {
 
 
     const navigate = useNavigate();
-    const [activeStep, setActiveStep] = useState(5);
+    const [activeStep, setActiveStep] = useState(6);
     const [clickedSteps, setClickedSteps] = useState(Array(tabs.length).fill(false));
 
 
@@ -774,6 +779,7 @@ const ApplicantScoring = () => {
     justify-content: center;
     position: relative;
     width: 100%;
+      margin-top: 30px;
   }
 
   .print-header img {

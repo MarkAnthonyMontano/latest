@@ -399,10 +399,11 @@ const AdmissionServices = () => {
                                             <div
                                                 style={{
                                                     marginLeft: "-145px",
-                                                    fontFamily: "Arial",
-                                                    fontSize: "12px",
+                                                    fontSize: "14px",
                                                     letterSpacing: "2px",
 
+                                                    fontFamily: "Arial",
+                                                    fontWeight: "bold"
                                                 }}
                                             >
                                                 <b>{firstLine}</b>
@@ -412,10 +413,12 @@ const AdmissionServices = () => {
                                                 <div
                                                     style={{
                                                         marginLeft: "-145px",
-                                                        fontFamily: "Arial",
-                                                        fontSize: "12px",
+                                                        fontSize: "14px",
                                                         letterSpacing: "2px",
-                                                       
+
+                                                        fontFamily: "Arial",
+                                                        fontWeight: "bold"
+
                                                     }}
                                                 >
                                                     <b>{secondLine}</b>
@@ -1017,7 +1020,7 @@ const AdmissionServices = () => {
                                                 fontFamily: "Arial",
                                             }}
                                         >
-                                           <b>SQD1.</b>  I spent a reasonable amount of time for my transaction
+                                            <b>SQD1.</b>  I spent a reasonable amount of time for my transaction
 
                                         </td>
                                         <td
@@ -1176,7 +1179,7 @@ const AdmissionServices = () => {
                                                 fontFamily: "Arial",
                                             }}
                                         >
-                                           <b>SQD3.</b>  The steps (including payment) I needed to do for my transaction were easy and simple.
+                                            <b>SQD3.</b>  The steps (including payment) I needed to do for my transaction were easy and simple.
 
                                         </td>
                                         <td
